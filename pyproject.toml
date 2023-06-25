@@ -1,0 +1,23 @@
+[project]
+name = "smaller-basic"
+description = "A simple Python interpreter for Microsoft's Small Basic language"
+version = "0.1"
+authors=[
+    {name = "Federico Bruzzone", email = "federico.bruzzone@studenti.unimi.it"},
+]
+
+readme = "README.md"
+
+license = {file = "LICENSE"}
+
+requires-python = ">=3.9"
+
+dependencies = [
+    "antlr4-python3-runtime == 4.12.0",
+    "liblet",
+    "graphviz"
+    "jedi"
+]
+
+[tool.setuptools]
+py-modules = []
