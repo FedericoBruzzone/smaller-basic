@@ -13,7 +13,9 @@ else
 fi
 source "$1/bin/activate"
 
-export ANTLR4_JAR=/home/federicobruzzoneplasma/Documents/smaller-basic/jars/antlr-4.12.0-complete.jar
+export ANTLR4_JAR=$HOME/Documents/smaller-basic/jars/antlr-4.12.0-complete.jar
+alias antlr4='java -jar $ANTLR4_JAR'
+alias grun='java org.antlr.v4.gui.TestRig'
 
 pip install -e .
 
