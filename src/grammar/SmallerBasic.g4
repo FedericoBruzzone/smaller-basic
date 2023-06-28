@@ -13,7 +13,7 @@ statement
     : 'var' ID ('=' expression)? ';'              #VariableDeclarationStatement
     ;
 
-ID: LETTER (LETTER | [0-9])* ;
-INT: [0-9]+ ;
+ID     : LETTER (LETTER | [0-9])* ;
+INT    : [1-9] [0-9]+ ; # no leading zeros allowed
 LETTER : [a-zA-Z] ;
-WS: [ \t\n\r]+ -> skip ;
+WS     : [ \t\n\r]+ -> skip ;
