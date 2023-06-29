@@ -6,14 +6,27 @@ program
     ;
 
 expression
-    : INT                                         #IntExpression 
+    : NUM 
     ;
 
 statement
     : 'var' ID ('=' expression)? ';'              #VariableDeclarationStatement
     ;
 
-ID     : LETTER (LETTER | [0-9])* ;
-INT    : [1-9] [0-9]+ ; # no leading zeros allowed
-LETTER : [a-zA-Z] ;
-WS     : [ \t\n\r]+ -> skip ;
+NUM
+    : INT
+    | FLOAT
+    | '0'
+    ;
+
+FLOAT    : SIGN? ([1-9] NUMBER* | '0')? '.' NUMBER+ EXPONENT? ;
+INT      : SIGN? [1-9] NUMBER* EXPONENT? ;
+EXPONENT : ([eE] SIGN? NUMBER+) ; 
+NUMBER   : [0-9] ;
+SIGN     : [+-] ;
+ID       : LETTER (LETTER | NUMBER)* ;
+LETTER   : [a-zA-Z] ;
+
+WS           : [ \t\n\r]+ -> skip ; // channel(HIDDEN) 
+COMMENT      : '/*' .*? '*/' -> skip ;
+LINE_COMMENT : '//' ~[\r\n]* -> skip ;

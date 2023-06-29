@@ -10,13 +10,13 @@ else:
 
 def serializedATN():
     return [
-        4,1,7,24,2,0,7,0,2,1,7,1,2,2,7,2,1,0,4,0,8,8,0,11,0,12,0,9,1,0,1,
-        0,1,1,1,1,1,2,1,2,1,2,1,2,3,2,20,8,2,1,2,1,2,1,2,0,0,3,0,2,4,0,0,
-        22,0,7,1,0,0,0,2,13,1,0,0,0,4,15,1,0,0,0,6,8,3,4,2,0,7,6,1,0,0,0,
-        8,9,1,0,0,0,9,7,1,0,0,0,9,10,1,0,0,0,10,11,1,0,0,0,11,12,5,0,0,1,
-        12,1,1,0,0,0,13,14,5,5,0,0,14,3,1,0,0,0,15,16,5,1,0,0,16,19,5,4,
-        0,0,17,18,5,2,0,0,18,20,3,2,1,0,19,17,1,0,0,0,19,20,1,0,0,0,20,21,
-        1,0,0,0,21,22,5,3,0,0,22,5,1,0,0,0,2,9,19
+        4,1,14,24,2,0,7,0,2,1,7,1,2,2,7,2,1,0,4,0,8,8,0,11,0,12,0,9,1,0,
+        1,0,1,1,1,1,1,2,1,2,1,2,1,2,3,2,20,8,2,1,2,1,2,1,2,0,0,3,0,2,4,0,
+        0,22,0,7,1,0,0,0,2,13,1,0,0,0,4,15,1,0,0,0,6,8,3,4,2,0,7,6,1,0,0,
+        0,8,9,1,0,0,0,9,7,1,0,0,0,9,10,1,0,0,0,10,11,1,0,0,0,11,12,5,0,0,
+        1,12,1,1,0,0,0,13,14,5,4,0,0,14,3,1,0,0,0,15,16,5,1,0,0,16,19,5,
+        10,0,0,17,18,5,2,0,0,18,20,3,2,1,0,19,17,1,0,0,0,19,20,1,0,0,0,20,
+        21,1,0,0,0,21,22,5,3,0,0,22,5,1,0,0,0,2,9,19
     ]
 
 class SmallerBasicParser ( Parser ):
@@ -32,7 +32,8 @@ class SmallerBasicParser ( Parser ):
     literalNames = [ "<INVALID>", "'var'", "'='", "';'" ]
 
     symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "ID", "INT", "LETTER", "WS" ]
+                      "NUM", "FLOAT", "INT", "EXPONENT", "NUMBER", "SIGN", 
+                      "ID", "LETTER", "WS", "COMMENT", "LINE_COMMENT" ]
 
     RULE_program = 0
     RULE_expression = 1
@@ -44,10 +45,17 @@ class SmallerBasicParser ( Parser ):
     T__0=1
     T__1=2
     T__2=3
-    ID=4
-    INT=5
-    LETTER=6
-    WS=7
+    NUM=4
+    FLOAT=5
+    INT=6
+    EXPONENT=7
+    NUMBER=8
+    SIGN=9
+    ID=10
+    LETTER=11
+    WS=12
+    COMMENT=13
+    LINE_COMMENT=14
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
@@ -126,32 +134,20 @@ class SmallerBasicParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
+        def NUM(self):
+            return self.getToken(SmallerBasicParser.NUM, 0)
 
         def getRuleIndex(self):
             return SmallerBasicParser.RULE_expression
 
-     
-        def copyFrom(self, ctx:ParserRuleContext):
-            super().copyFrom(ctx)
-
-
-
-    class IntExpressionContext(ExpressionContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a SmallerBasicParser.ExpressionContext
-            super().__init__(parser)
-            self.copyFrom(ctx)
-
-        def INT(self):
-            return self.getToken(SmallerBasicParser.INT, 0)
-
         def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterIntExpression" ):
-                listener.enterIntExpression(self)
+            if hasattr( listener, "enterExpression" ):
+                listener.enterExpression(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitIntExpression" ):
-                listener.exitIntExpression(self)
+            if hasattr( listener, "exitExpression" ):
+                listener.exitExpression(self)
+
 
 
 
@@ -160,10 +156,9 @@ class SmallerBasicParser ( Parser ):
         localctx = SmallerBasicParser.ExpressionContext(self, self._ctx, self.state)
         self.enterRule(localctx, 2, self.RULE_expression)
         try:
-            localctx = SmallerBasicParser.IntExpressionContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
             self.state = 13
-            self.match(SmallerBasicParser.INT)
+            self.match(SmallerBasicParser.NUM)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)

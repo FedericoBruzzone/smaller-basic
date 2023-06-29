@@ -1,20 +1,21 @@
-import sys
 from typing import Any
 
 from src.interpreter.RunningRuntimeError import RunningRuntimeError
 
 from antlr4.InputStream import InputStream
+from antlr4.CommonTokenStream import CommonTokenStream
 from src.grammar.SmallerBasicLexer import SmallerBasicLexer
 from src.grammar.SmallerBasicParser import SmallerBasicParser
 
 class Interpreter(object):
     def __init__(self):
         self.__source_code: Any = None
+        self.__source_code_splitted: Any = None
         self.__is_running: bool = False 
-
+   
     def load_file(self, file_path: str) -> None:
         """
-        Load the source code from a file and split it into lines.
+        Load the source code from a file.
 
         Args:
             file_path (str): The path to the source code file.
@@ -23,10 +24,11 @@ class Interpreter(object):
             raise RunningRuntimeError(self.load_file.__name__, self.__is_running)
 
         with open(file_path, encoding="UTF-8", mode="r") as file:
-            self.source_code = file.read()
+            source_code = file.read()
 
-        if self.__source_code is not None:
-            self.split_source_code(self.source_code)
+        if source_code is not None:
+            self.__source_code = source_code
+            self.split_source_code(self.__source_code)
 
     def split_source_code(self, source_code: str) -> None:
         """
@@ -38,8 +40,48 @@ class Interpreter(object):
         if self.__is_running:
             raise RunningRuntimeError(self.load_file.__name__, self.__is_running)
 
-        self.__source_code = source_code.splitlines()
-    
+        self.__source_code_splitted = source_code.splitlines()
+
+    def do_lexical_analysis(self) -> CommonTokenStream:
+        """
+        Do the lexical analysis.
+
+        Returns:
+            CommonTokenStream: The token stream.
+        """
+
+        if not self.__is_running:
+            raise RunningRuntimeError(self.do_lexical_analysis.__name__, self.__is_running)
+
+        print("Do the lexical analysis...")
+        input_stream: InputStream       = InputStream(self.__source_code)
+        lexer: SmallerBasicLexer        = SmallerBasicLexer(input_stream)
+        token_stream: CommonTokenStream = CommonTokenStream(lexer)
+        lexer.reset()
+        return token_stream
+
+    def do_parser(self, token_stream: CommonTokenStream) -> SmallerBasicParser.ProgramContext:
+        """
+        Do the parser.
+
+        Args:
+            token_stream (CommonTokenStream): The token stream.
+
+        Returns:
+            SmallerBasicParser.ProgramContext: The AST.
+        """
+        if not self.__is_running:
+            raise RunningRuntimeError(self.do_parser.__name__, self.__is_running)
+
+        print("Do the parser...")
+        parser: SmallerBasicParser      = SmallerBasicParser(token_stream)
+        smaller_basic_tree: SmallerBasicParser.ProgramContext = parser.program()
+        return smaller_basic_tree
+
+    @staticmethod
+    def print(string: str):
+        print(string)
+
     def run(self, file_path):
         """
         Run the interpreter.
@@ -51,9 +93,20 @@ class Interpreter(object):
 
         if self.__source_code is not None:
             self.__is_running = True
-        
-        input_stream: InputStream = InputStream(self.__source_code)
-        lexer: SmallerBasicLexer = SmallerBasicLexer(input_stream) 
+        else:
+            raise RunningRuntimeError(self.run.__name__, self.__is_running)
+
+        self.print("Interpreter is running...")
+        token_stream: CommonTokenStream                       = self.do_lexical_analysis()
+        smaller_basic_tree: SmallerBasicParser.ProgramContext = self.do_parser(token_stream) 
+        print(smaller_basic_tree) 
 
         self.__is_running = False
-    
+
+from src.utils.color_print import color
+from src.utils.color_print import apply_color_print
+Interpreter = apply_color_print(Interpreter, color.CYAN)
+
+# from src.utils.color_print import *
+# Interpreter = ColorPrint(color.CYAN)("Interpreter", (object, ), dict(Interpreter.__dict__))
+

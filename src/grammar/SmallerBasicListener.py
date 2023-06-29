@@ -17,12 +17,12 @@ class SmallerBasicListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SmallerBasicParser#IntExpression.
-    def enterIntExpression(self, ctx:SmallerBasicParser.IntExpressionContext):
+    # Enter a parse tree produced by SmallerBasicParser#expression.
+    def enterExpression(self, ctx:SmallerBasicParser.ExpressionContext):
         pass
 
-    # Exit a parse tree produced by SmallerBasicParser#IntExpression.
-    def exitIntExpression(self, ctx:SmallerBasicParser.IntExpressionContext):
+    # Exit a parse tree produced by SmallerBasicParser#expression.
+    def exitExpression(self, ctx:SmallerBasicParser.ExpressionContext):
         pass
 
 
