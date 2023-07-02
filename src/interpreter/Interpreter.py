@@ -1,6 +1,8 @@
+from pprint import pprint as pp
 from typing import Any
 
 from src.interpreter.RunningRuntimeError import RunningRuntimeError
+from src.interpreter.InterpreterHelper import build_antlr4_tree_string 
 
 from antlr4.InputStream import InputStream
 from antlr4.CommonTokenStream import CommonTokenStream
@@ -53,14 +55,14 @@ class Interpreter(object):
         if not self.__is_running:
             raise RunningRuntimeError(self.do_lexical_analysis.__name__, self.__is_running)
 
-        print("Do the lexical analysis...")
+        self.print("Do the lexical analysis...")
         input_stream: InputStream       = InputStream(self.__source_code)
         lexer: SmallerBasicLexer        = SmallerBasicLexer(input_stream)
         token_stream: CommonTokenStream = CommonTokenStream(lexer)
         lexer.reset()
         return token_stream
 
-    def do_parser(self, token_stream: CommonTokenStream) -> SmallerBasicParser.ProgramContext:
+    def do_parser(self, token_stream: CommonTokenStream, print_res: bool = False) -> SmallerBasicParser.ProgramContext:
         """
         Do the parser.
 
@@ -73,9 +75,11 @@ class Interpreter(object):
         if not self.__is_running:
             raise RunningRuntimeError(self.do_parser.__name__, self.__is_running)
 
-        print("Do the parser...")
-        parser: SmallerBasicParser      = SmallerBasicParser(token_stream)
+        self.print("Do the parser...")
+        parser: SmallerBasicParser                            = SmallerBasicParser(token_stream)
         smaller_basic_tree: SmallerBasicParser.ProgramContext = parser.program()
+        if print_res:
+            self.print(build_antlr4_tree_string(smaller_basic_tree.toStringTree(recog = parser)))
         return smaller_basic_tree
 
     @staticmethod
@@ -98,9 +102,7 @@ class Interpreter(object):
 
         self.print("Interpreter is running...")
         token_stream: CommonTokenStream                       = self.do_lexical_analysis()
-        smaller_basic_tree: SmallerBasicParser.ProgramContext = self.do_parser(token_stream) 
-        print(smaller_basic_tree) 
-
+        smaller_basic_tree: SmallerBasicParser.ProgramContext = self.do_parser(token_stream, print_res = False) 
         self.__is_running = False
 
 from src.utils.color_print import color

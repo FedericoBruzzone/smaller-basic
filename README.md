@@ -21,7 +21,7 @@ A simple Python interpreter using ANTLR4 as a parser generator for a version of 
 
 ### Generate grammar
 
-`antlr4 -Dlanguage=Python3 src/grammar/SmallerBasic.g4`
+`antlr4 -Dlanguage=Python3 -visitor src/grammar/SmallerBasic.g4`
 
 - **Requirements**: the same or greater java version used to compile the antlr4 jar. (in my case **java-18-openjdk-amd64**)  
 
