@@ -19,6 +19,14 @@ A simple Python interpreter using ANTLR4 as a parser generator for a version of 
 
 `deactivate`
 
+## Run interpreter
+
+In development phase the following command will re-generate the grammar related files from scratch. 
+Note that, again for the development phase, the file must be contained in the `source_code` folder.
+
+`smallbasic <name>.sb`
+
+
 ### Generate grammar
 
 `antlr4 -Dlanguage=Python3 -visitor src/grammar/SmallerBasic.g4`

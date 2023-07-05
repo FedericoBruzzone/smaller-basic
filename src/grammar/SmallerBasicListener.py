@@ -17,21 +17,21 @@ class SmallerBasicListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by SmallerBasicParser#statement.
+    def enterStatement(self, ctx:SmallerBasicParser.StatementContext):
+        pass
+
+    # Exit a parse tree produced by SmallerBasicParser#statement.
+    def exitStatement(self, ctx:SmallerBasicParser.StatementContext):
+        pass
+
+
     # Enter a parse tree produced by SmallerBasicParser#expression.
     def enterExpression(self, ctx:SmallerBasicParser.ExpressionContext):
         pass
 
     # Exit a parse tree produced by SmallerBasicParser#expression.
     def exitExpression(self, ctx:SmallerBasicParser.ExpressionContext):
-        pass
-
-
-    # Enter a parse tree produced by SmallerBasicParser#VariableDeclarationStatement.
-    def enterVariableDeclarationStatement(self, ctx:SmallerBasicParser.VariableDeclarationStatementContext):
-        pass
-
-    # Exit a parse tree produced by SmallerBasicParser#VariableDeclarationStatement.
-    def exitVariableDeclarationStatement(self, ctx:SmallerBasicParser.VariableDeclarationStatementContext):
         pass
 
 

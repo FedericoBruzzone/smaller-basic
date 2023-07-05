@@ -14,13 +14,13 @@ class SmallerBasicVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by SmallerBasicParser#expression.
-    def visitExpression(self, ctx:SmallerBasicParser.ExpressionContext):
+    # Visit a parse tree produced by SmallerBasicParser#statement.
+    def visitStatement(self, ctx:SmallerBasicParser.StatementContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by SmallerBasicParser#VariableDeclarationStatement.
-    def visitVariableDeclarationStatement(self, ctx:SmallerBasicParser.VariableDeclarationStatementContext):
+    # Visit a parse tree produced by SmallerBasicParser#expression.
+    def visitExpression(self, ctx:SmallerBasicParser.ExpressionContext):
         return self.visitChildren(ctx)
 
 

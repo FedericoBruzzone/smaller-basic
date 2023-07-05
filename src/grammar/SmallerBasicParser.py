@@ -10,13 +10,13 @@ else:
 
 def serializedATN():
     return [
-        4,1,14,24,2,0,7,0,2,1,7,1,2,2,7,2,1,0,4,0,8,8,0,11,0,12,0,9,1,0,
-        1,0,1,1,1,1,1,2,1,2,1,2,1,2,3,2,20,8,2,1,2,1,2,1,2,0,0,3,0,2,4,0,
-        0,22,0,7,1,0,0,0,2,13,1,0,0,0,4,15,1,0,0,0,6,8,3,4,2,0,7,6,1,0,0,
-        0,8,9,1,0,0,0,9,7,1,0,0,0,9,10,1,0,0,0,10,11,1,0,0,0,11,12,5,0,0,
-        1,12,1,1,0,0,0,13,14,5,4,0,0,14,3,1,0,0,0,15,16,5,1,0,0,16,19,5,
-        10,0,0,17,18,5,2,0,0,18,20,3,2,1,0,19,17,1,0,0,0,19,20,1,0,0,0,20,
-        21,1,0,0,0,21,22,5,3,0,0,22,5,1,0,0,0,2,9,19
+        4,1,14,22,2,0,7,0,2,1,7,1,2,2,7,2,1,0,4,0,8,8,0,11,0,12,0,9,1,0,
+        1,0,1,1,1,1,1,1,1,1,3,1,18,8,1,1,2,1,2,1,2,0,0,3,0,2,4,0,1,2,0,3,
+        3,10,10,20,0,7,1,0,0,0,2,13,1,0,0,0,4,19,1,0,0,0,6,8,3,2,1,0,7,6,
+        1,0,0,0,8,9,1,0,0,0,9,7,1,0,0,0,9,10,1,0,0,0,10,11,1,0,0,0,11,12,
+        5,0,0,1,12,1,1,0,0,0,13,14,5,1,0,0,14,17,5,9,0,0,15,16,5,2,0,0,16,
+        18,3,4,2,0,17,15,1,0,0,0,17,18,1,0,0,0,18,3,1,0,0,0,19,20,7,0,0,
+        0,20,5,1,0,0,0,2,9,17
     ]
 
 class SmallerBasicParser ( Parser ):
@@ -29,29 +29,29 @@ class SmallerBasicParser ( Parser ):
 
     sharedContextCache = PredictionContextCache()
 
-    literalNames = [ "<INVALID>", "'var'", "'='", "';'" ]
+    literalNames = [ "<INVALID>", "'var'", "'='" ]
 
-    symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "NUM", "FLOAT", "INT", "EXPONENT", "NUMBER", "SIGN", 
-                      "ID", "LETTER", "WS", "COMMENT", "LINE_COMMENT" ]
+    symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "NUM", "FLOAT", 
+                      "INT", "EXPONENT", "NUMBER", "SIGN", "ID", "STRINGLITERAL", 
+                      "LETTER", "WS", "COMMENT", "LINE_COMMENT" ]
 
     RULE_program = 0
-    RULE_expression = 1
-    RULE_statement = 2
+    RULE_statement = 1
+    RULE_expression = 2
 
-    ruleNames =  [ "program", "expression", "statement" ]
+    ruleNames =  [ "program", "statement", "expression" ]
 
     EOF = Token.EOF
     T__0=1
     T__1=2
-    T__2=3
-    NUM=4
-    FLOAT=5
-    INT=6
-    EXPONENT=7
-    NUMBER=8
-    SIGN=9
-    ID=10
+    NUM=3
+    FLOAT=4
+    INT=5
+    EXPONENT=6
+    NUMBER=7
+    SIGN=8
+    ID=9
+    STRINGLITERAL=10
     LETTER=11
     WS=12
     COMMENT=13
@@ -133,6 +133,70 @@ class SmallerBasicParser ( Parser ):
         return localctx
 
 
+    class StatementContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def ID(self):
+            return self.getToken(SmallerBasicParser.ID, 0)
+
+        def expression(self):
+            return self.getTypedRuleContext(SmallerBasicParser.ExpressionContext,0)
+
+
+        def getRuleIndex(self):
+            return SmallerBasicParser.RULE_statement
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterStatement" ):
+                listener.enterStatement(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitStatement" ):
+                listener.exitStatement(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitStatement" ):
+                return visitor.visitStatement(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def statement(self):
+
+        localctx = SmallerBasicParser.StatementContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 2, self.RULE_statement)
+        self._la = 0 # Token type
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 13
+            self.match(SmallerBasicParser.T__0)
+            self.state = 14
+            self.match(SmallerBasicParser.ID)
+            self.state = 17
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            if _la==2:
+                self.state = 15
+                self.match(SmallerBasicParser.T__1)
+                self.state = 16
+                self.expression()
+
+
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
     class ExpressionContext(ParserRuleContext):
         __slots__ = 'parser'
 
@@ -142,6 +206,9 @@ class SmallerBasicParser ( Parser ):
 
         def NUM(self):
             return self.getToken(SmallerBasicParser.NUM, 0)
+
+        def STRINGLITERAL(self):
+            return self.getToken(SmallerBasicParser.STRINGLITERAL, 0)
 
         def getRuleIndex(self):
             return SmallerBasicParser.RULE_expression
@@ -166,89 +233,17 @@ class SmallerBasicParser ( Parser ):
     def expression(self):
 
         localctx = SmallerBasicParser.ExpressionContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 2, self.RULE_expression)
-        try:
-            self.enterOuterAlt(localctx, 1)
-            self.state = 13
-            self.match(SmallerBasicParser.NUM)
-        except RecognitionException as re:
-            localctx.exception = re
-            self._errHandler.reportError(self, re)
-            self._errHandler.recover(self, re)
-        finally:
-            self.exitRule()
-        return localctx
-
-
-    class StatementContext(ParserRuleContext):
-        __slots__ = 'parser'
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
-            super().__init__(parent, invokingState)
-            self.parser = parser
-
-
-        def getRuleIndex(self):
-            return SmallerBasicParser.RULE_statement
-
-     
-        def copyFrom(self, ctx:ParserRuleContext):
-            super().copyFrom(ctx)
-
-
-
-    class VariableDeclarationStatementContext(StatementContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a SmallerBasicParser.StatementContext
-            super().__init__(parser)
-            self.copyFrom(ctx)
-
-        def ID(self):
-            return self.getToken(SmallerBasicParser.ID, 0)
-        def expression(self):
-            return self.getTypedRuleContext(SmallerBasicParser.ExpressionContext,0)
-
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterVariableDeclarationStatement" ):
-                listener.enterVariableDeclarationStatement(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitVariableDeclarationStatement" ):
-                listener.exitVariableDeclarationStatement(self)
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitVariableDeclarationStatement" ):
-                return visitor.visitVariableDeclarationStatement(self)
-            else:
-                return visitor.visitChildren(self)
-
-
-
-    def statement(self):
-
-        localctx = SmallerBasicParser.StatementContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 4, self.RULE_statement)
+        self.enterRule(localctx, 4, self.RULE_expression)
         self._la = 0 # Token type
         try:
-            localctx = SmallerBasicParser.VariableDeclarationStatementContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
-            self.state = 15
-            self.match(SmallerBasicParser.T__0)
-            self.state = 16
-            self.match(SmallerBasicParser.ID)
             self.state = 19
-            self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if _la==2:
-                self.state = 17
-                self.match(SmallerBasicParser.T__1)
-                self.state = 18
-                self.expression()
-
-
-            self.state = 21
-            self.match(SmallerBasicParser.T__2)
+            if not(_la==3 or _la==10):
+                self._errHandler.recoverInline(self)
+            else:
+                self._errHandler.reportMatch(self)
+                self.consume()
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
