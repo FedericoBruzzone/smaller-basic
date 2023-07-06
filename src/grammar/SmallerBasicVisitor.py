@@ -24,5 +24,35 @@ class SmallerBasicVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by SmallerBasicParser#additiveStringExpression.
+    def visitAdditiveStringExpression(self, ctx:SmallerBasicParser.AdditiveStringExpressionContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by SmallerBasicParser#additiveExpression.
+    def visitAdditiveExpression(self, ctx:SmallerBasicParser.AdditiveExpressionContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by SmallerBasicParser#multiplicativeExpression.
+    def visitMultiplicativeExpression(self, ctx:SmallerBasicParser.MultiplicativeExpressionContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by SmallerBasicParser#atomString.
+    def visitAtomString(self, ctx:SmallerBasicParser.AtomStringContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by SmallerBasicParser#atom.
+    def visitAtom(self, ctx:SmallerBasicParser.AtomContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by SmallerBasicParser#literal.
+    def visitLiteral(self, ctx:SmallerBasicParser.LiteralContext):
+        return self.visitChildren(ctx)
+
+
 
 del SmallerBasicParser

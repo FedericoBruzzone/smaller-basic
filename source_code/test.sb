@@ -1,63 +1,65 @@
 // INT
-var int = 1
-var int = 10
-var int = 1e1
-var int = 1e10
-var int = 1E1
-var int = 1E10
+int = 1
+int = 10
+int = 1e1
+int = 1e10
+int = 1E1
+int = 1E10
 
-var int = -1
-var int = -10
-var int = -1e10
-var int = -1e-10
-var int = -1E10
-var int = -1E-10
+int = -1
+int = -10
+int = -1e10
+int = -1e-10
+int = -1E10
+int = -1E-10
 
 // FLOAT 
-var float = 0.1
-var float = 1.1
-var float = 0.123
-var float = 1.123
-var float = 123.123
-var float = .1
-var float = .123
+float = 0.1
+float = 1.1
+float = 0.123
+float = 1.123
+float = 123.123
+float = .1
+float = .123
 
-var float = -0.1
-var float = -1.1
-var float = -0.123
-var float = -1.123
-var float = -123.123
-var float = -.1
-var float = -.123
+float = -0.1
+float = -1.1
+float = -0.123
+float = -1.123
+float = -123.123
+float = -.1
+float = -.123
 
-var float = 0.1e10
-var float = 1.1e0
-var float = 0.123e20
-var float = 1.123e890
-var float = 123.123e-123
-var float = .1e-0
-var float = .123e-1
+float = 0.1e10
+float = 1.1e0
+float = 0.123e20
+float = 1.123e890
+float = 123.123e-123
+float = .1e-0
+float = .123e-1
 
-var float = -0.1E10
-var float = -1.1E0
-var float = -0.123E20
-var float = -1.123E890
-var float = -123.123E-123
-var float = -.1E-0
-var float = -.123E-1
+float = -0.1E10
+float = -1.1E0
+float = -0.123E20
+float = -1.123E890
+float = -123.123E-123
+float = -.1E-0
+float = -.123E-1
 
 // STRING
-var string = "" 
-var string = "  " 
-var string = "ciao" 
-var string = " ciao" 
-var string = "ciao " 
-var string = "c" 
-var string = "c         " 
-var string = "c12"
-var string = "132"
-var string = "!@#$%^&*(){}[]/'"
-var string = "A"
+string = "" 
+string = "  " 
+string = "ciao" 
+string = " ciao" 
+string = "ciao " 
+string = "c" 
+string = "c         " 
+string = "c12"
+string = "132"
+string = "!@#$%^&*(){}[]/'"
+string = "A"
 
-var x = 1<2
+// BOOLEAN
+boolean_1 = true 
+boolean_2 = false
 

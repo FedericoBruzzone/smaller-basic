@@ -35,5 +35,59 @@ class SmallerBasicListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by SmallerBasicParser#additiveStringExpression.
+    def enterAdditiveStringExpression(self, ctx:SmallerBasicParser.AdditiveStringExpressionContext):
+        pass
+
+    # Exit a parse tree produced by SmallerBasicParser#additiveStringExpression.
+    def exitAdditiveStringExpression(self, ctx:SmallerBasicParser.AdditiveStringExpressionContext):
+        pass
+
+
+    # Enter a parse tree produced by SmallerBasicParser#additiveExpression.
+    def enterAdditiveExpression(self, ctx:SmallerBasicParser.AdditiveExpressionContext):
+        pass
+
+    # Exit a parse tree produced by SmallerBasicParser#additiveExpression.
+    def exitAdditiveExpression(self, ctx:SmallerBasicParser.AdditiveExpressionContext):
+        pass
+
+
+    # Enter a parse tree produced by SmallerBasicParser#multiplicativeExpression.
+    def enterMultiplicativeExpression(self, ctx:SmallerBasicParser.MultiplicativeExpressionContext):
+        pass
+
+    # Exit a parse tree produced by SmallerBasicParser#multiplicativeExpression.
+    def exitMultiplicativeExpression(self, ctx:SmallerBasicParser.MultiplicativeExpressionContext):
+        pass
+
+
+    # Enter a parse tree produced by SmallerBasicParser#atomString.
+    def enterAtomString(self, ctx:SmallerBasicParser.AtomStringContext):
+        pass
+
+    # Exit a parse tree produced by SmallerBasicParser#atomString.
+    def exitAtomString(self, ctx:SmallerBasicParser.AtomStringContext):
+        pass
+
+
+    # Enter a parse tree produced by SmallerBasicParser#atom.
+    def enterAtom(self, ctx:SmallerBasicParser.AtomContext):
+        pass
+
+    # Exit a parse tree produced by SmallerBasicParser#atom.
+    def exitAtom(self, ctx:SmallerBasicParser.AtomContext):
+        pass
+
+
+    # Enter a parse tree produced by SmallerBasicParser#literal.
+    def enterLiteral(self, ctx:SmallerBasicParser.LiteralContext):
+        pass
+
+    # Exit a parse tree produced by SmallerBasicParser#literal.
+    def exitLiteral(self, ctx:SmallerBasicParser.LiteralContext):
+        pass
+
+
 
 del SmallerBasicParser
