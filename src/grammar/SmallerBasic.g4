@@ -6,21 +6,25 @@ program
     ;
 
 statement
-    : ID EQ expression NEWLINE? //';' 
+    : declarationStatement
     ;
 
+declarationStatement
+    : ID (EQ expression)? NEWLINE? //';' 
+    ;
 
-
+////////////////////////////
 expression
-    : additiveExpression
-    /* | additiveStringExpression */
-    /* | multiplicativeExpression */
-    /* | literal */
-    /* | ID */
+    : arithmeticalExpression 
+    | stringExpression 
+    | literal
     ;
 
-additiveStringExpression
-    : atomString (PLUS  atomString)*
+arithmeticalExpression
+    : additiveExpression
+    | multiplicativeExpression
+    | LPAREN arithmeticalExpression RPAREN
+    ERROR 
     ;
 
 additiveExpression
@@ -28,24 +32,50 @@ additiveExpression
     ;
 
 multiplicativeExpression
-    : atom ((MUL | DIV) atom)*
+    : atomNumber ((MUL | DIV) atomNumber)*
+    ;
+
+atomNumber
+    : signedNumber
+    | id 
+    ;
+
+stringExpression
+    : additiveStringExpression
+    ;
+
+additiveStringExpression
+    : atomString (PLUS  atomString)*
     ;
 
 atomString
-    : STRING_LITERAL
-    | ID
+    : string
+    | id
     ;
-
-atom
-    : NUMBER_LITERAL
-    | ID
-    ;
-
+////////////////////////////
 literal
-    : NUMBER_LITERAL 
-    | STRING_LITERAL
-    | BOOLEAN_LITERAL
+    : signedNumber 
+    | string 
+    | boolean
+    | id
     ;
+
+signedNumber
+    : ('-' | '+')? NUMBER_LITERAL
+    ;
+
+string
+    : STRING_LITERAL
+    ;
+
+boolean
+    : BOOLEAN_LITERAL
+    ;
+
+id
+    : ID
+    ;
+////////////////////////////
 
 NUMBER_LITERAL
     : INT
@@ -62,7 +92,6 @@ BOOLEAN_LITERAL
     | 'false'
     ;
 
-// PARANTHESIS
 LPAREN
     : '('
     ;
@@ -71,7 +100,6 @@ RPAREN
     : ')'
     ;
 
-// ARITMETHIC OPERATORS
 PLUS     
     : '+' 
     ;
@@ -88,7 +116,6 @@ DIV
     : '/' 
     ;
 
-// RELATIONAL OPERATORS
 GT
     : '>'
     ;
@@ -113,42 +140,32 @@ NEQ
     : '<>'
     ;
 
-RELATIONAL_OPERATOR
-    : GT
-    | LT
-    | EQ
-    | GTEQ
-    | LTEQ
-    | NEQ
-    ;
-
 // ====================
 ID       
     : CHAR (CHAR | NUM | '_')* 
     ;
 
-INT      
-    : SIGN? [1-9] NUM* EXPONENT? 
+fragment INT      
+    : [1-9] NUM* EXPONENT? 
     ;
 
-FLOAT    
-    : SIGN? ([1-9] NUM* | '0')? '.' NUM+ EXPONENT? 
+fragment FLOAT    
+    : ([1-9] NUM* | '0')? '.' NUM+ EXPONENT? 
     ;
 
-EXPONENT 
+fragment SIGN
+    : ('+' | '-')    
+    ;
+
+fragment EXPONENT 
     : ([eE] SIGN? NUM+) 
     ; 
 
-SIGN     
-    : PLUS
-    | MINUS
-    ;
-
-NUM   
+fragment NUM   
     : [0-9] 
     ;
 
-CHAR   
+fragment CHAR   
     : [a-zA-Z] 
     ;
 
