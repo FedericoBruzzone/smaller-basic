@@ -13,31 +13,47 @@ declarationStatement
     : ID (EQ expression)? NEWLINE? //';' 
     ;
 
-////////////////////////////
 expression
     : arithmeticalExpression 
+    | logicalExpression
     | stringExpression 
     | literal
     ;
 
+logicalExpression
+    : booleanExpression ((AND | OR) booleanExpression)+
+    | booleanExpression
+    ;
+
+booleanExpression
+    : arithmeticalExpression (GT | LT | EQ | GTEQ | LTEQ | NEQ) arithmeticalExpression
+    | atomBoolean 
+    ;
+
+atomBoolean
+    : boolean
+    | id
+    | LPAREN logicalExpression RPAREN
+    ;
+
 arithmeticalExpression
     : additiveExpression
-    | multiplicativeExpression
-    | LPAREN arithmeticalExpression RPAREN
-    ERROR 
     ;
 
 additiveExpression
-    : multiplicativeExpression ((PLUS | MINUS) multiplicativeExpression)*
+    : multiplicativeExpression ((PLUS | MINUS) multiplicativeExpression)+ // #WithAdd
+    | multiplicativeExpression // #NoAdd
     ;
 
 multiplicativeExpression
-    : atomNumber ((MUL | DIV) atomNumber)*
+    : atomNumber ((MUL | DIV) atomNumber)+
+    | atomNumber
     ;
 
 atomNumber
     : signedNumber
     | id 
+    | LPAREN arithmeticalExpression RPAREN
     ;
 
 stringExpression
@@ -52,7 +68,7 @@ atomString
     : string
     | id
     ;
-////////////////////////////
+
 literal
     : signedNumber 
     | string 
@@ -73,7 +89,7 @@ boolean
     ;
 
 id
-    : ID
+    : ('-' | '+')? ID
     ;
 ////////////////////////////
 
@@ -138,6 +154,14 @@ LTEQ
 
 NEQ
     : '<>'
+    ;
+
+AND
+    : 'And'
+    ;
+
+OR
+    : 'Or'
     ;
 
 // ====================

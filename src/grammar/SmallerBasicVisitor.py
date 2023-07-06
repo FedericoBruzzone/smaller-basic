@@ -29,6 +29,21 @@ class SmallerBasicVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by SmallerBasicParser#logicalExpression.
+    def visitLogicalExpression(self, ctx:SmallerBasicParser.LogicalExpressionContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by SmallerBasicParser#booleanExpression.
+    def visitBooleanExpression(self, ctx:SmallerBasicParser.BooleanExpressionContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by SmallerBasicParser#atomBoolean.
+    def visitAtomBoolean(self, ctx:SmallerBasicParser.AtomBooleanContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by SmallerBasicParser#arithmeticalExpression.
     def visitArithmeticalExpression(self, ctx:SmallerBasicParser.ArithmeticalExpressionContext):
         return self.visitChildren(ctx)

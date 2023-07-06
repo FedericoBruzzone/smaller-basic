@@ -44,6 +44,33 @@ class SmallerBasicListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by SmallerBasicParser#logicalExpression.
+    def enterLogicalExpression(self, ctx:SmallerBasicParser.LogicalExpressionContext):
+        pass
+
+    # Exit a parse tree produced by SmallerBasicParser#logicalExpression.
+    def exitLogicalExpression(self, ctx:SmallerBasicParser.LogicalExpressionContext):
+        pass
+
+
+    # Enter a parse tree produced by SmallerBasicParser#booleanExpression.
+    def enterBooleanExpression(self, ctx:SmallerBasicParser.BooleanExpressionContext):
+        pass
+
+    # Exit a parse tree produced by SmallerBasicParser#booleanExpression.
+    def exitBooleanExpression(self, ctx:SmallerBasicParser.BooleanExpressionContext):
+        pass
+
+
+    # Enter a parse tree produced by SmallerBasicParser#atomBoolean.
+    def enterAtomBoolean(self, ctx:SmallerBasicParser.AtomBooleanContext):
+        pass
+
+    # Exit a parse tree produced by SmallerBasicParser#atomBoolean.
+    def exitAtomBoolean(self, ctx:SmallerBasicParser.AtomBooleanContext):
+        pass
+
+
     # Enter a parse tree produced by SmallerBasicParser#arithmeticalExpression.
     def enterArithmeticalExpression(self, ctx:SmallerBasicParser.ArithmeticalExpressionContext):
         pass
