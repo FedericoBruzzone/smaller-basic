@@ -35,6 +35,24 @@ class SmallerBasicListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by SmallerBasicParser#whileStatement.
+    def enterWhileStatement(self, ctx:SmallerBasicParser.WhileStatementContext):
+        pass
+
+    # Exit a parse tree produced by SmallerBasicParser#whileStatement.
+    def exitWhileStatement(self, ctx:SmallerBasicParser.WhileStatementContext):
+        pass
+
+
+    # Enter a parse tree produced by SmallerBasicParser#ifStatement.
+    def enterIfStatement(self, ctx:SmallerBasicParser.IfStatementContext):
+        pass
+
+    # Exit a parse tree produced by SmallerBasicParser#ifStatement.
+    def exitIfStatement(self, ctx:SmallerBasicParser.IfStatementContext):
+        pass
+
+
     # Enter a parse tree produced by SmallerBasicParser#expression.
     def enterExpression(self, ctx:SmallerBasicParser.ExpressionContext):
         pass

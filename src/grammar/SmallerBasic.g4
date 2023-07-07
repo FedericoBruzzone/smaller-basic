@@ -7,10 +7,20 @@ program
 
 statement
     : declarationStatement
+    | whileStatement
+    | ifStatement
     ;
 
 declarationStatement
     : ID (EQ expression)? NEWLINE? //';' 
+    ;
+
+whileStatement
+    : WHILE LPAREN logicalExpression RPAREN NEWLINE? statement+ ENDWHILE
+    ;
+
+ifStatement
+    : IF LPAREN logicalExpression RPAREN THEN NEWLINE? statement+ ENDIF
     ;
 
 expression
@@ -162,6 +172,30 @@ AND
 
 OR
     : 'Or'
+    ;
+
+IF
+    : 'If'
+    ;
+
+THEN
+    : 'Then'
+    ;
+
+ELSE
+    : 'Else'
+    ;
+
+ENDIF
+    : 'EndIf'
+    ;
+
+WHILE
+    : 'While'
+    ;
+
+ENDWHILE
+    : 'EndWhile'
     ;
 
 // ====================
