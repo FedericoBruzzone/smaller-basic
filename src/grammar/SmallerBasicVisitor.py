@@ -24,6 +24,16 @@ class SmallerBasicVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by SmallerBasicParser#labelStatement.
+    def visitLabelStatement(self, ctx:SmallerBasicParser.LabelStatementContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by SmallerBasicParser#gotoStatement.
+    def visitGotoStatement(self, ctx:SmallerBasicParser.GotoStatementContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by SmallerBasicParser#ifStatement.
     def visitIfStatement(self, ctx:SmallerBasicParser.IfStatementContext):
         return self.visitChildren(ctx)

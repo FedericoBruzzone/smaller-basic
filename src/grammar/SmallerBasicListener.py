@@ -35,6 +35,24 @@ class SmallerBasicListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by SmallerBasicParser#labelStatement.
+    def enterLabelStatement(self, ctx:SmallerBasicParser.LabelStatementContext):
+        pass
+
+    # Exit a parse tree produced by SmallerBasicParser#labelStatement.
+    def exitLabelStatement(self, ctx:SmallerBasicParser.LabelStatementContext):
+        pass
+
+
+    # Enter a parse tree produced by SmallerBasicParser#gotoStatement.
+    def enterGotoStatement(self, ctx:SmallerBasicParser.GotoStatementContext):
+        pass
+
+    # Exit a parse tree produced by SmallerBasicParser#gotoStatement.
+    def exitGotoStatement(self, ctx:SmallerBasicParser.GotoStatementContext):
+        pass
+
+
     # Enter a parse tree produced by SmallerBasicParser#ifStatement.
     def enterIfStatement(self, ctx:SmallerBasicParser.IfStatementContext):
         pass

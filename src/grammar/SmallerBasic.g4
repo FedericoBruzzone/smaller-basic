@@ -10,24 +10,35 @@ statement
     | whileStatement
     | forStatement
     | ifStatement
+    | labelStatement
+    | gotoStatement
     ;
 
-declarationStatement
-    : ID (EQ expression)? NEWLINE? //';' 
+declarationStatement //(EQ expression)?
+    : ID EQ expression
+    | ID (LSQUARE arithmeticalExpression RSQUARE)+ EQ expression     
+    ;
+
+labelStatement
+    : ID COLON
+    ;
+
+gotoStatement
+    : GOTO ID
     ;
 
 ifStatement
-    : IF LPAREN logicalExpression RPAREN THEN NEWLINE? statement+ ENDIF
-    | IF LPAREN logicalExpression RPAREN THEN NEWLINE? statement+ ELSE NEWLINE? statement+ ENDIF
+    : IF LROUND logicalExpression RROUND THEN statement+ ENDIF
+    | IF LROUND logicalExpression RROUND THEN statement+ ELSE statement+ ENDIF
     ;
 
 whileStatement
-    : WHILE LPAREN logicalExpression RPAREN NEWLINE? statement+ ENDWHILE
+    : WHILE LROUND logicalExpression RROUND statement+ ENDWHILE
     ;
 
 forStatement
-    : FOR ID EQ arithmeticalExpression TO arithmeticalExpression NEWLINE? statement+ ENDFOR
-    | FOR ID EQ arithmeticalExpression TO arithmeticalExpression STEP arithmeticalExpression NEWLINE? statement+ ENDFOR
+    : FOR ID EQ arithmeticalExpression TO arithmeticalExpression statement+ ENDFOR
+    | FOR ID EQ arithmeticalExpression TO arithmeticalExpression STEP arithmeticalExpression statement+ ENDFOR
     ;
 
 expression
@@ -50,7 +61,7 @@ booleanExpression
 atomBoolean
     : boolean
     | id
-    | LPAREN logicalExpression RPAREN
+    | LROUND logicalExpression RROUND
     ;
 
 arithmeticalExpression
@@ -70,7 +81,7 @@ multiplicativeExpression
 atomNumber
     : signedNumber
     | id 
-    | ('-')? LPAREN arithmeticalExpression RPAREN
+    | ('-')? LROUND arithmeticalExpression RROUND 
     ;
 
 stringExpression
@@ -125,12 +136,25 @@ BOOLEAN_LITERAL
     | 'false'
     ;
 
-LPAREN
+LROUND
     : '('
     ;
 
-RPAREN
+RROUND
     : ')'
+    ;
+
+
+LSQUARE
+    : '['
+    ;
+
+RSQUARE
+    : ']'
+    ;
+
+COLON
+    : ':'
     ;
 
 PLUS     
@@ -221,6 +245,10 @@ ENDFOR
     : 'EndFor'
     ;
 
+GOTO
+    : 'Goto'
+    ;
+
 // ====================
 ID       
     : CHAR (CHAR | NUM | '_')* 
@@ -234,12 +262,8 @@ fragment FLOAT
     : ([1-9] NUM* | '0')? '.' NUM+ EXPONENT? 
     ;
 
-fragment SIGN
-    : ('+' | '-')    
-    ;
-
 fragment EXPONENT 
-    : ([eE] SIGN? NUM+) 
+    : ([eE] ('+' | '-')? NUM+) 
     ; 
 
 fragment NUM   

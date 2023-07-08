@@ -63,3 +63,11 @@ string = "A"
 boolean_1 = true 
 boolean_2 = false
 
+// Vector
+i = 0
+v[1] = 1
+v[2] = 3 
+v[i] = 0
+v[0][0] = 5
+v[0][0] = "ciao"
+v[i][j][k][l] = "ciao"

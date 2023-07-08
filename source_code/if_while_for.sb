@@ -221,6 +221,10 @@ For a = (1+3) To 5 Step 10
     x = 10
 EndFor
 
+For a = (1e-10+3E10) To 5 Step 10
+    x = 10
+EndFor
+
 While ((1 + (2 * 3) < 5) Or (a = ((1 + b) + 2)))  
     If ((1 < exp) And False) Then 
         a = 3   
@@ -231,5 +235,9 @@ While ((1 + (2 * 3) < 5) Or (a = ((1 + b) + 2)))
     EndIf
     a = 3
     i = i + 1
+    Goto Label1
 EndWhile
+
+Label1: 
+    x = 3E10
 
