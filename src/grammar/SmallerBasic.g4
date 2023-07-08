@@ -8,6 +8,7 @@ program
 statement
     : declarationStatement
     | whileStatement
+    | forStatement
     | ifStatement
     ;
 
@@ -15,12 +16,18 @@ declarationStatement
     : ID (EQ expression)? NEWLINE? //';' 
     ;
 
+ifStatement
+    : IF LPAREN logicalExpression RPAREN THEN NEWLINE? statement+ ENDIF
+    | IF LPAREN logicalExpression RPAREN THEN NEWLINE? statement+ ELSE NEWLINE? statement+ ENDIF
+    ;
+
 whileStatement
     : WHILE LPAREN logicalExpression RPAREN NEWLINE? statement+ ENDWHILE
     ;
 
-ifStatement
-    : IF LPAREN logicalExpression RPAREN THEN NEWLINE? statement+ ENDIF
+forStatement
+    : FOR ID EQ arithmeticalExpression TO arithmeticalExpression NEWLINE? statement+ ENDFOR
+    | FOR ID EQ arithmeticalExpression TO arithmeticalExpression STEP arithmeticalExpression NEWLINE? statement+ ENDFOR
     ;
 
 expression
@@ -63,7 +70,7 @@ multiplicativeExpression
 atomNumber
     : signedNumber
     | id 
-    | LPAREN arithmeticalExpression RPAREN
+    | ('-')? LPAREN arithmeticalExpression RPAREN
     ;
 
 stringExpression
@@ -196,6 +203,22 @@ WHILE
 
 ENDWHILE
     : 'EndWhile'
+    ;
+
+FOR
+    : 'For'
+    ;
+
+TO
+    : 'To'
+    ;
+
+STEP
+    : 'Step'
+    ;
+
+ENDFOR
+    : 'EndFor'
     ;
 
 // ====================

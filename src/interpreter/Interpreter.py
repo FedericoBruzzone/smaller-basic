@@ -102,7 +102,7 @@ class Interpreter(object):
 
         self.print("Interpreter is running...")
         token_stream: CommonTokenStream                       = self.do_lexical_analysis()
-        smaller_basic_tree: SmallerBasicParser.ProgramContext = self.do_parser(token_stream, print_res = True) 
+        smaller_basic_tree: SmallerBasicParser.ProgramContext = self.do_parser(token_stream, print_res = False) 
         self.__is_running = False
 
 from src.utils.color_print import color

@@ -20,6 +20,15 @@ smallbasic () {
     antlr4 -Dlanguage=Python3 -visitor src/grammar/SmallerBasic.g4 && python3 -m src.main source_code/"$1"
 }
 
+smallbasic_run_all () {
+    for file in source_code/*.sb; do
+        echo "Running $file"
+        file=${file#source_code/}
+        smallbasic "$file"
+        echo ""
+    done
+}
+
 pip install -e .
 
 pip -V
