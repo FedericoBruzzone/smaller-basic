@@ -49,6 +49,16 @@ class SmallerBasicVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by SmallerBasicParser#subroutineStatement.
+    def visitSubroutineStatement(self, ctx:SmallerBasicParser.SubroutineStatementContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by SmallerBasicParser#callSubroutineStatement.
+    def visitCallSubroutineStatement(self, ctx:SmallerBasicParser.CallSubroutineStatementContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by SmallerBasicParser#expression.
     def visitExpression(self, ctx:SmallerBasicParser.ExpressionContext):
         return self.visitChildren(ctx)

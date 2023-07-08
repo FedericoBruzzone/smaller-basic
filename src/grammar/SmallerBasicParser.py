@@ -10,96 +10,103 @@ else:
 
 def serializedATN():
     return [
-        4,1,36,258,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
+        4,1,38,277,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
         6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,13,
         2,14,7,14,2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,7,19,2,20,
-        7,20,2,21,7,21,2,22,7,22,2,23,7,23,1,0,4,0,50,8,0,11,0,12,0,51,1,
-        0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,3,1,62,8,1,1,2,1,2,1,2,1,2,1,2,1,2,
-        1,2,1,2,4,2,72,8,2,11,2,12,2,73,1,2,1,2,1,2,3,2,79,8,2,1,3,1,3,1,
-        3,1,4,1,4,1,4,1,5,1,5,1,5,1,5,1,5,1,5,4,5,93,8,5,11,5,12,5,94,1,
-        5,1,5,1,5,1,5,1,5,1,5,1,5,1,5,4,5,105,8,5,11,5,12,5,106,1,5,1,5,
-        4,5,111,8,5,11,5,12,5,112,1,5,1,5,3,5,117,8,5,1,6,1,6,1,6,1,6,1,
-        6,4,6,124,8,6,11,6,12,6,125,1,6,1,6,1,7,1,7,1,7,1,7,1,7,1,7,1,7,
-        4,7,137,8,7,11,7,12,7,138,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,
-        7,1,7,4,7,152,8,7,11,7,12,7,153,1,7,1,7,3,7,158,8,7,1,8,1,8,1,8,
-        1,8,3,8,164,8,8,1,9,1,9,1,9,4,9,169,8,9,11,9,12,9,170,1,9,3,9,174,
-        8,9,1,10,1,10,1,10,1,10,1,10,3,10,181,8,10,1,11,1,11,1,11,1,11,1,
-        11,1,11,3,11,189,8,11,1,12,1,12,1,13,1,13,1,13,4,13,196,8,13,11,
-        13,12,13,197,1,13,3,13,201,8,13,1,14,1,14,1,14,4,14,206,8,14,11,
-        14,12,14,207,1,14,3,14,211,8,14,1,15,1,15,1,15,3,15,216,8,15,1,15,
-        1,15,1,15,1,15,3,15,222,8,15,1,16,1,16,1,17,1,17,1,17,5,17,229,8,
-        17,10,17,12,17,232,9,17,1,18,1,18,3,18,236,8,18,1,19,1,19,1,19,1,
-        19,3,19,242,8,19,1,20,3,20,245,8,20,1,20,1,20,1,21,1,21,1,22,1,22,
-        1,23,3,23,254,8,23,1,23,1,23,1,23,0,0,24,0,2,4,6,8,10,12,14,16,18,
-        20,22,24,26,28,30,32,34,36,38,40,42,44,46,0,4,1,0,19,20,1,0,13,18,
-        1,0,9,10,1,0,11,12,271,0,49,1,0,0,0,2,61,1,0,0,0,4,78,1,0,0,0,6,
-        80,1,0,0,0,8,83,1,0,0,0,10,116,1,0,0,0,12,118,1,0,0,0,14,157,1,0,
-        0,0,16,163,1,0,0,0,18,173,1,0,0,0,20,180,1,0,0,0,22,188,1,0,0,0,
-        24,190,1,0,0,0,26,200,1,0,0,0,28,210,1,0,0,0,30,221,1,0,0,0,32,223,
-        1,0,0,0,34,225,1,0,0,0,36,235,1,0,0,0,38,241,1,0,0,0,40,244,1,0,
-        0,0,42,248,1,0,0,0,44,250,1,0,0,0,46,253,1,0,0,0,48,50,3,2,1,0,49,
-        48,1,0,0,0,50,51,1,0,0,0,51,49,1,0,0,0,51,52,1,0,0,0,52,53,1,0,0,
-        0,53,54,5,0,0,1,54,1,1,0,0,0,55,62,3,4,2,0,56,62,3,12,6,0,57,62,
-        3,14,7,0,58,62,3,10,5,0,59,62,3,6,3,0,60,62,3,8,4,0,61,55,1,0,0,
-        0,61,56,1,0,0,0,61,57,1,0,0,0,61,58,1,0,0,0,61,59,1,0,0,0,61,60,
-        1,0,0,0,62,3,1,0,0,0,63,64,5,32,0,0,64,65,5,15,0,0,65,79,3,16,8,
-        0,66,71,5,32,0,0,67,68,5,6,0,0,68,69,3,24,12,0,69,70,5,7,0,0,70,
-        72,1,0,0,0,71,67,1,0,0,0,72,73,1,0,0,0,73,71,1,0,0,0,73,74,1,0,0,
-        0,74,75,1,0,0,0,75,76,5,15,0,0,76,77,3,16,8,0,77,79,1,0,0,0,78,63,
-        1,0,0,0,78,66,1,0,0,0,79,5,1,0,0,0,80,81,5,32,0,0,81,82,5,8,0,0,
-        82,7,1,0,0,0,83,84,5,31,0,0,84,85,5,32,0,0,85,9,1,0,0,0,86,87,5,
-        21,0,0,87,88,5,4,0,0,88,89,3,18,9,0,89,90,5,5,0,0,90,92,5,22,0,0,
-        91,93,3,2,1,0,92,91,1,0,0,0,93,94,1,0,0,0,94,92,1,0,0,0,94,95,1,
-        0,0,0,95,96,1,0,0,0,96,97,5,24,0,0,97,117,1,0,0,0,98,99,5,21,0,0,
-        99,100,5,4,0,0,100,101,3,18,9,0,101,102,5,5,0,0,102,104,5,22,0,0,
-        103,105,3,2,1,0,104,103,1,0,0,0,105,106,1,0,0,0,106,104,1,0,0,0,
-        106,107,1,0,0,0,107,108,1,0,0,0,108,110,5,23,0,0,109,111,3,2,1,0,
-        110,109,1,0,0,0,111,112,1,0,0,0,112,110,1,0,0,0,112,113,1,0,0,0,
-        113,114,1,0,0,0,114,115,5,24,0,0,115,117,1,0,0,0,116,86,1,0,0,0,
-        116,98,1,0,0,0,117,11,1,0,0,0,118,119,5,25,0,0,119,120,5,4,0,0,120,
-        121,3,18,9,0,121,123,5,5,0,0,122,124,3,2,1,0,123,122,1,0,0,0,124,
-        125,1,0,0,0,125,123,1,0,0,0,125,126,1,0,0,0,126,127,1,0,0,0,127,
-        128,5,26,0,0,128,13,1,0,0,0,129,130,5,27,0,0,130,131,5,32,0,0,131,
-        132,5,15,0,0,132,133,3,24,12,0,133,134,5,28,0,0,134,136,3,24,12,
-        0,135,137,3,2,1,0,136,135,1,0,0,0,137,138,1,0,0,0,138,136,1,0,0,
-        0,138,139,1,0,0,0,139,140,1,0,0,0,140,141,5,30,0,0,141,158,1,0,0,
-        0,142,143,5,27,0,0,143,144,5,32,0,0,144,145,5,15,0,0,145,146,3,24,
-        12,0,146,147,5,28,0,0,147,148,3,24,12,0,148,149,5,29,0,0,149,151,
-        3,24,12,0,150,152,3,2,1,0,151,150,1,0,0,0,152,153,1,0,0,0,153,151,
-        1,0,0,0,153,154,1,0,0,0,154,155,1,0,0,0,155,156,5,30,0,0,156,158,
-        1,0,0,0,157,129,1,0,0,0,157,142,1,0,0,0,158,15,1,0,0,0,159,164,3,
-        24,12,0,160,164,3,18,9,0,161,164,3,32,16,0,162,164,3,38,19,0,163,
-        159,1,0,0,0,163,160,1,0,0,0,163,161,1,0,0,0,163,162,1,0,0,0,164,
-        17,1,0,0,0,165,168,3,20,10,0,166,167,7,0,0,0,167,169,3,20,10,0,168,
-        166,1,0,0,0,169,170,1,0,0,0,170,168,1,0,0,0,170,171,1,0,0,0,171,
-        174,1,0,0,0,172,174,3,20,10,0,173,165,1,0,0,0,173,172,1,0,0,0,174,
-        19,1,0,0,0,175,176,3,24,12,0,176,177,7,1,0,0,177,178,3,24,12,0,178,
-        181,1,0,0,0,179,181,3,22,11,0,180,175,1,0,0,0,180,179,1,0,0,0,181,
-        21,1,0,0,0,182,189,3,44,22,0,183,189,3,46,23,0,184,185,5,4,0,0,185,
-        186,3,18,9,0,186,187,5,5,0,0,187,189,1,0,0,0,188,182,1,0,0,0,188,
-        183,1,0,0,0,188,184,1,0,0,0,189,23,1,0,0,0,190,191,3,26,13,0,191,
-        25,1,0,0,0,192,195,3,28,14,0,193,194,7,2,0,0,194,196,3,28,14,0,195,
-        193,1,0,0,0,196,197,1,0,0,0,197,195,1,0,0,0,197,198,1,0,0,0,198,
-        201,1,0,0,0,199,201,3,28,14,0,200,192,1,0,0,0,200,199,1,0,0,0,201,
-        27,1,0,0,0,202,205,3,30,15,0,203,204,7,3,0,0,204,206,3,30,15,0,205,
-        203,1,0,0,0,206,207,1,0,0,0,207,205,1,0,0,0,207,208,1,0,0,0,208,
-        211,1,0,0,0,209,211,3,30,15,0,210,202,1,0,0,0,210,209,1,0,0,0,211,
-        29,1,0,0,0,212,222,3,40,20,0,213,222,3,46,23,0,214,216,5,10,0,0,
-        215,214,1,0,0,0,215,216,1,0,0,0,216,217,1,0,0,0,217,218,5,4,0,0,
-        218,219,3,24,12,0,219,220,5,5,0,0,220,222,1,0,0,0,221,212,1,0,0,
-        0,221,213,1,0,0,0,221,215,1,0,0,0,222,31,1,0,0,0,223,224,3,34,17,
-        0,224,33,1,0,0,0,225,230,3,36,18,0,226,227,5,9,0,0,227,229,3,36,
-        18,0,228,226,1,0,0,0,229,232,1,0,0,0,230,228,1,0,0,0,230,231,1,0,
-        0,0,231,35,1,0,0,0,232,230,1,0,0,0,233,236,3,42,21,0,234,236,3,46,
-        23,0,235,233,1,0,0,0,235,234,1,0,0,0,236,37,1,0,0,0,237,242,3,40,
-        20,0,238,242,3,42,21,0,239,242,3,44,22,0,240,242,3,46,23,0,241,237,
-        1,0,0,0,241,238,1,0,0,0,241,239,1,0,0,0,241,240,1,0,0,0,242,39,1,
-        0,0,0,243,245,7,2,0,0,244,243,1,0,0,0,244,245,1,0,0,0,245,246,1,
-        0,0,0,246,247,5,1,0,0,247,41,1,0,0,0,248,249,5,2,0,0,249,43,1,0,
-        0,0,250,251,5,3,0,0,251,45,1,0,0,0,252,254,7,2,0,0,253,252,1,0,0,
-        0,253,254,1,0,0,0,254,255,1,0,0,0,255,256,5,32,0,0,256,47,1,0,0,
-        0,28,51,61,73,78,94,106,112,116,125,138,153,157,163,170,173,180,
-        188,197,200,207,210,215,221,230,235,241,244,253
+        7,20,2,21,7,21,2,22,7,22,2,23,7,23,2,24,7,24,2,25,7,25,1,0,4,0,54,
+        8,0,11,0,12,0,55,1,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,1,68,
+        8,1,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,4,2,78,8,2,11,2,12,2,79,1,2,
+        1,2,1,2,3,2,85,8,2,1,3,1,3,1,3,1,4,1,4,1,4,1,5,1,5,1,5,1,5,1,5,1,
+        5,4,5,99,8,5,11,5,12,5,100,1,5,1,5,1,5,1,5,1,5,1,5,1,5,1,5,4,5,111,
+        8,5,11,5,12,5,112,1,5,1,5,4,5,117,8,5,11,5,12,5,118,1,5,1,5,3,5,
+        123,8,5,1,6,1,6,1,6,1,6,1,6,4,6,130,8,6,11,6,12,6,131,1,6,1,6,1,
+        7,1,7,1,7,1,7,1,7,1,7,1,7,4,7,143,8,7,11,7,12,7,144,1,7,1,7,1,7,
+        1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,4,7,158,8,7,11,7,12,7,159,1,7,1,
+        7,3,7,164,8,7,1,8,1,8,1,8,4,8,169,8,8,11,8,12,8,170,1,8,1,8,1,9,
+        1,9,1,9,1,9,1,10,1,10,1,10,1,10,3,10,183,8,10,1,11,1,11,1,11,4,11,
+        188,8,11,11,11,12,11,189,1,11,3,11,193,8,11,1,12,1,12,1,12,1,12,
+        1,12,3,12,200,8,12,1,13,1,13,1,13,1,13,1,13,1,13,3,13,208,8,13,1,
+        14,1,14,1,15,1,15,1,15,4,15,215,8,15,11,15,12,15,216,1,15,3,15,220,
+        8,15,1,16,1,16,1,16,4,16,225,8,16,11,16,12,16,226,1,16,3,16,230,
+        8,16,1,17,1,17,1,17,3,17,235,8,17,1,17,1,17,1,17,1,17,3,17,241,8,
+        17,1,18,1,18,1,19,1,19,1,19,5,19,248,8,19,10,19,12,19,251,9,19,1,
+        20,1,20,3,20,255,8,20,1,21,1,21,1,21,1,21,3,21,261,8,21,1,22,3,22,
+        264,8,22,1,22,1,22,1,23,1,23,1,24,1,24,1,25,3,25,273,8,25,1,25,1,
+        25,1,25,0,0,26,0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,
+        36,38,40,42,44,46,48,50,0,4,1,0,19,20,1,0,13,18,1,0,9,10,1,0,11,
+        12,291,0,53,1,0,0,0,2,67,1,0,0,0,4,84,1,0,0,0,6,86,1,0,0,0,8,89,
+        1,0,0,0,10,122,1,0,0,0,12,124,1,0,0,0,14,163,1,0,0,0,16,165,1,0,
+        0,0,18,174,1,0,0,0,20,182,1,0,0,0,22,192,1,0,0,0,24,199,1,0,0,0,
+        26,207,1,0,0,0,28,209,1,0,0,0,30,219,1,0,0,0,32,229,1,0,0,0,34,240,
+        1,0,0,0,36,242,1,0,0,0,38,244,1,0,0,0,40,254,1,0,0,0,42,260,1,0,
+        0,0,44,263,1,0,0,0,46,267,1,0,0,0,48,269,1,0,0,0,50,272,1,0,0,0,
+        52,54,3,2,1,0,53,52,1,0,0,0,54,55,1,0,0,0,55,53,1,0,0,0,55,56,1,
+        0,0,0,56,57,1,0,0,0,57,58,5,0,0,1,58,1,1,0,0,0,59,68,3,4,2,0,60,
+        68,3,12,6,0,61,68,3,14,7,0,62,68,3,10,5,0,63,68,3,6,3,0,64,68,3,
+        8,4,0,65,68,3,16,8,0,66,68,3,18,9,0,67,59,1,0,0,0,67,60,1,0,0,0,
+        67,61,1,0,0,0,67,62,1,0,0,0,67,63,1,0,0,0,67,64,1,0,0,0,67,65,1,
+        0,0,0,67,66,1,0,0,0,68,3,1,0,0,0,69,70,5,34,0,0,70,71,5,15,0,0,71,
+        85,3,20,10,0,72,77,5,34,0,0,73,74,5,6,0,0,74,75,3,28,14,0,75,76,
+        5,7,0,0,76,78,1,0,0,0,77,73,1,0,0,0,78,79,1,0,0,0,79,77,1,0,0,0,
+        79,80,1,0,0,0,80,81,1,0,0,0,81,82,5,15,0,0,82,83,3,20,10,0,83,85,
+        1,0,0,0,84,69,1,0,0,0,84,72,1,0,0,0,85,5,1,0,0,0,86,87,5,34,0,0,
+        87,88,5,8,0,0,88,7,1,0,0,0,89,90,5,31,0,0,90,91,5,34,0,0,91,9,1,
+        0,0,0,92,93,5,21,0,0,93,94,5,4,0,0,94,95,3,22,11,0,95,96,5,5,0,0,
+        96,98,5,22,0,0,97,99,3,2,1,0,98,97,1,0,0,0,99,100,1,0,0,0,100,98,
+        1,0,0,0,100,101,1,0,0,0,101,102,1,0,0,0,102,103,5,24,0,0,103,123,
+        1,0,0,0,104,105,5,21,0,0,105,106,5,4,0,0,106,107,3,22,11,0,107,108,
+        5,5,0,0,108,110,5,22,0,0,109,111,3,2,1,0,110,109,1,0,0,0,111,112,
+        1,0,0,0,112,110,1,0,0,0,112,113,1,0,0,0,113,114,1,0,0,0,114,116,
+        5,23,0,0,115,117,3,2,1,0,116,115,1,0,0,0,117,118,1,0,0,0,118,116,
+        1,0,0,0,118,119,1,0,0,0,119,120,1,0,0,0,120,121,5,24,0,0,121,123,
+        1,0,0,0,122,92,1,0,0,0,122,104,1,0,0,0,123,11,1,0,0,0,124,125,5,
+        25,0,0,125,126,5,4,0,0,126,127,3,22,11,0,127,129,5,5,0,0,128,130,
+        3,2,1,0,129,128,1,0,0,0,130,131,1,0,0,0,131,129,1,0,0,0,131,132,
+        1,0,0,0,132,133,1,0,0,0,133,134,5,26,0,0,134,13,1,0,0,0,135,136,
+        5,27,0,0,136,137,5,34,0,0,137,138,5,15,0,0,138,139,3,28,14,0,139,
+        140,5,28,0,0,140,142,3,28,14,0,141,143,3,2,1,0,142,141,1,0,0,0,143,
+        144,1,0,0,0,144,142,1,0,0,0,144,145,1,0,0,0,145,146,1,0,0,0,146,
+        147,5,30,0,0,147,164,1,0,0,0,148,149,5,27,0,0,149,150,5,34,0,0,150,
+        151,5,15,0,0,151,152,3,28,14,0,152,153,5,28,0,0,153,154,3,28,14,
+        0,154,155,5,29,0,0,155,157,3,28,14,0,156,158,3,2,1,0,157,156,1,0,
+        0,0,158,159,1,0,0,0,159,157,1,0,0,0,159,160,1,0,0,0,160,161,1,0,
+        0,0,161,162,5,30,0,0,162,164,1,0,0,0,163,135,1,0,0,0,163,148,1,0,
+        0,0,164,15,1,0,0,0,165,166,5,32,0,0,166,168,5,34,0,0,167,169,3,2,
+        1,0,168,167,1,0,0,0,169,170,1,0,0,0,170,168,1,0,0,0,170,171,1,0,
+        0,0,171,172,1,0,0,0,172,173,5,33,0,0,173,17,1,0,0,0,174,175,5,34,
+        0,0,175,176,5,4,0,0,176,177,5,5,0,0,177,19,1,0,0,0,178,183,3,28,
+        14,0,179,183,3,22,11,0,180,183,3,36,18,0,181,183,3,42,21,0,182,178,
+        1,0,0,0,182,179,1,0,0,0,182,180,1,0,0,0,182,181,1,0,0,0,183,21,1,
+        0,0,0,184,187,3,24,12,0,185,186,7,0,0,0,186,188,3,24,12,0,187,185,
+        1,0,0,0,188,189,1,0,0,0,189,187,1,0,0,0,189,190,1,0,0,0,190,193,
+        1,0,0,0,191,193,3,24,12,0,192,184,1,0,0,0,192,191,1,0,0,0,193,23,
+        1,0,0,0,194,195,3,28,14,0,195,196,7,1,0,0,196,197,3,28,14,0,197,
+        200,1,0,0,0,198,200,3,26,13,0,199,194,1,0,0,0,199,198,1,0,0,0,200,
+        25,1,0,0,0,201,208,3,48,24,0,202,208,3,50,25,0,203,204,5,4,0,0,204,
+        205,3,22,11,0,205,206,5,5,0,0,206,208,1,0,0,0,207,201,1,0,0,0,207,
+        202,1,0,0,0,207,203,1,0,0,0,208,27,1,0,0,0,209,210,3,30,15,0,210,
+        29,1,0,0,0,211,214,3,32,16,0,212,213,7,2,0,0,213,215,3,32,16,0,214,
+        212,1,0,0,0,215,216,1,0,0,0,216,214,1,0,0,0,216,217,1,0,0,0,217,
+        220,1,0,0,0,218,220,3,32,16,0,219,211,1,0,0,0,219,218,1,0,0,0,220,
+        31,1,0,0,0,221,224,3,34,17,0,222,223,7,3,0,0,223,225,3,34,17,0,224,
+        222,1,0,0,0,225,226,1,0,0,0,226,224,1,0,0,0,226,227,1,0,0,0,227,
+        230,1,0,0,0,228,230,3,34,17,0,229,221,1,0,0,0,229,228,1,0,0,0,230,
+        33,1,0,0,0,231,241,3,44,22,0,232,241,3,50,25,0,233,235,5,10,0,0,
+        234,233,1,0,0,0,234,235,1,0,0,0,235,236,1,0,0,0,236,237,5,4,0,0,
+        237,238,3,28,14,0,238,239,5,5,0,0,239,241,1,0,0,0,240,231,1,0,0,
+        0,240,232,1,0,0,0,240,234,1,0,0,0,241,35,1,0,0,0,242,243,3,38,19,
+        0,243,37,1,0,0,0,244,249,3,40,20,0,245,246,5,9,0,0,246,248,3,40,
+        20,0,247,245,1,0,0,0,248,251,1,0,0,0,249,247,1,0,0,0,249,250,1,0,
+        0,0,250,39,1,0,0,0,251,249,1,0,0,0,252,255,3,46,23,0,253,255,3,50,
+        25,0,254,252,1,0,0,0,254,253,1,0,0,0,255,41,1,0,0,0,256,261,3,44,
+        22,0,257,261,3,46,23,0,258,261,3,48,24,0,259,261,3,50,25,0,260,256,
+        1,0,0,0,260,257,1,0,0,0,260,258,1,0,0,0,260,259,1,0,0,0,261,43,1,
+        0,0,0,262,264,7,2,0,0,263,262,1,0,0,0,263,264,1,0,0,0,264,265,1,
+        0,0,0,265,266,5,1,0,0,266,45,1,0,0,0,267,268,5,2,0,0,268,47,1,0,
+        0,0,269,270,5,3,0,0,270,49,1,0,0,0,271,273,7,2,0,0,272,271,1,0,0,
+        0,272,273,1,0,0,0,273,274,1,0,0,0,274,275,5,34,0,0,275,51,1,0,0,
+        0,29,55,67,79,84,100,112,118,122,131,144,159,163,170,182,189,192,
+        199,207,216,219,226,229,234,240,249,254,260,263,272
     ]
 
 class SmallerBasicParser ( Parser ):
@@ -117,15 +124,15 @@ class SmallerBasicParser ( Parser ):
                      "'/'", "'>'", "'<'", "'='", "'>='", "'<='", "'<>'", 
                      "'And'", "'Or'", "'If'", "'Then'", "'Else'", "'EndIf'", 
                      "'While'", "'EndWhile'", "'For'", "'To'", "'Step'", 
-                     "'EndFor'", "'Goto'" ]
+                     "'EndFor'", "'Goto'", "'Sub'", "'EndSub'" ]
 
     symbolicNames = [ "<INVALID>", "NUMBER_LITERAL", "STRING_LITERAL", "BOOLEAN_LITERAL", 
                       "LROUND", "RROUND", "LSQUARE", "RSQUARE", "COLON", 
                       "PLUS", "MINUS", "MUL", "DIV", "GT", "LT", "EQ", "GTEQ", 
                       "LTEQ", "NEQ", "AND", "OR", "IF", "THEN", "ELSE", 
                       "ENDIF", "WHILE", "ENDWHILE", "FOR", "TO", "STEP", 
-                      "ENDFOR", "GOTO", "ID", "WS", "COMMENT", "NEWLINE", 
-                      "LINE_COMMENT" ]
+                      "ENDFOR", "GOTO", "SUB", "ENDSUB", "ID", "WS", "COMMENT", 
+                      "NEWLINE", "LINE_COMMENT" ]
 
     RULE_program = 0
     RULE_statement = 1
@@ -135,30 +142,33 @@ class SmallerBasicParser ( Parser ):
     RULE_ifStatement = 5
     RULE_whileStatement = 6
     RULE_forStatement = 7
-    RULE_expression = 8
-    RULE_logicalExpression = 9
-    RULE_booleanExpression = 10
-    RULE_atomBoolean = 11
-    RULE_arithmeticalExpression = 12
-    RULE_additiveExpression = 13
-    RULE_multiplicativeExpression = 14
-    RULE_atomNumber = 15
-    RULE_stringExpression = 16
-    RULE_additiveStringExpression = 17
-    RULE_atomString = 18
-    RULE_literal = 19
-    RULE_signedNumber = 20
-    RULE_string = 21
-    RULE_boolean = 22
-    RULE_id = 23
+    RULE_subroutineStatement = 8
+    RULE_callSubroutineStatement = 9
+    RULE_expression = 10
+    RULE_logicalExpression = 11
+    RULE_booleanExpression = 12
+    RULE_atomBoolean = 13
+    RULE_arithmeticalExpression = 14
+    RULE_additiveExpression = 15
+    RULE_multiplicativeExpression = 16
+    RULE_atomNumber = 17
+    RULE_stringExpression = 18
+    RULE_additiveStringExpression = 19
+    RULE_atomString = 20
+    RULE_literal = 21
+    RULE_signedNumber = 22
+    RULE_string = 23
+    RULE_boolean = 24
+    RULE_id = 25
 
     ruleNames =  [ "program", "statement", "declarationStatement", "labelStatement", 
                    "gotoStatement", "ifStatement", "whileStatement", "forStatement", 
-                   "expression", "logicalExpression", "booleanExpression", 
-                   "atomBoolean", "arithmeticalExpression", "additiveExpression", 
-                   "multiplicativeExpression", "atomNumber", "stringExpression", 
-                   "additiveStringExpression", "atomString", "literal", 
-                   "signedNumber", "string", "boolean", "id" ]
+                   "subroutineStatement", "callSubroutineStatement", "expression", 
+                   "logicalExpression", "booleanExpression", "atomBoolean", 
+                   "arithmeticalExpression", "additiveExpression", "multiplicativeExpression", 
+                   "atomNumber", "stringExpression", "additiveStringExpression", 
+                   "atomString", "literal", "signedNumber", "string", "boolean", 
+                   "id" ]
 
     EOF = Token.EOF
     NUMBER_LITERAL=1
@@ -192,11 +202,13 @@ class SmallerBasicParser ( Parser ):
     STEP=29
     ENDFOR=30
     GOTO=31
-    ID=32
-    WS=33
-    COMMENT=34
-    NEWLINE=35
-    LINE_COMMENT=36
+    SUB=32
+    ENDSUB=33
+    ID=34
+    WS=35
+    COMMENT=36
+    NEWLINE=37
+    LINE_COMMENT=38
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
@@ -251,19 +263,19 @@ class SmallerBasicParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 49 
+            self.state = 53 
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while True:
-                self.state = 48
+                self.state = 52
                 self.statement()
-                self.state = 51 
+                self.state = 55 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & 6612320256) != 0)):
+                if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & 23792189440) != 0)):
                     break
 
-            self.state = 53
+            self.state = 57
             self.match(SmallerBasicParser.EOF)
         except RecognitionException as re:
             localctx.exception = re
@@ -305,6 +317,14 @@ class SmallerBasicParser ( Parser ):
             return self.getTypedRuleContext(SmallerBasicParser.GotoStatementContext,0)
 
 
+        def subroutineStatement(self):
+            return self.getTypedRuleContext(SmallerBasicParser.SubroutineStatementContext,0)
+
+
+        def callSubroutineStatement(self):
+            return self.getTypedRuleContext(SmallerBasicParser.CallSubroutineStatementContext,0)
+
+
         def getRuleIndex(self):
             return SmallerBasicParser.RULE_statement
 
@@ -330,43 +350,55 @@ class SmallerBasicParser ( Parser ):
         localctx = SmallerBasicParser.StatementContext(self, self._ctx, self.state)
         self.enterRule(localctx, 2, self.RULE_statement)
         try:
-            self.state = 61
+            self.state = 67
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,1,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 55
+                self.state = 59
                 self.declarationStatement()
                 pass
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 56
+                self.state = 60
                 self.whileStatement()
                 pass
 
             elif la_ == 3:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 57
+                self.state = 61
                 self.forStatement()
                 pass
 
             elif la_ == 4:
                 self.enterOuterAlt(localctx, 4)
-                self.state = 58
+                self.state = 62
                 self.ifStatement()
                 pass
 
             elif la_ == 5:
                 self.enterOuterAlt(localctx, 5)
-                self.state = 59
+                self.state = 63
                 self.labelStatement()
                 pass
 
             elif la_ == 6:
                 self.enterOuterAlt(localctx, 6)
-                self.state = 60
+                self.state = 64
                 self.gotoStatement()
+                pass
+
+            elif la_ == 7:
+                self.enterOuterAlt(localctx, 7)
+                self.state = 65
+                self.subroutineStatement()
+                pass
+
+            elif la_ == 8:
+                self.enterOuterAlt(localctx, 8)
+                self.state = 66
+                self.callSubroutineStatement()
                 pass
 
 
@@ -441,42 +473,42 @@ class SmallerBasicParser ( Parser ):
         self.enterRule(localctx, 4, self.RULE_declarationStatement)
         self._la = 0 # Token type
         try:
-            self.state = 78
+            self.state = 84
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,3,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 63
+                self.state = 69
                 self.match(SmallerBasicParser.ID)
-                self.state = 64
+                self.state = 70
                 self.match(SmallerBasicParser.EQ)
-                self.state = 65
+                self.state = 71
                 self.expression()
                 pass
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 66
+                self.state = 72
                 self.match(SmallerBasicParser.ID)
-                self.state = 71 
+                self.state = 77 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 while True:
-                    self.state = 67
+                    self.state = 73
                     self.match(SmallerBasicParser.LSQUARE)
-                    self.state = 68
+                    self.state = 74
                     self.arithmeticalExpression()
-                    self.state = 69
+                    self.state = 75
                     self.match(SmallerBasicParser.RSQUARE)
-                    self.state = 73 
+                    self.state = 79 
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
                     if not (_la==6):
                         break
 
-                self.state = 75
+                self.state = 81
                 self.match(SmallerBasicParser.EQ)
-                self.state = 76
+                self.state = 82
                 self.expression()
                 pass
 
@@ -529,9 +561,9 @@ class SmallerBasicParser ( Parser ):
         self.enterRule(localctx, 6, self.RULE_labelStatement)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 80
+            self.state = 86
             self.match(SmallerBasicParser.ID)
-            self.state = 81
+            self.state = 87
             self.match(SmallerBasicParser.COLON)
         except RecognitionException as re:
             localctx.exception = re
@@ -581,9 +613,9 @@ class SmallerBasicParser ( Parser ):
         self.enterRule(localctx, 8, self.RULE_gotoStatement)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 83
+            self.state = 89
             self.match(SmallerBasicParser.GOTO)
-            self.state = 84
+            self.state = 90
             self.match(SmallerBasicParser.ID)
         except RecognitionException as re:
             localctx.exception = re
@@ -656,63 +688,49 @@ class SmallerBasicParser ( Parser ):
         self.enterRule(localctx, 10, self.RULE_ifStatement)
         self._la = 0 # Token type
         try:
-            self.state = 116
+            self.state = 122
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,7,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 86
+                self.state = 92
                 self.match(SmallerBasicParser.IF)
-                self.state = 87
+                self.state = 93
                 self.match(SmallerBasicParser.LROUND)
-                self.state = 88
+                self.state = 94
                 self.logicalExpression()
-                self.state = 89
+                self.state = 95
                 self.match(SmallerBasicParser.RROUND)
-                self.state = 90
+                self.state = 96
                 self.match(SmallerBasicParser.THEN)
-                self.state = 92 
+                self.state = 98 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 while True:
-                    self.state = 91
+                    self.state = 97
                     self.statement()
-                    self.state = 94 
+                    self.state = 100 
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
-                    if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & 6612320256) != 0)):
+                    if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & 23792189440) != 0)):
                         break
 
-                self.state = 96
+                self.state = 102
                 self.match(SmallerBasicParser.ENDIF)
                 pass
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 98
+                self.state = 104
                 self.match(SmallerBasicParser.IF)
-                self.state = 99
+                self.state = 105
                 self.match(SmallerBasicParser.LROUND)
-                self.state = 100
+                self.state = 106
                 self.logicalExpression()
-                self.state = 101
+                self.state = 107
                 self.match(SmallerBasicParser.RROUND)
-                self.state = 102
-                self.match(SmallerBasicParser.THEN)
-                self.state = 104 
-                self._errHandler.sync(self)
-                _la = self._input.LA(1)
-                while True:
-                    self.state = 103
-                    self.statement()
-                    self.state = 106 
-                    self._errHandler.sync(self)
-                    _la = self._input.LA(1)
-                    if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & 6612320256) != 0)):
-                        break
-
                 self.state = 108
-                self.match(SmallerBasicParser.ELSE)
+                self.match(SmallerBasicParser.THEN)
                 self.state = 110 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
@@ -722,10 +740,24 @@ class SmallerBasicParser ( Parser ):
                     self.state = 112 
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
-                    if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & 6612320256) != 0)):
+                    if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & 23792189440) != 0)):
                         break
 
                 self.state = 114
+                self.match(SmallerBasicParser.ELSE)
+                self.state = 116 
+                self._errHandler.sync(self)
+                _la = self._input.LA(1)
+                while True:
+                    self.state = 115
+                    self.statement()
+                    self.state = 118 
+                    self._errHandler.sync(self)
+                    _la = self._input.LA(1)
+                    if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & 23792189440) != 0)):
+                        break
+
+                self.state = 120
                 self.match(SmallerBasicParser.ENDIF)
                 pass
 
@@ -796,27 +828,27 @@ class SmallerBasicParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 118
+            self.state = 124
             self.match(SmallerBasicParser.WHILE)
-            self.state = 119
+            self.state = 125
             self.match(SmallerBasicParser.LROUND)
-            self.state = 120
+            self.state = 126
             self.logicalExpression()
-            self.state = 121
+            self.state = 127
             self.match(SmallerBasicParser.RROUND)
-            self.state = 123 
+            self.state = 129 
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while True:
-                self.state = 122
+                self.state = 128
                 self.statement()
-                self.state = 125 
+                self.state = 131 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & 6612320256) != 0)):
+                if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & 23792189440) != 0)):
                     break
 
-            self.state = 127
+            self.state = 133
             self.match(SmallerBasicParser.ENDWHILE)
         except RecognitionException as re:
             localctx.exception = re
@@ -892,74 +924,208 @@ class SmallerBasicParser ( Parser ):
         self.enterRule(localctx, 14, self.RULE_forStatement)
         self._la = 0 # Token type
         try:
-            self.state = 157
+            self.state = 163
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,11,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 129
+                self.state = 135
                 self.match(SmallerBasicParser.FOR)
-                self.state = 130
+                self.state = 136
                 self.match(SmallerBasicParser.ID)
-                self.state = 131
+                self.state = 137
                 self.match(SmallerBasicParser.EQ)
-                self.state = 132
+                self.state = 138
                 self.arithmeticalExpression()
-                self.state = 133
+                self.state = 139
                 self.match(SmallerBasicParser.TO)
-                self.state = 134
+                self.state = 140
                 self.arithmeticalExpression()
-                self.state = 136 
+                self.state = 142 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 while True:
-                    self.state = 135
+                    self.state = 141
                     self.statement()
-                    self.state = 138 
+                    self.state = 144 
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
-                    if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & 6612320256) != 0)):
+                    if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & 23792189440) != 0)):
                         break
 
-                self.state = 140
+                self.state = 146
                 self.match(SmallerBasicParser.ENDFOR)
                 pass
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 142
-                self.match(SmallerBasicParser.FOR)
-                self.state = 143
-                self.match(SmallerBasicParser.ID)
-                self.state = 144
-                self.match(SmallerBasicParser.EQ)
-                self.state = 145
-                self.arithmeticalExpression()
-                self.state = 146
-                self.match(SmallerBasicParser.TO)
-                self.state = 147
-                self.arithmeticalExpression()
                 self.state = 148
-                self.match(SmallerBasicParser.STEP)
+                self.match(SmallerBasicParser.FOR)
                 self.state = 149
+                self.match(SmallerBasicParser.ID)
+                self.state = 150
+                self.match(SmallerBasicParser.EQ)
+                self.state = 151
                 self.arithmeticalExpression()
-                self.state = 151 
+                self.state = 152
+                self.match(SmallerBasicParser.TO)
+                self.state = 153
+                self.arithmeticalExpression()
+                self.state = 154
+                self.match(SmallerBasicParser.STEP)
+                self.state = 155
+                self.arithmeticalExpression()
+                self.state = 157 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 while True:
-                    self.state = 150
+                    self.state = 156
                     self.statement()
-                    self.state = 153 
+                    self.state = 159 
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
-                    if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & 6612320256) != 0)):
+                    if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & 23792189440) != 0)):
                         break
 
-                self.state = 155
+                self.state = 161
                 self.match(SmallerBasicParser.ENDFOR)
                 pass
 
 
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class SubroutineStatementContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def SUB(self):
+            return self.getToken(SmallerBasicParser.SUB, 0)
+
+        def ID(self):
+            return self.getToken(SmallerBasicParser.ID, 0)
+
+        def ENDSUB(self):
+            return self.getToken(SmallerBasicParser.ENDSUB, 0)
+
+        def statement(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(SmallerBasicParser.StatementContext)
+            else:
+                return self.getTypedRuleContext(SmallerBasicParser.StatementContext,i)
+
+
+        def getRuleIndex(self):
+            return SmallerBasicParser.RULE_subroutineStatement
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterSubroutineStatement" ):
+                listener.enterSubroutineStatement(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitSubroutineStatement" ):
+                listener.exitSubroutineStatement(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitSubroutineStatement" ):
+                return visitor.visitSubroutineStatement(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def subroutineStatement(self):
+
+        localctx = SmallerBasicParser.SubroutineStatementContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 16, self.RULE_subroutineStatement)
+        self._la = 0 # Token type
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 165
+            self.match(SmallerBasicParser.SUB)
+            self.state = 166
+            self.match(SmallerBasicParser.ID)
+            self.state = 168 
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            while True:
+                self.state = 167
+                self.statement()
+                self.state = 170 
+                self._errHandler.sync(self)
+                _la = self._input.LA(1)
+                if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & 23792189440) != 0)):
+                    break
+
+            self.state = 172
+            self.match(SmallerBasicParser.ENDSUB)
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class CallSubroutineStatementContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def ID(self):
+            return self.getToken(SmallerBasicParser.ID, 0)
+
+        def LROUND(self):
+            return self.getToken(SmallerBasicParser.LROUND, 0)
+
+        def RROUND(self):
+            return self.getToken(SmallerBasicParser.RROUND, 0)
+
+        def getRuleIndex(self):
+            return SmallerBasicParser.RULE_callSubroutineStatement
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterCallSubroutineStatement" ):
+                listener.enterCallSubroutineStatement(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitCallSubroutineStatement" ):
+                listener.exitCallSubroutineStatement(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitCallSubroutineStatement" ):
+                return visitor.visitCallSubroutineStatement(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def callSubroutineStatement(self):
+
+        localctx = SmallerBasicParser.CallSubroutineStatementContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 18, self.RULE_callSubroutineStatement)
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 174
+            self.match(SmallerBasicParser.ID)
+            self.state = 175
+            self.match(SmallerBasicParser.LROUND)
+            self.state = 176
+            self.match(SmallerBasicParser.RROUND)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1015,32 +1181,32 @@ class SmallerBasicParser ( Parser ):
     def expression(self):
 
         localctx = SmallerBasicParser.ExpressionContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 16, self.RULE_expression)
+        self.enterRule(localctx, 20, self.RULE_expression)
         try:
-            self.state = 163
+            self.state = 182
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,12,self._ctx)
+            la_ = self._interp.adaptivePredict(self._input,13,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 159
+                self.state = 178
                 self.arithmeticalExpression()
                 pass
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 160
+                self.state = 179
                 self.logicalExpression()
                 pass
 
             elif la_ == 3:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 161
+                self.state = 180
                 self.stringExpression()
                 pass
 
             elif la_ == 4:
                 self.enterOuterAlt(localctx, 4)
-                self.state = 162
+                self.state = 181
                 self.literal()
                 pass
 
@@ -1103,30 +1269,30 @@ class SmallerBasicParser ( Parser ):
     def logicalExpression(self):
 
         localctx = SmallerBasicParser.LogicalExpressionContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 18, self.RULE_logicalExpression)
+        self.enterRule(localctx, 22, self.RULE_logicalExpression)
         self._la = 0 # Token type
         try:
-            self.state = 173
+            self.state = 192
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,14,self._ctx)
+            la_ = self._interp.adaptivePredict(self._input,15,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 165
+                self.state = 184
                 self.booleanExpression()
-                self.state = 168 
+                self.state = 187 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 while True:
-                    self.state = 166
+                    self.state = 185
                     _la = self._input.LA(1)
                     if not(_la==19 or _la==20):
                         self._errHandler.recoverInline(self)
                     else:
                         self._errHandler.reportMatch(self)
                         self.consume()
-                    self.state = 167
+                    self.state = 186
                     self.booleanExpression()
-                    self.state = 170 
+                    self.state = 189 
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
                     if not (_la==19 or _la==20):
@@ -1136,7 +1302,7 @@ class SmallerBasicParser ( Parser ):
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 172
+                self.state = 191
                 self.booleanExpression()
                 pass
 
@@ -1209,30 +1375,30 @@ class SmallerBasicParser ( Parser ):
     def booleanExpression(self):
 
         localctx = SmallerBasicParser.BooleanExpressionContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 20, self.RULE_booleanExpression)
+        self.enterRule(localctx, 24, self.RULE_booleanExpression)
         self._la = 0 # Token type
         try:
-            self.state = 180
+            self.state = 199
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,15,self._ctx)
+            la_ = self._interp.adaptivePredict(self._input,16,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 175
+                self.state = 194
                 self.arithmeticalExpression()
-                self.state = 176
+                self.state = 195
                 _la = self._input.LA(1)
                 if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 516096) != 0)):
                     self._errHandler.recoverInline(self)
                 else:
                     self._errHandler.reportMatch(self)
                     self.consume()
-                self.state = 177
+                self.state = 196
                 self.arithmeticalExpression()
                 pass
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 179
+                self.state = 198
                 self.atomBoolean()
                 pass
 
@@ -1294,28 +1460,28 @@ class SmallerBasicParser ( Parser ):
     def atomBoolean(self):
 
         localctx = SmallerBasicParser.AtomBooleanContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 22, self.RULE_atomBoolean)
+        self.enterRule(localctx, 26, self.RULE_atomBoolean)
         try:
-            self.state = 188
+            self.state = 207
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [3]:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 182
+                self.state = 201
                 self.boolean()
                 pass
-            elif token in [9, 10, 32]:
+            elif token in [9, 10, 34]:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 183
+                self.state = 202
                 self.id_()
                 pass
             elif token in [4]:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 184
+                self.state = 203
                 self.match(SmallerBasicParser.LROUND)
-                self.state = 185
+                self.state = 204
                 self.logicalExpression()
-                self.state = 186
+                self.state = 205
                 self.match(SmallerBasicParser.RROUND)
                 pass
             else:
@@ -1364,10 +1530,10 @@ class SmallerBasicParser ( Parser ):
     def arithmeticalExpression(self):
 
         localctx = SmallerBasicParser.ArithmeticalExpressionContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 24, self.RULE_arithmeticalExpression)
+        self.enterRule(localctx, 28, self.RULE_arithmeticalExpression)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 190
+            self.state = 209
             self.additiveExpression()
         except RecognitionException as re:
             localctx.exception = re
@@ -1427,30 +1593,30 @@ class SmallerBasicParser ( Parser ):
     def additiveExpression(self):
 
         localctx = SmallerBasicParser.AdditiveExpressionContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 26, self.RULE_additiveExpression)
+        self.enterRule(localctx, 30, self.RULE_additiveExpression)
         self._la = 0 # Token type
         try:
-            self.state = 200
+            self.state = 219
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,18,self._ctx)
+            la_ = self._interp.adaptivePredict(self._input,19,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 192
+                self.state = 211
                 self.multiplicativeExpression()
-                self.state = 195 
+                self.state = 214 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 while True:
-                    self.state = 193
+                    self.state = 212
                     _la = self._input.LA(1)
                     if not(_la==9 or _la==10):
                         self._errHandler.recoverInline(self)
                     else:
                         self._errHandler.reportMatch(self)
                         self.consume()
-                    self.state = 194
+                    self.state = 213
                     self.multiplicativeExpression()
-                    self.state = 197 
+                    self.state = 216 
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
                     if not (_la==9 or _la==10):
@@ -1460,7 +1626,7 @@ class SmallerBasicParser ( Parser ):
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 199
+                self.state = 218
                 self.multiplicativeExpression()
                 pass
 
@@ -1523,30 +1689,30 @@ class SmallerBasicParser ( Parser ):
     def multiplicativeExpression(self):
 
         localctx = SmallerBasicParser.MultiplicativeExpressionContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 28, self.RULE_multiplicativeExpression)
+        self.enterRule(localctx, 32, self.RULE_multiplicativeExpression)
         self._la = 0 # Token type
         try:
-            self.state = 210
+            self.state = 229
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,20,self._ctx)
+            la_ = self._interp.adaptivePredict(self._input,21,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 202
+                self.state = 221
                 self.atomNumber()
-                self.state = 205 
+                self.state = 224 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 while True:
-                    self.state = 203
+                    self.state = 222
                     _la = self._input.LA(1)
                     if not(_la==11 or _la==12):
                         self._errHandler.recoverInline(self)
                     else:
                         self._errHandler.reportMatch(self)
                         self.consume()
-                    self.state = 204
+                    self.state = 223
                     self.atomNumber()
-                    self.state = 207 
+                    self.state = 226 
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
                     if not (_la==11 or _la==12):
@@ -1556,7 +1722,7 @@ class SmallerBasicParser ( Parser ):
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 209
+                self.state = 228
                 self.atomNumber()
                 pass
 
@@ -1621,39 +1787,39 @@ class SmallerBasicParser ( Parser ):
     def atomNumber(self):
 
         localctx = SmallerBasicParser.AtomNumberContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 30, self.RULE_atomNumber)
+        self.enterRule(localctx, 34, self.RULE_atomNumber)
         self._la = 0 # Token type
         try:
-            self.state = 221
+            self.state = 240
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,22,self._ctx)
+            la_ = self._interp.adaptivePredict(self._input,23,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 212
+                self.state = 231
                 self.signedNumber()
                 pass
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 213
+                self.state = 232
                 self.id_()
                 pass
 
             elif la_ == 3:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 215
+                self.state = 234
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 if _la==10:
-                    self.state = 214
+                    self.state = 233
                     self.match(SmallerBasicParser.MINUS)
 
 
-                self.state = 217
+                self.state = 236
                 self.match(SmallerBasicParser.LROUND)
-                self.state = 218
+                self.state = 237
                 self.arithmeticalExpression()
-                self.state = 219
+                self.state = 238
                 self.match(SmallerBasicParser.RROUND)
                 pass
 
@@ -1701,10 +1867,10 @@ class SmallerBasicParser ( Parser ):
     def stringExpression(self):
 
         localctx = SmallerBasicParser.StringExpressionContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 32, self.RULE_stringExpression)
+        self.enterRule(localctx, 36, self.RULE_stringExpression)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 223
+            self.state = 242
             self.additiveStringExpression()
         except RecognitionException as re:
             localctx.exception = re
@@ -1758,21 +1924,21 @@ class SmallerBasicParser ( Parser ):
     def additiveStringExpression(self):
 
         localctx = SmallerBasicParser.AdditiveStringExpressionContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 34, self.RULE_additiveStringExpression)
+        self.enterRule(localctx, 38, self.RULE_additiveStringExpression)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 225
+            self.state = 244
             self.atomString()
-            self.state = 230
+            self.state = 249
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while _la==9:
-                self.state = 226
+                self.state = 245
                 self.match(SmallerBasicParser.PLUS)
-                self.state = 227
+                self.state = 246
                 self.atomString()
-                self.state = 232
+                self.state = 251
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -1823,19 +1989,19 @@ class SmallerBasicParser ( Parser ):
     def atomString(self):
 
         localctx = SmallerBasicParser.AtomStringContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 36, self.RULE_atomString)
+        self.enterRule(localctx, 40, self.RULE_atomString)
         try:
-            self.state = 235
+            self.state = 254
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [2]:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 233
+                self.state = 252
                 self.string()
                 pass
-            elif token in [9, 10, 32]:
+            elif token in [9, 10, 34]:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 234
+                self.state = 253
                 self.id_()
                 pass
             else:
@@ -1896,32 +2062,32 @@ class SmallerBasicParser ( Parser ):
     def literal(self):
 
         localctx = SmallerBasicParser.LiteralContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 38, self.RULE_literal)
+        self.enterRule(localctx, 42, self.RULE_literal)
         try:
-            self.state = 241
+            self.state = 260
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,25,self._ctx)
+            la_ = self._interp.adaptivePredict(self._input,26,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 237
+                self.state = 256
                 self.signedNumber()
                 pass
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 238
+                self.state = 257
                 self.string()
                 pass
 
             elif la_ == 3:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 239
+                self.state = 258
                 self.boolean()
                 pass
 
             elif la_ == 4:
                 self.enterOuterAlt(localctx, 4)
-                self.state = 240
+                self.state = 259
                 self.id_()
                 pass
 
@@ -1974,15 +2140,15 @@ class SmallerBasicParser ( Parser ):
     def signedNumber(self):
 
         localctx = SmallerBasicParser.SignedNumberContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 40, self.RULE_signedNumber)
+        self.enterRule(localctx, 44, self.RULE_signedNumber)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 244
+            self.state = 263
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==9 or _la==10:
-                self.state = 243
+                self.state = 262
                 _la = self._input.LA(1)
                 if not(_la==9 or _la==10):
                     self._errHandler.recoverInline(self)
@@ -1991,7 +2157,7 @@ class SmallerBasicParser ( Parser ):
                     self.consume()
 
 
-            self.state = 246
+            self.state = 265
             self.match(SmallerBasicParser.NUMBER_LITERAL)
         except RecognitionException as re:
             localctx.exception = re
@@ -2035,10 +2201,10 @@ class SmallerBasicParser ( Parser ):
     def string(self):
 
         localctx = SmallerBasicParser.StringContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 42, self.RULE_string)
+        self.enterRule(localctx, 46, self.RULE_string)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 248
+            self.state = 267
             self.match(SmallerBasicParser.STRING_LITERAL)
         except RecognitionException as re:
             localctx.exception = re
@@ -2082,10 +2248,10 @@ class SmallerBasicParser ( Parser ):
     def boolean(self):
 
         localctx = SmallerBasicParser.BooleanContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 44, self.RULE_boolean)
+        self.enterRule(localctx, 48, self.RULE_boolean)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 250
+            self.state = 269
             self.match(SmallerBasicParser.BOOLEAN_LITERAL)
         except RecognitionException as re:
             localctx.exception = re
@@ -2135,15 +2301,15 @@ class SmallerBasicParser ( Parser ):
     def id_(self):
 
         localctx = SmallerBasicParser.IdContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 46, self.RULE_id)
+        self.enterRule(localctx, 50, self.RULE_id)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 253
+            self.state = 272
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==9 or _la==10:
-                self.state = 252
+                self.state = 271
                 _la = self._input.LA(1)
                 if not(_la==9 or _la==10):
                     self._errHandler.recoverInline(self)
@@ -2152,7 +2318,7 @@ class SmallerBasicParser ( Parser ):
                     self.consume()
 
 
-            self.state = 255
+            self.state = 274
             self.match(SmallerBasicParser.ID)
         except RecognitionException as re:
             localctx.exception = re

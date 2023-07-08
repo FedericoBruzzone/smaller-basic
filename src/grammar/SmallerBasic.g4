@@ -12,11 +12,13 @@ statement
     | ifStatement
     | labelStatement
     | gotoStatement
+    | subroutineStatement
+    | callSubroutineStatement
     ;
 
 declarationStatement //(EQ expression)?
     : ID EQ expression
-    | ID (LSQUARE arithmeticalExpression RSQUARE)+ EQ expression     
+    | ID (LSQUARE arithmeticalExpression RSQUARE)+ EQ expression
     ;
 
 labelStatement
@@ -39,6 +41,14 @@ whileStatement
 forStatement
     : FOR ID EQ arithmeticalExpression TO arithmeticalExpression statement+ ENDFOR
     | FOR ID EQ arithmeticalExpression TO arithmeticalExpression STEP arithmeticalExpression statement+ ENDFOR
+    ;
+
+subroutineStatement
+    : SUB ID statement+ ENDSUB
+    ;
+
+callSubroutineStatement
+    : ID LROUND RROUND
     ;
 
 expression
@@ -247,6 +257,14 @@ ENDFOR
 
 GOTO
     : 'Goto'
+    ;
+
+SUB
+    : 'Sub'
+    ;
+
+ENDSUB
+    : 'EndSub'
     ;
 
 // ====================

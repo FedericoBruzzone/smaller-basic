@@ -241,3 +241,48 @@ EndWhile
 Label1: 
     x = 3E10
 
+
+
+While ((1 + (2 * 3) < 5) Or (a = ((1 + b) + 2)))  
+    start:
+    If ((1 < exp) And False) Then 
+        a = 3   
+        a = a + 4
+    Else 
+        p = "ciao"
+        x = 5  
+    EndIf
+    a = 3
+    i = i + 1
+    Goto start
+EndWhile
+
+
+
+If (1 < 2) Then
+    x = x + 1
+EndIf
+
+If (1 = 2) Then
+    x = x + 1
+EndIf
+
+Sub PlusOne
+    a = a + 1
+    addPlusOne:
+    a = a + 1
+
+    If (a = 5) Then
+        Goto start
+    EndIf
+EndSub
+
+Sub iPlusOne
+    i = i + 1
+EndSub
+
+While (i < 10)
+    iPlusOne()
+EndWhile
+
+
