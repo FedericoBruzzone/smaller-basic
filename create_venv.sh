@@ -16,8 +16,30 @@ export ANTLR4_JAR=$HOME/Documents/smaller-basic/jars/antlr-4.12.0-complete.jar
 alias antlr4='java -jar $ANTLR4_JAR'
 alias grun='java org.antlr.v4.gui.TestRig'
 
-smallbasic () {
-    antlr4 -Dlanguage=Python3 -visitor src/grammar/SmallerBasic.g4 && python3 -m src.main source_code/"$1"
+smallbasic() {
+    if [[ $1 == "-h" ]]; then
+        echo "Usage: smallbasic [OPTION] [FILE]"
+        echo "Run Smaller Basic program"
+        echo ""
+        echo "Options:"
+        echo "  -h      display this help and exit"
+        echo "  -g      generate grammar"
+        echo "  -ga     generate grammar and run all files in source_code"
+        echo "  -a      run all files in source_code"
+        echo ""
+    elif [[ $1 == "-g" ]]; then
+        antlr4 -Dlanguage=Python3 -visitor src/grammar/SmallerBasic.g4; 
+        if [[ $2 ]]; then
+            python3 -m src.main source_code/"$2"
+        fi
+    elif [[ $1 == "-ga" ]]; then
+        antlr4 -Dlanguage=Python3 -visitor src/grammar/SmallerBasic.g4; 
+        smallbasic_run_all
+    elif [[ $1 == "-a" ]]; then
+        smallbasic_run_all
+    else
+        python3 -m src.main source_code/"$1"
+    fi
 }
 
 smallbasic_run_all () {

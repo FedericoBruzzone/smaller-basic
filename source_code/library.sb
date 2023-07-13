@@ -1,0 +1,19 @@
+IO.Read()
+IO.Read.think()
+IO.Read()
+a = 5
+IO.Write(True)
+a[1][1] = True
+
+
+a = IO.Write()
+a = IO.Write(IO.Read())
+
+a = -IO.Write()
+a = IO.write() + F.F(((1 + (2 * 3) < 5) Or (a = ((1 + b) + 2)))) * -F.Read()
+x = (IO.Read() + F.F())
+
+a = Math.sin(10)
+a = a.Length()
+
+

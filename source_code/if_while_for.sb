@@ -91,6 +91,8 @@ Else
     x = 5  
 EndIf
 
+// coap
+
 If (exp) Then 
     a = 3 
     a = a + 4
@@ -241,6 +243,9 @@ EndWhile
 Label1: 
     x = 3E10
 
+IF (1 < 2) Then
+    x = x + 1
+EndIf
 
 
 While ((1 + (2 * 3) < 5) Or (a = ((1 + b) + 2)))  

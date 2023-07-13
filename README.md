@@ -19,6 +19,19 @@ A simple Python interpreter using ANTLR4 as a parser generator for a version of 
 
 `deactivate`
 
+## Usage 
+
+```
+Usage: smallbasic [OPTION] [FILE]
+Run Smaller Basic program
+
+Options:
+  -h      display this help and exit
+  -g      generate grammar
+  -ga     generate grammar and run all files in source_code
+  -a      run all files in source_code
+```
+
 ## Run interpreter
 
 In development phase the following command will re-generate the grammar related files from scratch. 

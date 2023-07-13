@@ -98,6 +98,15 @@ class SmallerBasicListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by SmallerBasicParser#libraryStatement.
+    def enterLibraryStatement(self, ctx:SmallerBasicParser.LibraryStatementContext):
+        pass
+
+    # Exit a parse tree produced by SmallerBasicParser#libraryStatement.
+    def exitLibraryStatement(self, ctx:SmallerBasicParser.LibraryStatementContext):
+        pass
+
+
     # Enter a parse tree produced by SmallerBasicParser#expression.
     def enterExpression(self, ctx:SmallerBasicParser.ExpressionContext):
         pass

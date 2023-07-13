@@ -5,6 +5,9 @@ program
     : statement+ EOF
     ;
 
+// ======================================================
+//  ==================== STATEMENTS =====================
+// ======================================================
 statement
     : declarationStatement
     | whileStatement
@@ -14,6 +17,7 @@ statement
     | gotoStatement
     | subroutineStatement
     | callSubroutineStatement
+    | libraryStatement
     ;
 
 declarationStatement //(EQ expression)?
@@ -51,6 +55,13 @@ callSubroutineStatement
     : ID LROUND RROUND
     ;
 
+libraryStatement
+    : ID (DOT ID)+ LROUND expression? RROUND
+    ;
+
+// ======================================================
+//  ==================== EXPRESSIONS ====================
+// ======================================================
 expression
     : arithmeticalExpression 
     | logicalExpression
@@ -58,6 +69,7 @@ expression
     | literal
     ;
 
+//  ==================== LOGICAL AND BOOLEAN EXPRESSIONS ====================
 logicalExpression
     : booleanExpression ((AND | OR) booleanExpression)+
     | booleanExpression
@@ -72,8 +84,10 @@ atomBoolean
     : boolean
     | id
     | LROUND logicalExpression RROUND
+    | libraryStatement
     ;
 
+//  ==================== ARITHMETICAL EXPRESSIONS ====================
 arithmeticalExpression
     : additiveExpression
     ;
@@ -92,8 +106,10 @@ atomNumber
     : signedNumber
     | id 
     | ('-')? LROUND arithmeticalExpression RROUND 
+    | ('-')? libraryStatement
     ;
 
+//  ==================== STRING EXPRESSIONS ====================
 stringExpression
     : additiveStringExpression
     ;
@@ -105,8 +121,10 @@ additiveStringExpression
 atomString
     : string
     | id
+    | libraryStatement
     ;
 
+//  ==================== LITERALS ====================
 literal
     : signedNumber 
     | string 
@@ -129,8 +147,10 @@ boolean
 id
     : ('-' | '+')? ID
     ;
-////////////////////////////
 
+// ================================================
+//  ==================== LEXER ====================
+// ================================================
 NUMBER_LITERAL
     : INT
     | FLOAT
@@ -161,6 +181,10 @@ LSQUARE
 
 RSQUARE
     : ']'
+    ;
+
+DOT
+    : '.'
     ;
 
 COLON
@@ -267,7 +291,6 @@ ENDSUB
     : 'EndSub'
     ;
 
-// ====================
 ID       
     : CHAR (CHAR | NUM | '_')* 
     ;
