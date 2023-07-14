@@ -1,8 +1,8 @@
 from pprint import pprint as pp
 from typing import Any
 
-from src.interpreter.RunningRuntimeError import RunningRuntimeError
-from src.interpreter.InterpreterHelper import build_antlr4_tree_string 
+from src.interpreter.running_runtime_error import RunningRuntimeError
+from src.interpreter.interpreter_helper import build_antlr4_tree_string 
 
 from antlr4.InputStream import InputStream
 from antlr4.CommonTokenStream import CommonTokenStream
