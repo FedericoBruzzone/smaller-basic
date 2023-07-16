@@ -1,2 +1,14 @@
 A = 1<2 And false
 C = (3 * 4) And false
+C = (3 * 4) + (77+3) Or false
+D = 12 < false 
+
+While ((A < 10) And (B < 10)) 
+    A = A + 1
+    B = B + 1
+EndWhile
+
+/* While (A < 10) And (B < 10) Do */
+/*     A = A + 1 */
+/*     B = B + 1 */
+/* End While */
