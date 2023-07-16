@@ -63,8 +63,8 @@ libraryStatement
 //  ==================== EXPRESSIONS ====================
 // ======================================================
 expression
-    : arithmeticalExpression 
-    | logicalExpression
+    : logicalExpression
+    | arithmeticalExpression 
     | stringExpression 
     | literal
     ;

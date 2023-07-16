@@ -12,9 +12,19 @@ else
 fi
 source "$1/bin/activate"
 
-export ANTLR4_JAR=$HOME/Documents/smaller-basic/jars/antlr-4.12.0-complete.jar
+# export ANTLR4_JAR=$HOME/Documents/smaller-basic/jars/antlr-4.12.0-complete.jar
+export ANTLR4_JAR=./jars/antlr-4.12.0-complete.jar
 alias antlr4='java -jar $ANTLR4_JAR'
 alias grun='java org.antlr.v4.gui.TestRig'
+
+smallbasic_run_all () {
+    for file in source_code/*.sb; do
+        echo "Running $file"
+        file=${file#source_code/}
+        smallbasic "$file"
+        echo ""
+    done
+}
 
 smallbasic() {
     if [[ $1 == "-h" ]]; then
@@ -40,15 +50,6 @@ smallbasic() {
     else
         python3 -m src.main source_code/"$1"
     fi
-}
-
-smallbasic_run_all () {
-    for file in source_code/*.sb; do
-        echo "Running $file"
-        file=${file#source_code/}
-        smallbasic "$file"
-        echo ""
-    done
 }
 
 pip install -e .

@@ -81,7 +81,7 @@ def serializedATN():
         0,0,183,185,5,35,0,0,184,182,1,0,0,0,185,186,1,0,0,0,186,184,1,0,
         0,0,186,187,1,0,0,0,187,188,1,0,0,0,188,190,5,4,0,0,189,191,3,22,
         11,0,190,189,1,0,0,0,190,191,1,0,0,0,191,192,1,0,0,0,192,193,5,5,
-        0,0,193,21,1,0,0,0,194,199,3,30,15,0,195,199,3,24,12,0,196,199,3,
+        0,0,193,21,1,0,0,0,194,199,3,24,12,0,195,199,3,30,15,0,196,199,3,
         38,19,0,197,199,3,44,22,0,198,194,1,0,0,0,198,195,1,0,0,0,198,196,
         1,0,0,0,198,197,1,0,0,0,199,23,1,0,0,0,200,203,3,26,13,0,201,202,
         7,0,0,0,202,204,3,26,13,0,203,201,1,0,0,0,204,205,1,0,0,0,205,203,
@@ -1257,12 +1257,12 @@ class SmallerBasicParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def arithmeticalExpression(self):
-            return self.getTypedRuleContext(SmallerBasicParser.ArithmeticalExpressionContext,0)
-
-
         def logicalExpression(self):
             return self.getTypedRuleContext(SmallerBasicParser.LogicalExpressionContext,0)
+
+
+        def arithmeticalExpression(self):
+            return self.getTypedRuleContext(SmallerBasicParser.ArithmeticalExpressionContext,0)
 
 
         def stringExpression(self):
@@ -1304,13 +1304,13 @@ class SmallerBasicParser ( Parser ):
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
                 self.state = 194
-                self.arithmeticalExpression()
+                self.logicalExpression()
                 pass
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
                 self.state = 195
-                self.logicalExpression()
+                self.arithmeticalExpression()
                 pass
 
             elif la_ == 3:

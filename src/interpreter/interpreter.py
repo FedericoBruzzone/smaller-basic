@@ -3,6 +3,7 @@ from typing import Any
 
 from src.interpreter.running_runtime_error import RunningRuntimeError
 from src.interpreter.interpreter_helper import build_antlr4_tree_string 
+from src.error.smaller_basic_error_listener import SmallerBasicErrorListener
 
 from antlr4.InputStream import InputStream
 from antlr4.CommonTokenStream import CommonTokenStream
@@ -68,6 +69,7 @@ class Interpreter(object):
 
         Args:
             token_stream (CommonTokenStream): The token stream.
+            print_res (bool, optional): Whether to print the result. Defaults to False.
 
         Returns:
             SmallerBasicParser.ProgramContext: The AST.
@@ -77,6 +79,8 @@ class Interpreter(object):
 
         self.print("Do the parser...")
         parser: SmallerBasicParser                            = SmallerBasicParser(token_stream)
+        parser.removeErrorListeners()
+        parser.addErrorListener(SmallerBasicErrorListener())
         smaller_basic_tree: SmallerBasicParser.ProgramContext = parser.program()
         if print_res:
             self.print(build_antlr4_tree_string(smaller_basic_tree.toStringTree(recog = parser)))
