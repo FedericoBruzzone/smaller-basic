@@ -63,10 +63,10 @@ libraryStatement
 //  ==================== EXPRESSIONS ====================
 // ======================================================
 expression
-    : literal
-    | logicalExpression
+    : logicalExpression
     | arithmeticalExpression 
     | stringExpression 
+    | literal
     ;
 
 //  ==================== LOGICAL AND BOOLEAN EXPRESSIONS ====================
@@ -103,8 +103,7 @@ multiplicativeExpression
     ;
 
 atomNumber
-    : signedInt 
-    | signedFloat
+    : signedNumber
     | signedId 
     | ('-')? LROUND arithmeticalExpression RROUND 
     | ('-')? libraryStatement
@@ -127,21 +126,15 @@ atomString
 
 //  ==================== LITERALS ====================
 literal
-    : signedInt
-    | signedFloat
+    : signedNumber 
     | string 
     | boolean
     | signedId
     ;
 
-signedInt
-    : ('-' | '+')? INT            
+signedNumber
+    : ('-' | '+')? NUMBER_LITERAL 
     ;
-
-signedFloat
-    : ('-' | '+')? FLOAT          
-    ;
-
 
 string
     : STRING_LITERAL              
@@ -158,6 +151,12 @@ signedId
 // ================================================
 //  ==================== LEXER ====================
 // ================================================
+NUMBER_LITERAL
+    : INT
+    | FLOAT
+    | '0'
+    ;
+
 STRING_LITERAL
     : '"' ~["\u0000-\u001F\u007F]* '"' // '"' ~[\r\n"]* '"' 
     ;
@@ -296,12 +295,11 @@ ID
     : CHAR (CHAR | NUM | '_')* 
     ;
 
-INT      
-    : '0' 
-    | [1-9] NUM* EXPONENT? 
+fragment INT      
+    : ([1-9] NUM* | '0')? EXPONENT? 
     ;
 
-FLOAT    
+fragment FLOAT    
     : ([1-9] NUM* | '0')? '.' NUM+ EXPONENT? 
     ;
 

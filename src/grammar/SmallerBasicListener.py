@@ -26,12 +26,21 @@ class SmallerBasicListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SmallerBasicParser#declarationStatement.
-    def enterDeclarationStatement(self, ctx:SmallerBasicParser.DeclarationStatementContext):
+    # Enter a parse tree produced by SmallerBasicParser#VariableDeclarationStatement.
+    def enterVariableDeclarationStatement(self, ctx:SmallerBasicParser.VariableDeclarationStatementContext):
         pass
 
-    # Exit a parse tree produced by SmallerBasicParser#declarationStatement.
-    def exitDeclarationStatement(self, ctx:SmallerBasicParser.DeclarationStatementContext):
+    # Exit a parse tree produced by SmallerBasicParser#VariableDeclarationStatement.
+    def exitVariableDeclarationStatement(self, ctx:SmallerBasicParser.VariableDeclarationStatementContext):
+        pass
+
+
+    # Enter a parse tree produced by SmallerBasicParser#ArrayDeclarationStatement.
+    def enterArrayDeclarationStatement(self, ctx:SmallerBasicParser.ArrayDeclarationStatementContext):
+        pass
+
+    # Exit a parse tree produced by SmallerBasicParser#ArrayDeclarationStatement.
+    def exitArrayDeclarationStatement(self, ctx:SmallerBasicParser.ArrayDeclarationStatementContext):
         pass
 
 
@@ -215,12 +224,21 @@ class SmallerBasicListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SmallerBasicParser#signedNumber.
-    def enterSignedNumber(self, ctx:SmallerBasicParser.SignedNumberContext):
+    # Enter a parse tree produced by SmallerBasicParser#signedInt.
+    def enterSignedInt(self, ctx:SmallerBasicParser.SignedIntContext):
         pass
 
-    # Exit a parse tree produced by SmallerBasicParser#signedNumber.
-    def exitSignedNumber(self, ctx:SmallerBasicParser.SignedNumberContext):
+    # Exit a parse tree produced by SmallerBasicParser#signedInt.
+    def exitSignedInt(self, ctx:SmallerBasicParser.SignedIntContext):
+        pass
+
+
+    # Enter a parse tree produced by SmallerBasicParser#signedFloat.
+    def enterSignedFloat(self, ctx:SmallerBasicParser.SignedFloatContext):
+        pass
+
+    # Exit a parse tree produced by SmallerBasicParser#signedFloat.
+    def exitSignedFloat(self, ctx:SmallerBasicParser.SignedFloatContext):
         pass
 
 
@@ -242,12 +260,12 @@ class SmallerBasicListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SmallerBasicParser#id.
-    def enterId(self, ctx:SmallerBasicParser.IdContext):
+    # Enter a parse tree produced by SmallerBasicParser#signedId.
+    def enterSignedId(self, ctx:SmallerBasicParser.SignedIdContext):
         pass
 
-    # Exit a parse tree produced by SmallerBasicParser#id.
-    def exitId(self, ctx:SmallerBasicParser.IdContext):
+    # Exit a parse tree produced by SmallerBasicParser#signedId.
+    def exitSignedId(self, ctx:SmallerBasicParser.SignedIdContext):
         pass
 
 

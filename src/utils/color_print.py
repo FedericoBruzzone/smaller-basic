@@ -55,5 +55,5 @@ def apply_color_print(cls: type, color_name: str) -> type:
     Returns:
         type: class with color applied to print function.
     """
-    return ColorPrint(color_name)(cls.__name__, (object, ), dict(cls.__dict__))
+    return ColorPrint(color_name)(cls.__name__, cls.__bases__, dict(cls.__dict__))
 

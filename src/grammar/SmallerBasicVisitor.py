@@ -19,8 +19,13 @@ class SmallerBasicVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by SmallerBasicParser#declarationStatement.
-    def visitDeclarationStatement(self, ctx:SmallerBasicParser.DeclarationStatementContext):
+    # Visit a parse tree produced by SmallerBasicParser#VariableDeclarationStatement.
+    def visitVariableDeclarationStatement(self, ctx:SmallerBasicParser.VariableDeclarationStatementContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by SmallerBasicParser#ArrayDeclarationStatement.
+    def visitArrayDeclarationStatement(self, ctx:SmallerBasicParser.ArrayDeclarationStatementContext):
         return self.visitChildren(ctx)
 
 
@@ -124,8 +129,13 @@ class SmallerBasicVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by SmallerBasicParser#signedNumber.
-    def visitSignedNumber(self, ctx:SmallerBasicParser.SignedNumberContext):
+    # Visit a parse tree produced by SmallerBasicParser#signedInt.
+    def visitSignedInt(self, ctx:SmallerBasicParser.SignedIntContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by SmallerBasicParser#signedFloat.
+    def visitSignedFloat(self, ctx:SmallerBasicParser.SignedFloatContext):
         return self.visitChildren(ctx)
 
 
@@ -139,8 +149,8 @@ class SmallerBasicVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by SmallerBasicParser#id.
-    def visitId(self, ctx:SmallerBasicParser.IdContext):
+    # Visit a parse tree produced by SmallerBasicParser#signedId.
+    def visitSignedId(self, ctx:SmallerBasicParser.SignedIdContext):
         return self.visitChildren(ctx)
 
 

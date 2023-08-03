@@ -1,14 +1,16 @@
-from pprint import pprint as pp
 from typing import Any
 
 from src.interpreter.running_runtime_error import RunningRuntimeError
 from src.interpreter.interpreter_helper import build_antlr4_tree_string 
 from src.error.smaller_basic_error_listener import SmallerBasicErrorListener
+from src.grammar.SmallerBasicLexer import SmallerBasicLexer
+from src.grammar.SmallerBasicParser import SmallerBasicParser
+
+from src.abstract_syntax_tree.ast_visitor import SmallerBasicAstVisitor 
+from src.abstract_syntax_tree.ast import Ast
 
 from antlr4.InputStream import InputStream
 from antlr4.CommonTokenStream import CommonTokenStream
-from src.grammar.SmallerBasicLexer import SmallerBasicLexer
-from src.grammar.SmallerBasicParser import SmallerBasicParser
 
 class Interpreter(object):
     def __init__(self):
@@ -86,6 +88,22 @@ class Interpreter(object):
             self.print(build_antlr4_tree_string(smaller_basic_tree.toStringTree(recog = parser)))
         return smaller_basic_tree
 
+    def create_ast(self, antlr4_tree: SmallerBasicParser.ProgramContext, print_res = False) -> Ast:
+        """
+        Create the AST.
+
+        Args:
+            antlr4_tree (SmallerBasicParser.ProgramContext): The ANTLR4 tree.
+        """
+        if not self.__is_running:
+            raise RunningRuntimeError(self.create_ast.__name__, self.__is_running)
+        
+        self.print("Create the AST...")
+        smaller_basic_ast_visitor: SmallerBasicAstVisitor = SmallerBasicAstVisitor()
+        smaller_basic_ast: Ast = smaller_basic_ast_visitor.visit(antlr4_tree)
+        if print_res:
+            print(smaller_basic_ast)
+        return smaller_basic_ast
     @staticmethod
     def print(string: str):
         print(string)
@@ -107,6 +125,7 @@ class Interpreter(object):
         self.print("Interpreter is running...")
         token_stream: CommonTokenStream                       = self.do_lexical_analysis()
         smaller_basic_tree: SmallerBasicParser.ProgramContext = self.do_parser(token_stream, print_res = False) 
+        smaller_basic_ast: Ast                                = self.create_ast(smaller_basic_tree, print_res = True)
         self.__is_running = False
 
 from src.utils.color_print import color
