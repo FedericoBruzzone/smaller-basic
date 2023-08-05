@@ -1,8 +1,8 @@
-from src.abstract_syntax_tree.abstract_ast_node import AbstractAstNode
+from src.abstract_syntax_tree.expression_nodes.abstract_expression_node import AbstractExpressionNode
 
-class AbstractExpressionNode(AbstractAstNode):
+class StringExpressionNode(AbstractExpressionNode):
     """
-    Abstract expression node class. 
+    String expression node class. 
     """
 
     def __init__(self, children: list = list()):
@@ -13,5 +13,5 @@ class AbstractExpressionNode(AbstractAstNode):
             children (list): The children of the node.
         """
         super().__init__(children)
-        self.name = "AbstractExpressionNode"
+        self.name = "StringExpressionNode"
 

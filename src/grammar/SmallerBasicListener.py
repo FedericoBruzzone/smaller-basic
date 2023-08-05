@@ -197,12 +197,21 @@ class SmallerBasicListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SmallerBasicParser#additiveStringExpression.
-    def enterAdditiveStringExpression(self, ctx:SmallerBasicParser.AdditiveStringExpressionContext):
+    # Enter a parse tree produced by SmallerBasicParser#AdditiveStringExpressionWithOp.
+    def enterAdditiveStringExpressionWithOp(self, ctx:SmallerBasicParser.AdditiveStringExpressionWithOpContext):
         pass
 
-    # Exit a parse tree produced by SmallerBasicParser#additiveStringExpression.
-    def exitAdditiveStringExpression(self, ctx:SmallerBasicParser.AdditiveStringExpressionContext):
+    # Exit a parse tree produced by SmallerBasicParser#AdditiveStringExpressionWithOp.
+    def exitAdditiveStringExpressionWithOp(self, ctx:SmallerBasicParser.AdditiveStringExpressionWithOpContext):
+        pass
+
+
+    # Enter a parse tree produced by SmallerBasicParser#AdditiveStringExpressionNoOp.
+    def enterAdditiveStringExpressionNoOp(self, ctx:SmallerBasicParser.AdditiveStringExpressionNoOpContext):
+        pass
+
+    # Exit a parse tree produced by SmallerBasicParser#AdditiveStringExpressionNoOp.
+    def exitAdditiveStringExpressionNoOp(self, ctx:SmallerBasicParser.AdditiveStringExpressionNoOpContext):
         pass
 
 

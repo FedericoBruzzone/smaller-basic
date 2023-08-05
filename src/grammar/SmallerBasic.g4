@@ -60,7 +60,7 @@ libraryStatement
     ;
 
 // ======================================================
-//  ==================== EXPRESSIONS ====================
+// ==================== EXPRESSIONS ====================
 // ======================================================
 expression
     : literal
@@ -116,7 +116,8 @@ stringExpression
     ;
 
 additiveStringExpression
-    : atomString (PLUS  atomString)*
+    : atomString (PLUS  atomString)+ # AdditiveStringExpressionWithOp
+    | atomString                     # AdditiveStringExpressionNoOp
     ;
 
 atomString
