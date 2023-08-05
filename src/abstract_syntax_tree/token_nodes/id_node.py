@@ -20,7 +20,7 @@ class IdNode(AbstractTokenNode):
 
         super().__init__()
         self.id_name = id_name 
-        self.name = "IdName"
+        self.name = "IdNode"
 
     def get_symbol(self) -> str:
         """

@@ -1,19 +1,21 @@
 // INT
 int = 1
 int = 10
-int = 1e1
-int = 1e10
-int = 1E1
-int = 1E10
 
 int = -1
 int = -10
+
+// FLOAT 
 int = -1e10
 int = -1e-10
 int = -1E10
 int = -1E-10
 
-// FLOAT 
+int = 1e1
+int = 1e10
+int = 1E1
+int = 1E10
+
 float = 0.1
 float = 1.1
 float = 0.123

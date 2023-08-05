@@ -7,12 +7,14 @@ class SignedIntLiteralNode(AbstractExpressionNode):
 
     def __init__(self, sign: str, number: str):
         """
-        Initialize an instance of SignedNumberLiteralNode.
+        Initialize an instance of SignedIntLiteralNode.
         """
         super().__init__()
         self.sign: str = sign
         self.number: str = number 
-        self.sign_num: int = int(sign + number)
+        self.sign_int: int = int(sign + number)
         self.name: str = "SignedIntLiteralNode"
         
+        print(f"SignedIntLiteralNode object created with value: {self.sign_int}")
+
     def visit(self): pass

@@ -1,4 +1,71 @@
-exp = -111000
-exp2 = +10
-exp3 = 0
+// INT
+int = 1
+int = 10
 
+int = -1
+int = -10
+
+// FLOAT 
+int = -1e10
+int = -1e-10
+int = -1E10
+int = -1E-10
+
+int = 1e1
+int = 1e10
+int = 1E1
+int = 1E10
+
+float = 0.1
+float = 1.1
+float = 0.123
+float = 1.123
+float = 123.123
+float = .1
+float = .123
+
+float = -0.1
+float = -1.1
+float = -0.123
+float = -1.123
+float = -123.123
+float = -.1
+float = -.123
+
+float = 0.1e10
+float = 1.1e0
+float = 0.123e20
+float = 1.123e890
+float = 123.123e-123
+float = .1e-0
+float = .123e-1
+
+float = -0.1E10
+float = -1.1E0
+float = -0.123E20
+float = -1.123E890
+float = -123.123E-123
+float = -.1E-0
+float = -.123E-1
+
+// STRING
+string = "" 
+string = "  " 
+string = "ciao" 
+string = " ciao" 
+string = "ciao " 
+string = "c" 
+string = "c         " 
+string = "c12"
+string = "132"
+string = "!@#$%^&*(){}[]/'"
+string = "A"
+
+// BOOLEAN
+boolean_1 = true 
+boolean_2 = false
+
+// ID
+first = 10
+second = 20
+third = first

@@ -298,11 +298,11 @@ ID
 
 INT      
     : '0' 
-    | [1-9] NUM* EXPONENT? 
+    | [1-9] NUM* // EXPONENT? 
     ;
 
 FLOAT    
-    : ([1-9] NUM* | '0')? '.' NUM+ EXPONENT? 
+    : ([1-9] NUM* | '0')? ('.')? NUM+ EXPONENT? 
     ;
 
 fragment EXPONENT 

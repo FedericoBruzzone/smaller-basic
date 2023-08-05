@@ -1,4 +1,3 @@
-from typing import Any 
 from src.abstract_syntax_tree.statement_nodes.abstract_statement_node import AbstractStatementNode
 from src.abstract_syntax_tree.expression_nodes.abstract_expression_node import AbstractExpressionNode
 from src.abstract_syntax_tree.token_nodes.id_node import IdNode
