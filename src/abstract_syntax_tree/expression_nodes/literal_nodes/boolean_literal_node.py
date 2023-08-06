@@ -13,7 +13,7 @@ class BooleanLiteralNode(AbstractExpressionNode):
         self.boolean: bool = self.get_value(boolean) 
         self.name: str = "BooleanLiteralNode"
        
-        print(f"BooleanLiteralNode object created with value: {self.boolean}") 
+        # print(f"BooleanLiteralNode object created with value: {self.boolean}") 
 
     def get_value(self, boolean: str) -> bool:
         """

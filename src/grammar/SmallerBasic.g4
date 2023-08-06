@@ -93,21 +93,19 @@ arithmeticalExpression
     ;
 
 additiveExpression
-    : multiplicativeExpression ((PLUS | MINUS) multiplicativeExpression)+ // #WithAdd
-    | multiplicativeExpression // #NoAdd
+    : multiplicativeExpression ((PLUS | MINUS) multiplicativeExpression)*
     ;
 
 multiplicativeExpression
-    : atomNumber ((MUL | DIV) multiplicativeExpression)+
-    | atomNumber
+    : atomNumber ((MUL | DIV) multiplicativeExpression)*
     ;
 
 atomNumber
-    : signedInt 
-    | signedFloat
-    | signedId 
-    | ('-')? LROUND arithmeticalExpression RROUND 
-    | ('-')? libraryStatement
+    : signedInt                                     # AtomIntLiteral 
+    | signedFloat                                   # AtomFloatLiteral
+    | signedId                                      # AtomNumberId
+    | ('-')? LROUND arithmeticalExpression RROUND   # AtomNumberArithmeticalExpression 
+    | ('-')? libraryStatement                       # AtomNumberLibraryStatement
     ;
 
 //  ==================== STRING EXPRESSIONS ====================
@@ -120,9 +118,9 @@ additiveStringExpression
     ;
 
 atomString
-    : string                                       # AtomStringLiteral
-    | ID                                           # AtomStringId  
-    | libraryStatement                             # AtomStringLibraryStatement
+    : string                                        # AtomStringLiteral
+    | ID                                            # AtomStringId  
+    | libraryStatement                              # AtomStringLibraryStatement
     ;
 
 //  ==================== LITERALS ====================

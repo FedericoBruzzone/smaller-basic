@@ -13,6 +13,6 @@ class StringLiteralNode(AbstractExpressionNode):
         self.string: str = str(string) 
         self.name: str = "StringLiteralNode"
         
-        print(f"StringLiteralNode object created with value: {self.string}")
+        # print(f"StringLiteralNode object created with value: {self.string}")
 
     def visit(self): pass

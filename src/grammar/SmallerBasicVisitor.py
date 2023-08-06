@@ -104,8 +104,28 @@ class SmallerBasicVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by SmallerBasicParser#atomNumber.
-    def visitAtomNumber(self, ctx:SmallerBasicParser.AtomNumberContext):
+    # Visit a parse tree produced by SmallerBasicParser#AtomIntLiteral.
+    def visitAtomIntLiteral(self, ctx:SmallerBasicParser.AtomIntLiteralContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by SmallerBasicParser#AtomFloatLiteral.
+    def visitAtomFloatLiteral(self, ctx:SmallerBasicParser.AtomFloatLiteralContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by SmallerBasicParser#AtomNumberId.
+    def visitAtomNumberId(self, ctx:SmallerBasicParser.AtomNumberIdContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by SmallerBasicParser#AtomNumberArithmeticalExpression.
+    def visitAtomNumberArithmeticalExpression(self, ctx:SmallerBasicParser.AtomNumberArithmeticalExpressionContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by SmallerBasicParser#AtomNumberLibraryStatement.
+    def visitAtomNumberLibraryStatement(self, ctx:SmallerBasicParser.AtomNumberLibraryStatementContext):
         return self.visitChildren(ctx)
 
 

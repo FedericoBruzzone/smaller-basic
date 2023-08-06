@@ -1,3 +1,7 @@
 a = "a"
 b = "b"
 ab = "a" + "b"
+abc = "a" + "b" + "c"
+abcd = "a" + "b" + "c" + "d"
+x = a + "b"
+/* xyz = a + b + "c" + z */

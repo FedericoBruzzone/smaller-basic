@@ -14,6 +14,6 @@ class SignedIdLiteralNode(AbstractExpressionNode):
         self.id_name: str = id_name
         self.name: str = "SignedIdLiteralNode" 
         
-        print(f"SignedIdLiteralNode object created with value: {self.sign}{self.id_name}")
+        # print(f"SignedIdLiteralNode object created with value: {self.sign}{self.id_name}")
 
     def visit(self): pass

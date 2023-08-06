@@ -179,12 +179,48 @@ class SmallerBasicListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SmallerBasicParser#atomNumber.
-    def enterAtomNumber(self, ctx:SmallerBasicParser.AtomNumberContext):
+    # Enter a parse tree produced by SmallerBasicParser#AtomIntLiteral.
+    def enterAtomIntLiteral(self, ctx:SmallerBasicParser.AtomIntLiteralContext):
         pass
 
-    # Exit a parse tree produced by SmallerBasicParser#atomNumber.
-    def exitAtomNumber(self, ctx:SmallerBasicParser.AtomNumberContext):
+    # Exit a parse tree produced by SmallerBasicParser#AtomIntLiteral.
+    def exitAtomIntLiteral(self, ctx:SmallerBasicParser.AtomIntLiteralContext):
+        pass
+
+
+    # Enter a parse tree produced by SmallerBasicParser#AtomFloatLiteral.
+    def enterAtomFloatLiteral(self, ctx:SmallerBasicParser.AtomFloatLiteralContext):
+        pass
+
+    # Exit a parse tree produced by SmallerBasicParser#AtomFloatLiteral.
+    def exitAtomFloatLiteral(self, ctx:SmallerBasicParser.AtomFloatLiteralContext):
+        pass
+
+
+    # Enter a parse tree produced by SmallerBasicParser#AtomNumberId.
+    def enterAtomNumberId(self, ctx:SmallerBasicParser.AtomNumberIdContext):
+        pass
+
+    # Exit a parse tree produced by SmallerBasicParser#AtomNumberId.
+    def exitAtomNumberId(self, ctx:SmallerBasicParser.AtomNumberIdContext):
+        pass
+
+
+    # Enter a parse tree produced by SmallerBasicParser#AtomNumberArithmeticalExpression.
+    def enterAtomNumberArithmeticalExpression(self, ctx:SmallerBasicParser.AtomNumberArithmeticalExpressionContext):
+        pass
+
+    # Exit a parse tree produced by SmallerBasicParser#AtomNumberArithmeticalExpression.
+    def exitAtomNumberArithmeticalExpression(self, ctx:SmallerBasicParser.AtomNumberArithmeticalExpressionContext):
+        pass
+
+
+    # Enter a parse tree produced by SmallerBasicParser#AtomNumberLibraryStatement.
+    def enterAtomNumberLibraryStatement(self, ctx:SmallerBasicParser.AtomNumberLibraryStatementContext):
+        pass
+
+    # Exit a parse tree produced by SmallerBasicParser#AtomNumberLibraryStatement.
+    def exitAtomNumberLibraryStatement(self, ctx:SmallerBasicParser.AtomNumberLibraryStatementContext):
         pass
 
 

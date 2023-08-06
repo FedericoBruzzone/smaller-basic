@@ -1,8 +1,8 @@
 from src.abstract_syntax_tree.abstract_ast_node import AbstractAstNode
 
-class AtomStringNode(AbstractAstNode): 
+class AtomNumberNode(AbstractAstNode): 
     """
-    Class representing an atom string node in the AST.
+    Class representing an atom number node in the AST.
     """
 
     def __init__(self, children: list = list()):
@@ -13,6 +13,6 @@ class AtomStringNode(AbstractAstNode):
             children (list): The children of the node.
         """
         super().__init__(children)
-        self.name = "AtomStringNode"
+        self.name = "AtomNumberNode"
 
     

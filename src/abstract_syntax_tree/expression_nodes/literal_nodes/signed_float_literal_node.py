@@ -15,6 +15,6 @@ class SignedFloatLiteralNode(AbstractExpressionNode):
         self.sign_float: float = float(sign + number)
         self.name: str = "SignedFloatLiteralNode"
         
-        print(f"SignedFloatLiteralNode object created with value: {str(self.sign_float)}")
+        # print(f"SignedFloatLiteralNode object created with value: {str(self.sign_float)}")
 
     def visit(self): pass
