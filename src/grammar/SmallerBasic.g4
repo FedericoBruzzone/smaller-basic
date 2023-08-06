@@ -98,7 +98,7 @@ additiveExpression
     ;
 
 multiplicativeExpression
-    : atomNumber ((MUL | DIV) atomNumber)+
+    : atomNumber ((MUL | DIV) multiplicativeExpression)+
     | atomNumber
     ;
 
@@ -116,14 +116,13 @@ stringExpression
     ;
 
 additiveStringExpression
-    : atomString (PLUS  atomString)+ # AdditiveStringExpressionWithOp
-    | atomString                     # AdditiveStringExpressionNoOp
+    : atomString (PLUS  additiveStringExpression)* 
     ;
 
 atomString
-    : string
-    | libraryStatement
-    | ID 
+    : string                                       # AtomStringLiteral
+    | ID                                           # AtomStringId  
+    | libraryStatement                             # AtomStringLibraryStatement
     ;
 
 //  ==================== LITERALS ====================

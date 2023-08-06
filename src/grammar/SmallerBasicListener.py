@@ -197,30 +197,39 @@ class SmallerBasicListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SmallerBasicParser#AdditiveStringExpressionWithOp.
-    def enterAdditiveStringExpressionWithOp(self, ctx:SmallerBasicParser.AdditiveStringExpressionWithOpContext):
+    # Enter a parse tree produced by SmallerBasicParser#additiveStringExpression.
+    def enterAdditiveStringExpression(self, ctx:SmallerBasicParser.AdditiveStringExpressionContext):
         pass
 
-    # Exit a parse tree produced by SmallerBasicParser#AdditiveStringExpressionWithOp.
-    def exitAdditiveStringExpressionWithOp(self, ctx:SmallerBasicParser.AdditiveStringExpressionWithOpContext):
-        pass
-
-
-    # Enter a parse tree produced by SmallerBasicParser#AdditiveStringExpressionNoOp.
-    def enterAdditiveStringExpressionNoOp(self, ctx:SmallerBasicParser.AdditiveStringExpressionNoOpContext):
-        pass
-
-    # Exit a parse tree produced by SmallerBasicParser#AdditiveStringExpressionNoOp.
-    def exitAdditiveStringExpressionNoOp(self, ctx:SmallerBasicParser.AdditiveStringExpressionNoOpContext):
+    # Exit a parse tree produced by SmallerBasicParser#additiveStringExpression.
+    def exitAdditiveStringExpression(self, ctx:SmallerBasicParser.AdditiveStringExpressionContext):
         pass
 
 
-    # Enter a parse tree produced by SmallerBasicParser#atomString.
-    def enterAtomString(self, ctx:SmallerBasicParser.AtomStringContext):
+    # Enter a parse tree produced by SmallerBasicParser#AtomStringLiteral.
+    def enterAtomStringLiteral(self, ctx:SmallerBasicParser.AtomStringLiteralContext):
         pass
 
-    # Exit a parse tree produced by SmallerBasicParser#atomString.
-    def exitAtomString(self, ctx:SmallerBasicParser.AtomStringContext):
+    # Exit a parse tree produced by SmallerBasicParser#AtomStringLiteral.
+    def exitAtomStringLiteral(self, ctx:SmallerBasicParser.AtomStringLiteralContext):
+        pass
+
+
+    # Enter a parse tree produced by SmallerBasicParser#AtomStringId.
+    def enterAtomStringId(self, ctx:SmallerBasicParser.AtomStringIdContext):
+        pass
+
+    # Exit a parse tree produced by SmallerBasicParser#AtomStringId.
+    def exitAtomStringId(self, ctx:SmallerBasicParser.AtomStringIdContext):
+        pass
+
+
+    # Enter a parse tree produced by SmallerBasicParser#AtomStringLibraryStatement.
+    def enterAtomStringLibraryStatement(self, ctx:SmallerBasicParser.AtomStringLibraryStatementContext):
+        pass
+
+    # Exit a parse tree produced by SmallerBasicParser#AtomStringLibraryStatement.
+    def exitAtomStringLibraryStatement(self, ctx:SmallerBasicParser.AtomStringLibraryStatementContext):
         pass
 
 

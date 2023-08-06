@@ -17,13 +17,15 @@ from src.abstract_syntax_tree.token_nodes.id_node import IdNode
 # ======================================================
 
 # ==================== STRING EXPRESSIONS ====================
-# from src.abstract_syntax_tree.expression_nodes.string_expression_nodes.additive_string_expression_node import AdditiveStringExpressionNode
-# ==================== LITERAL ==================== 
-from src.abstract_syntax_tree.expression_nodes.literal_nodes.signed_int_literal_node   import SignedIntLiteralNode
+from src.abstract_syntax_tree.expression_nodes.string_expression_nodes.atom_string_nodes.atom_string_literal_node import AtomStringLiteralNode
+from src.abstract_syntax_tree.expression_nodes.string_expression_nodes.additive_string_expression_node import AdditiveStringExpressionNode
+# ==================== LITERAL ====================
+from src.abstract_syntax_tree.expression_nodes.literal_nodes.signed_int_literal_node import SignedIntLiteralNode
 from src.abstract_syntax_tree.expression_nodes.literal_nodes.signed_float_literal_node import SignedFloatLiteralNode
-from src.abstract_syntax_tree.expression_nodes.literal_nodes.string_literal_node       import StringLiteralNode
-from src.abstract_syntax_tree.expression_nodes.literal_nodes.boolean_literal_node      import BooleanLiteralNode
-from src.abstract_syntax_tree.expression_nodes.literal_nodes.signed_id_literal_node    import SignedIdLiteralNode
+from src.abstract_syntax_tree.expression_nodes.literal_nodes.string_literal_node import StringLiteralNode
+from src.abstract_syntax_tree.expression_nodes.literal_nodes.boolean_literal_node import BooleanLiteralNode
+from src.abstract_syntax_tree.expression_nodes.literal_nodes.signed_id_literal_node import SignedIdLiteralNode
+
 
 class SmallerBasicAstVisitor(SmallerBasicVisitor):
     """
@@ -41,7 +43,7 @@ class SmallerBasicAstVisitor(SmallerBasicVisitor):
             self.visit(child) for child in ctx.statement()]
         return Ast(statements)
 
-    def visitStatement(self, ctx: SmallerBasicParser.StatementContext): 
+    def visitStatement(self, ctx: SmallerBasicParser.StatementContext):
         """
         Visit Statement node in parse tree
 
@@ -63,6 +65,10 @@ class SmallerBasicAstVisitor(SmallerBasicVisitor):
             self.visit(ctx.expression())
         )
 
+    # ======================================================
+    # ===================== EXPRESSIONS ====================
+    # ======================================================
+
     def visitExpression(self, ctx: SmallerBasicParser.ExpressionContext):
         """
         Visit Expression node in parse tree
@@ -71,14 +77,9 @@ class SmallerBasicAstVisitor(SmallerBasicVisitor):
             ctx (SmallerBasicParser.ExpressionContext): The parse tree
         """
         return super().visitExpression(ctx)
-   
-    
-    # ======================================================
-    # ===================== EXPRESSIONS ====================
-    # ======================================================
 
     # ==================== STRING EXPRESSIONS ====================
-    
+
     def visitStringExpression(self, ctx: SmallerBasicParser.StringExpressionContext):
         """
         Visit StringExpression node in parse tree
@@ -88,23 +89,29 @@ class SmallerBasicAstVisitor(SmallerBasicVisitor):
         """
         return super().visitStringExpression(ctx)
     
-    def visitAdditiveExpression(self, ctx: SmallerBasicParser.AdditiveExpressionContext):
-        """
-        Visit AdditiveExpression node in parse tree
-
-        Parameters:
-            ctx (SmallerBasicParser.AdditiveExpressionContext): The parse tree
-        """
-        return super().visitAdditiveExpression(ctx)
-
-    def visitAdditiveStringExpressionWithOp(self, ctx: SmallerBasicParser.AdditiveStringExpressionWithOpContext):
+    def visitAdditiveStringExpression(self, ctx: SmallerBasicParser.AdditiveStringExpressionContext):
         """
         Visit AdditiveStringExpressionWithOp node in parse tree
 
         Parameters:
             ctx (SmallerBasicParser.AdditiveStringExpressionWithOpContext): The parse tree
         """
-        return super().visitAdditiveStringExpressionWithOp(ctx)        
+        operator: str = ctx.PLUS(0).getText() if ctx.PLUS(0) else None 
+        additive_string_expression: AdditiveStringExpressionNode = self.visit(ctx.additiveStringExpression(0)) if ctx.additiveStringExpression(0) else None
+        return AdditiveStringExpressionNode(
+            self.visit(ctx.atomString()),
+            operator, 
+            additive_string_expression
+        )
+    
+    def visitAtomStringLiteral(self, ctx: SmallerBasicParser.AtomStringLiteralContext):
+        """
+        Visit AtomStringLiteral node in parse tree
+
+        Parameters:
+            ctx (SmallerBasicParser.AtomStringLiteralContext): The parse tree
+        """
+        return AtomStringLiteralNode(ctx.string().getText())
 
     # ==================== LITERAL ====================
 
@@ -136,7 +143,7 @@ class SmallerBasicAstVisitor(SmallerBasicVisitor):
         Parameters:
             ctx (SmallerBasicParser.SignedFloatContext): The parse tree
         """
-        return SignedFloatLiteralNode( 
+        return SignedFloatLiteralNode(
             get_unary_sign(ctx),
             ctx.FLOAT().getText()
         )
@@ -148,7 +155,7 @@ class SmallerBasicAstVisitor(SmallerBasicVisitor):
         Parameters:
             ctx (SmallerBasicParser.StringContext): The parse tree
         """
-        return StringLiteralNode(ctx.STRING_LITERAL().getText()) 
+        return StringLiteralNode(ctx.STRING_LITERAL().getText())
 
     def visitBoolean(self, ctx: SmallerBasicParser.BooleanContext):
         """
@@ -158,7 +165,7 @@ class SmallerBasicAstVisitor(SmallerBasicVisitor):
             ctx (SmallerBasicParser.BooleanContext): The parse tree
         """
         return BooleanLiteralNode(ctx.BOOLEAN_LITERAL().getText())
-   
+
     def visitSignedId(self, ctx: SmallerBasicParser.SignedIdContext):
         """
         Visit SignedId node in parse tree

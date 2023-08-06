@@ -2,7 +2,6 @@ from typing import List
 from abc import ABCMeta
 from abc import abstractmethod
 
-# This is the abstract class for all AST nodes.
 class AbstractAstNode(object, metaclass=ABCMeta):
     """
     This is the abstract class for all AST nodes.
@@ -36,7 +35,7 @@ class AbstractAstNode(object, metaclass=ABCMeta):
         Parameters:
             end (List[int]): The list of flags indicating whether the current node is the last child of its parent.
         """
-        
+
         pre = ""
         for i in end[:-1]:
             if i: pre += "   "
@@ -47,7 +46,8 @@ class AbstractAstNode(object, metaclass=ABCMeta):
         if self.get_num_children() > 0:
             for child in self.children[:-1]:
                 res += child.__ast_repr(end + [False])
-            res += self.children[-1].__ast_repr(end + [True])
+            if self.children[-1]:
+                res += self.children[-1].__ast_repr(end + [True])
 
         return res
     

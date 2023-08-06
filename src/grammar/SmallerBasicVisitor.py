@@ -114,18 +114,23 @@ class SmallerBasicVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by SmallerBasicParser#AdditiveStringExpressionWithOp.
-    def visitAdditiveStringExpressionWithOp(self, ctx:SmallerBasicParser.AdditiveStringExpressionWithOpContext):
+    # Visit a parse tree produced by SmallerBasicParser#additiveStringExpression.
+    def visitAdditiveStringExpression(self, ctx:SmallerBasicParser.AdditiveStringExpressionContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by SmallerBasicParser#AdditiveStringExpressionNoOp.
-    def visitAdditiveStringExpressionNoOp(self, ctx:SmallerBasicParser.AdditiveStringExpressionNoOpContext):
+    # Visit a parse tree produced by SmallerBasicParser#AtomStringLiteral.
+    def visitAtomStringLiteral(self, ctx:SmallerBasicParser.AtomStringLiteralContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by SmallerBasicParser#atomString.
-    def visitAtomString(self, ctx:SmallerBasicParser.AtomStringContext):
+    # Visit a parse tree produced by SmallerBasicParser#AtomStringId.
+    def visitAtomStringId(self, ctx:SmallerBasicParser.AtomStringIdContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by SmallerBasicParser#AtomStringLibraryStatement.
+    def visitAtomStringLibraryStatement(self, ctx:SmallerBasicParser.AtomStringLibraryStatementContext):
         return self.visitChildren(ctx)
 
 
