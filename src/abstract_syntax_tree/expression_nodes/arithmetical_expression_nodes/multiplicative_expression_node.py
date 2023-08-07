@@ -1,8 +1,10 @@
 from typing import Any
 from src.abstract_syntax_tree.expression_nodes.arithmetical_expression_nodes.arithmetical_expression_node import ArithmeticalExpressionNode
-from src.abstract_syntax_tree.expression_nodes.literal_nodes.signed_int_literal_node import SignedIntLiteralNode
-from src.abstract_syntax_tree.expression_nodes.literal_nodes.signed_float_literal_node import SignedFloatLiteralNode
-from src.abstract_syntax_tree.expression_nodes.literal_nodes.signed_id_literal_node import SignedIdLiteralNode
+from src.abstract_syntax_tree.expression_nodes.arithmetical_expression_nodes.unary_atom_number_node import UnaryAtomNumberNode
+from src.abstract_syntax_tree.token_nodes.id_node import IdNode
+from src.abstract_syntax_tree.token_nodes.int_node import IntNode
+from src.abstract_syntax_tree.token_nodes.float_node import FloatNode
+
 
 class MultiplicativeExpressionNode(ArithmeticalExpressionNode):
     """
@@ -15,21 +17,24 @@ class MultiplicativeExpressionNode(ArithmeticalExpressionNode):
         operator: str,
         right_expression_node: ArithmeticalExpressionNode
     ):
-        accepted_types: list = [SignedIntLiteralNode, 
-                                SignedFloatLiteralNode,
-                                SignedIdLiteralNode]
-        if type(left_expression_node) not in accepted_types and not issubclass(type(left_expression_node), ArithmeticalExpressionNode): 
-            raise ValueError(f"Left expression node must be of type {accepted_types}. Got: {type(left_expression_node)}")
-        if operator and operator not in ['*', '/']:
-            raise ValueError(f"Operator {operator} is not supported for multiplicative expressions. Only '*' and '/' are supported.")
-        if right_expression_node and not isinstance(right_expression_node, ArithmeticalExpressionNode):
-            raise ValueError(f"Right expression node must be of type ArithmeticalExpressionNode. Got: {type(right_expression_node)}")
+        accepted_types: list = [UnaryAtomNumberNode,
+                                IdNode,
+                                IntNode,
+                                FloatNode]
+        if (type(left_expression_node) not in accepted_types and
+                not issubclass(type(left_expression_node), ArithmeticalExpressionNode)):
+            raise ValueError(
+                f"Left expression node must be of type {accepted_types} or a subclass of ArithmeticalExpressionNode. Got: {type(left_expression_node)}")
+        if operator and operator != '*' and operator != '/':
+            raise ValueError(
+                f"Operator {operator} is not supported for additive expressions. Only '*' and '/' are supported.")
+        if (type(right_expression_node) not in accepted_types and
+                not issubclass(type(right_expression_node), ArithmeticalExpressionNode)):
+            raise ValueError(
+                f"Right expression node must be of type {accepted_types} or a subclass of ArithmeticalExpressionNode. Got: {type(right_expression_node)}")
 
-        if operator == None and right_expression_node == None:
-            super().__init__([left_expression_node])
-        else:
-            super().__init__([left_expression_node, right_expression_node])
-            self.operator: str = operator
+        super().__init__([left_expression_node, right_expression_node])
+        self.operator: str = operator
         self.name: str = "MultiplicativeExpressionNode"
 
     def visit(self): pass

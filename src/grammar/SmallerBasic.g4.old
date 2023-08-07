@@ -60,13 +60,13 @@ libraryStatement
     ;
 
 // ======================================================
-//  ==================== EXPRESSIONS ====================
+// ==================== EXPRESSIONS ====================
 // ======================================================
 expression
-    : logicalExpression
+    : literal
+    | logicalExpression
     | arithmeticalExpression 
     | stringExpression 
-    | literal
     ;
 
 //  ==================== LOGICAL AND BOOLEAN EXPRESSIONS ====================
@@ -89,24 +89,29 @@ atomBoolean
 
 //  ==================== ARITHMETICAL EXPRESSIONS ====================
 arithmeticalExpression
-    : additiveExpression
+    : additiveExpression                            
     ;
 
 additiveExpression
-    : multiplicativeExpression ((PLUS | MINUS) multiplicativeExpression)+ // #WithAdd
-    | multiplicativeExpression // #NoAdd
+    : multiplicativeExpression ((PLUS | MINUS) additiveExpression)*
     ;
 
 multiplicativeExpression
-    : atomNumber ((MUL | DIV) atomNumber)+
-    | atomNumber
+    : atomNumber ((MUL | DIV) multiplicativeExpression)*
     ;
 
+/* unaryAtomNumber */
+/*     : MINUS atomNumber */
+/*     | PLUS atomNumber */
+/*     | atomNumber */
+/*     ; */
+
 atomNumber
-    : signedNumber
-    | signedId 
-    | ('-')? LROUND arithmeticalExpression RROUND 
-    | ('-')? libraryStatement
+    : signedInt                                     # AtomIntLiteral 
+    | signedFloat                                   # AtomFloatLiteral
+    | signedId                                      # AtomNumberId
+    | ('-' | '+')? LROUND additiveExpression RROUND # AtomNumberExpressionParenthesis
+    | ('-' | '+')? libraryStatement                 # AtomNumberLibraryStatement
     ;
 
 //  ==================== STRING EXPRESSIONS ====================
@@ -115,26 +120,32 @@ stringExpression
     ;
 
 additiveStringExpression
-    : atomString (PLUS  atomString)*
+    : atomString (PLUS  additiveStringExpression)* 
     ;
 
 atomString
-    : string
-    | libraryStatement
-    | ID 
+    : string                                        # AtomStringLiteral
+    | ID                                            # AtomStringId  
+    | libraryStatement                              # AtomStringLibraryStatement
     ;
 
 //  ==================== LITERALS ====================
 literal
-    : signedNumber 
+    : signedInt
+    | signedFloat
     | string 
     | boolean
     | signedId
     ;
 
-signedNumber
-    : ('-' | '+')? NUMBER_LITERAL 
+signedInt
+    : ('-' | '+')? INT            
     ;
+
+signedFloat
+    : ('-' | '+')? FLOAT          
+    ;
+
 
 string
     : STRING_LITERAL              
@@ -151,12 +162,6 @@ signedId
 // ================================================
 //  ==================== LEXER ====================
 // ================================================
-NUMBER_LITERAL
-    : INT
-    | FLOAT
-    | '0'
-    ;
-
 STRING_LITERAL
     : '"' ~["\u0000-\u001F\u007F]* '"' // '"' ~[\r\n"]* '"' 
     ;
@@ -295,12 +300,13 @@ ID
     : CHAR (CHAR | NUM | '_')* 
     ;
 
-fragment INT      
-    : ([1-9] NUM* | '0')? EXPONENT? 
+INT      
+    : '0' 
+    | [1-9] NUM* // EXPONENT? 
     ;
 
-fragment FLOAT    
-    : ([1-9] NUM* | '0')? '.' NUM+ EXPONENT? 
+FLOAT    
+    : ([1-9] NUM* | '0')? ('.')? NUM+ EXPONENT? 
     ;
 
 fragment EXPONENT 

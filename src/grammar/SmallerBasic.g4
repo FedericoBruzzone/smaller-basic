@@ -63,8 +63,7 @@ libraryStatement
 // ==================== EXPRESSIONS ====================
 // ======================================================
 expression
-    : literal
-    | logicalExpression
+    : logicalExpression
     | arithmeticalExpression 
     | stringExpression 
     ;
@@ -81,10 +80,10 @@ booleanExpression
     ;
 
 atomBoolean
-    : boolean
+    : BOOLEAN 
+    | ID 
     | LROUND logicalExpression RROUND
     | libraryStatement
-    | ID 
     ;
 
 //  ==================== ARITHMETICAL EXPRESSIONS ====================
@@ -97,15 +96,19 @@ additiveExpression
     ;
 
 multiplicativeExpression
-    : atomNumber ((MUL | DIV) multiplicativeExpression)*
+    : unaryAtomNumber ((MUL | DIV) multiplicativeExpression)*
+    ;
+
+unaryAtomNumber
+    : (PLUS | MINUS)? atomNumber
     ;
 
 atomNumber
-    : signedInt                                     # AtomIntLiteral 
-    | signedFloat                                   # AtomFloatLiteral
-    | signedId                                      # AtomNumberId
-    | ('-')? LROUND additiveExpression RROUND       # AtomNumberExpressionParenthesis
-    | ('-')? libraryStatement                       # AtomNumberLibraryStatement
+    : INT                                           # AtomNumberInt
+    | FLOAT                                         # AtomNumberFloat
+    | ID                                            # AtomNumberId
+    | LROUND additiveExpression RROUND              # AtomNumberParenthesis
+    | libraryStatement                              # AtomNumberLibraryStatement
     ;
 
 //  ==================== STRING EXPRESSIONS ====================
@@ -118,49 +121,19 @@ additiveStringExpression
     ;
 
 atomString
-    : string                                        # AtomStringLiteral
+    : STRING                                        # AtomStringLiteral
     | ID                                            # AtomStringId  
     | libraryStatement                              # AtomStringLibraryStatement
-    ;
-
-//  ==================== LITERALS ====================
-literal
-    : signedInt
-    | signedFloat
-    | string 
-    | boolean
-    | signedId
-    ;
-
-signedInt
-    : ('-' | '+')? INT            
-    ;
-
-signedFloat
-    : ('-' | '+')? FLOAT          
-    ;
-
-
-string
-    : STRING_LITERAL              
-    ;
-
-boolean
-    : BOOLEAN_LITERAL             
-    ;
-
-signedId
-    : ('-' | '+')? ID             
     ;
 
 // ================================================
 //  ==================== LEXER ====================
 // ================================================
-STRING_LITERAL
+STRING
     : '"' ~["\u0000-\u001F\u007F]* '"' // '"' ~[\r\n"]* '"' 
     ;
 
-BOOLEAN_LITERAL
+BOOLEAN
     : 'true'
     | 'false'
     ;

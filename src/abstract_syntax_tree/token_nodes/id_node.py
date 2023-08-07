@@ -22,13 +22,4 @@ class IdNode(AbstractTokenNode):
         self.id_name = id_name 
         self.name = "IdNode"
 
-    def get_symbol(self) -> str:
-        """
-        Gets the name of the identifier.
-
-        Returns:
-            str: The name of the identifier.
-        """
-        return self.id_name
-    
     def visit(self): pass 

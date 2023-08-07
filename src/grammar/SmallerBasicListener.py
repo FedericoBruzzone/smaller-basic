@@ -179,21 +179,30 @@ class SmallerBasicListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SmallerBasicParser#AtomIntLiteral.
-    def enterAtomIntLiteral(self, ctx:SmallerBasicParser.AtomIntLiteralContext):
+    # Enter a parse tree produced by SmallerBasicParser#unaryAtomNumber.
+    def enterUnaryAtomNumber(self, ctx:SmallerBasicParser.UnaryAtomNumberContext):
         pass
 
-    # Exit a parse tree produced by SmallerBasicParser#AtomIntLiteral.
-    def exitAtomIntLiteral(self, ctx:SmallerBasicParser.AtomIntLiteralContext):
+    # Exit a parse tree produced by SmallerBasicParser#unaryAtomNumber.
+    def exitUnaryAtomNumber(self, ctx:SmallerBasicParser.UnaryAtomNumberContext):
         pass
 
 
-    # Enter a parse tree produced by SmallerBasicParser#AtomFloatLiteral.
-    def enterAtomFloatLiteral(self, ctx:SmallerBasicParser.AtomFloatLiteralContext):
+    # Enter a parse tree produced by SmallerBasicParser#AtomNumberInt.
+    def enterAtomNumberInt(self, ctx:SmallerBasicParser.AtomNumberIntContext):
         pass
 
-    # Exit a parse tree produced by SmallerBasicParser#AtomFloatLiteral.
-    def exitAtomFloatLiteral(self, ctx:SmallerBasicParser.AtomFloatLiteralContext):
+    # Exit a parse tree produced by SmallerBasicParser#AtomNumberInt.
+    def exitAtomNumberInt(self, ctx:SmallerBasicParser.AtomNumberIntContext):
+        pass
+
+
+    # Enter a parse tree produced by SmallerBasicParser#AtomNumberFloat.
+    def enterAtomNumberFloat(self, ctx:SmallerBasicParser.AtomNumberFloatContext):
+        pass
+
+    # Exit a parse tree produced by SmallerBasicParser#AtomNumberFloat.
+    def exitAtomNumberFloat(self, ctx:SmallerBasicParser.AtomNumberFloatContext):
         pass
 
 
@@ -206,12 +215,12 @@ class SmallerBasicListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SmallerBasicParser#AtomNumberExpressionParenthesis.
-    def enterAtomNumberExpressionParenthesis(self, ctx:SmallerBasicParser.AtomNumberExpressionParenthesisContext):
+    # Enter a parse tree produced by SmallerBasicParser#AtomNumberParenthesis.
+    def enterAtomNumberParenthesis(self, ctx:SmallerBasicParser.AtomNumberParenthesisContext):
         pass
 
-    # Exit a parse tree produced by SmallerBasicParser#AtomNumberExpressionParenthesis.
-    def exitAtomNumberExpressionParenthesis(self, ctx:SmallerBasicParser.AtomNumberExpressionParenthesisContext):
+    # Exit a parse tree produced by SmallerBasicParser#AtomNumberParenthesis.
+    def exitAtomNumberParenthesis(self, ctx:SmallerBasicParser.AtomNumberParenthesisContext):
         pass
 
 
@@ -266,60 +275,6 @@ class SmallerBasicListener(ParseTreeListener):
 
     # Exit a parse tree produced by SmallerBasicParser#AtomStringLibraryStatement.
     def exitAtomStringLibraryStatement(self, ctx:SmallerBasicParser.AtomStringLibraryStatementContext):
-        pass
-
-
-    # Enter a parse tree produced by SmallerBasicParser#literal.
-    def enterLiteral(self, ctx:SmallerBasicParser.LiteralContext):
-        pass
-
-    # Exit a parse tree produced by SmallerBasicParser#literal.
-    def exitLiteral(self, ctx:SmallerBasicParser.LiteralContext):
-        pass
-
-
-    # Enter a parse tree produced by SmallerBasicParser#signedInt.
-    def enterSignedInt(self, ctx:SmallerBasicParser.SignedIntContext):
-        pass
-
-    # Exit a parse tree produced by SmallerBasicParser#signedInt.
-    def exitSignedInt(self, ctx:SmallerBasicParser.SignedIntContext):
-        pass
-
-
-    # Enter a parse tree produced by SmallerBasicParser#signedFloat.
-    def enterSignedFloat(self, ctx:SmallerBasicParser.SignedFloatContext):
-        pass
-
-    # Exit a parse tree produced by SmallerBasicParser#signedFloat.
-    def exitSignedFloat(self, ctx:SmallerBasicParser.SignedFloatContext):
-        pass
-
-
-    # Enter a parse tree produced by SmallerBasicParser#string.
-    def enterString(self, ctx:SmallerBasicParser.StringContext):
-        pass
-
-    # Exit a parse tree produced by SmallerBasicParser#string.
-    def exitString(self, ctx:SmallerBasicParser.StringContext):
-        pass
-
-
-    # Enter a parse tree produced by SmallerBasicParser#boolean.
-    def enterBoolean(self, ctx:SmallerBasicParser.BooleanContext):
-        pass
-
-    # Exit a parse tree produced by SmallerBasicParser#boolean.
-    def exitBoolean(self, ctx:SmallerBasicParser.BooleanContext):
-        pass
-
-
-    # Enter a parse tree produced by SmallerBasicParser#signedId.
-    def enterSignedId(self, ctx:SmallerBasicParser.SignedIdContext):
-        pass
-
-    # Exit a parse tree produced by SmallerBasicParser#signedId.
-    def exitSignedId(self, ctx:SmallerBasicParser.SignedIdContext):
         pass
 
 

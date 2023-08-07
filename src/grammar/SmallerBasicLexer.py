@@ -129,8 +129,8 @@ class SmallerBasicLexer(Lexer):
 
     decisionsToDFA = [ DFA(ds, i) for i, ds in enumerate(atn.decisionToState) ]
 
-    STRING_LITERAL = 1
-    BOOLEAN_LITERAL = 2
+    STRING = 1
+    BOOLEAN = 2
     LROUND = 3
     RROUND = 4
     LSQUARE = 5
@@ -181,20 +181,20 @@ class SmallerBasicLexer(Lexer):
             "'For'", "'To'", "'Step'", "'EndFor'", "'Goto'", "'Sub'", "'EndSub'" ]
 
     symbolicNames = [ "<INVALID>",
-            "STRING_LITERAL", "BOOLEAN_LITERAL", "LROUND", "RROUND", "LSQUARE", 
-            "RSQUARE", "DOT", "COLON", "PLUS", "MINUS", "MUL", "DIV", "GT", 
-            "LT", "EQ", "GTEQ", "LTEQ", "NEQ", "AND", "OR", "IF", "THEN", 
-            "ELSE", "ENDIF", "WHILE", "ENDWHILE", "FOR", "TO", "STEP", "ENDFOR", 
-            "GOTO", "SUB", "ENDSUB", "ID", "INT", "FLOAT", "WS", "COMMENT", 
-            "NEWLINE", "LINE_COMMENT" ]
+            "STRING", "BOOLEAN", "LROUND", "RROUND", "LSQUARE", "RSQUARE", 
+            "DOT", "COLON", "PLUS", "MINUS", "MUL", "DIV", "GT", "LT", "EQ", 
+            "GTEQ", "LTEQ", "NEQ", "AND", "OR", "IF", "THEN", "ELSE", "ENDIF", 
+            "WHILE", "ENDWHILE", "FOR", "TO", "STEP", "ENDFOR", "GOTO", 
+            "SUB", "ENDSUB", "ID", "INT", "FLOAT", "WS", "COMMENT", "NEWLINE", 
+            "LINE_COMMENT" ]
 
-    ruleNames = [ "STRING_LITERAL", "BOOLEAN_LITERAL", "LROUND", "RROUND", 
-                  "LSQUARE", "RSQUARE", "DOT", "COLON", "PLUS", "MINUS", 
-                  "MUL", "DIV", "GT", "LT", "EQ", "GTEQ", "LTEQ", "NEQ", 
-                  "AND", "OR", "IF", "THEN", "ELSE", "ENDIF", "WHILE", "ENDWHILE", 
-                  "FOR", "TO", "STEP", "ENDFOR", "GOTO", "SUB", "ENDSUB", 
-                  "ID", "INT", "FLOAT", "EXPONENT", "NUM", "CHAR", "WS", 
-                  "COMMENT", "NEWLINE", "LINE_COMMENT" ]
+    ruleNames = [ "STRING", "BOOLEAN", "LROUND", "RROUND", "LSQUARE", "RSQUARE", 
+                  "DOT", "COLON", "PLUS", "MINUS", "MUL", "DIV", "GT", "LT", 
+                  "EQ", "GTEQ", "LTEQ", "NEQ", "AND", "OR", "IF", "THEN", 
+                  "ELSE", "ENDIF", "WHILE", "ENDWHILE", "FOR", "TO", "STEP", 
+                  "ENDFOR", "GOTO", "SUB", "ENDSUB", "ID", "INT", "FLOAT", 
+                  "EXPONENT", "NUM", "CHAR", "WS", "COMMENT", "NEWLINE", 
+                  "LINE_COMMENT" ]
 
     grammarFileName = "SmallerBasic.g4"
 

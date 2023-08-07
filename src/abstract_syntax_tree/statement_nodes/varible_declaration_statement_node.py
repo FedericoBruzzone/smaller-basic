@@ -11,10 +11,10 @@ class VariableDeclarationStatementNode(AbstractStatementNode):
         """
         Initialize a VariableDeclarationStatementNode object.
         """
-        if not isinstance(var_name, IdNode):
-            raise TypeError("VariableDeclarationStatementNode expects an IdNode as the first argument and got " + str(type(var_name)))
-        if not isinstance(expression, AbstractExpressionNode):
-            raise TypeError("VariableDeclarationStatementNode expects an AbstractExpressionNode as the second argument and got " + str(type(expression)))
+        # if not isinstance(var_name, IdNode):
+        #     raise TypeError("VariableDeclarationStatementNode expects an IdNode as the first argument and got " + str(type(var_name)))
+        # if not isinstance(expression, AbstractExpressionNode):
+        #     raise TypeError("VariableDeclarationStatementNode expects an AbstractExpressionNode as the second argument and got " + str(type(expression)))
         super().__init__([var_name, expression])
         self.name: str = "VariableDeclarationStatementNode"
 

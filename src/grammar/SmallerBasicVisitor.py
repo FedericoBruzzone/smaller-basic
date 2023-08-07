@@ -104,13 +104,18 @@ class SmallerBasicVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by SmallerBasicParser#AtomIntLiteral.
-    def visitAtomIntLiteral(self, ctx:SmallerBasicParser.AtomIntLiteralContext):
+    # Visit a parse tree produced by SmallerBasicParser#unaryAtomNumber.
+    def visitUnaryAtomNumber(self, ctx:SmallerBasicParser.UnaryAtomNumberContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by SmallerBasicParser#AtomFloatLiteral.
-    def visitAtomFloatLiteral(self, ctx:SmallerBasicParser.AtomFloatLiteralContext):
+    # Visit a parse tree produced by SmallerBasicParser#AtomNumberInt.
+    def visitAtomNumberInt(self, ctx:SmallerBasicParser.AtomNumberIntContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by SmallerBasicParser#AtomNumberFloat.
+    def visitAtomNumberFloat(self, ctx:SmallerBasicParser.AtomNumberFloatContext):
         return self.visitChildren(ctx)
 
 
@@ -119,8 +124,8 @@ class SmallerBasicVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by SmallerBasicParser#AtomNumberExpressionParenthesis.
-    def visitAtomNumberExpressionParenthesis(self, ctx:SmallerBasicParser.AtomNumberExpressionParenthesisContext):
+    # Visit a parse tree produced by SmallerBasicParser#AtomNumberParenthesis.
+    def visitAtomNumberParenthesis(self, ctx:SmallerBasicParser.AtomNumberParenthesisContext):
         return self.visitChildren(ctx)
 
 
@@ -151,36 +156,6 @@ class SmallerBasicVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by SmallerBasicParser#AtomStringLibraryStatement.
     def visitAtomStringLibraryStatement(self, ctx:SmallerBasicParser.AtomStringLibraryStatementContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by SmallerBasicParser#literal.
-    def visitLiteral(self, ctx:SmallerBasicParser.LiteralContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by SmallerBasicParser#signedInt.
-    def visitSignedInt(self, ctx:SmallerBasicParser.SignedIntContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by SmallerBasicParser#signedFloat.
-    def visitSignedFloat(self, ctx:SmallerBasicParser.SignedFloatContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by SmallerBasicParser#string.
-    def visitString(self, ctx:SmallerBasicParser.StringContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by SmallerBasicParser#boolean.
-    def visitBoolean(self, ctx:SmallerBasicParser.BooleanContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by SmallerBasicParser#signedId.
-    def visitSignedId(self, ctx:SmallerBasicParser.SignedIdContext):
         return self.visitChildren(ctx)
 
 
