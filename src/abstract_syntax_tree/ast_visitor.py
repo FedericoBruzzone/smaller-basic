@@ -99,16 +99,15 @@ class SmallerBasicAstVisitor(SmallerBasicVisitor):
         """
         if ctx.PLUS(0) == None and ctx.MINUS(0) == None:
             return AdditiveExpressionNode(
-                self.visit(ctx.multiplicativeExpression(0)),
+                self.visit(ctx.multiplicativeExpression()),
                 None,
                 None
             )
         operator: str = ctx.PLUS(0).getText() if ctx.PLUS(0) else ctx.MINUS(0).getText()
-        print(operator)
         return AdditiveExpressionNode(
-            self.visit(ctx.multiplicativeExpression(0)),
+            self.visit(ctx.multiplicativeExpression()),
             operator,
-            self.visit(ctx.multiplicativeExpression(1)),
+            self.visit(ctx.additiveExpression(0))
         )
 
     def visitMultiplicativeExpression(self, ctx: SmallerBasicParser.MultiplicativeExpressionContext):
@@ -130,6 +129,43 @@ class SmallerBasicAstVisitor(SmallerBasicVisitor):
             operator,
             self.visit(ctx.multiplicativeExpression(0))
         )
+
+    def visitAtomIntLiteral(self, ctx: SmallerBasicParser.AtomIntLiteralContext):
+        """
+        Visit AtomIntLiteral node in parse tree
+
+        Parameters:
+            ctx (SmallerBasicParser.AtomIntLiteralContext): The parse tree
+        """
+        return self.visit(ctx.signedInt())
+
+    def visitAtomFloatLiteral(self, ctx: SmallerBasicParser.AtomFloatLiteralContext):
+        """
+        Visit AtomFloatLiteral node in parse tree
+
+        Parameters:
+            ctx (SmallerBasicParser.AtomFloatLiteralContext): The parse tree
+        """
+        return self.visit(ctx.signedFloat())
+    
+    def visitAtomNumberId(self, ctx: SmallerBasicParser.AtomNumberIdContext):
+        """
+        Visit AtomNumberId node in parse tree
+
+        Parameters:
+            ctx (SmallerBasicParser.AtomNumberIdContext): The parse tree
+        """
+        return self.visit(ctx.signedId())  
+
+    def visitAtomNumberExpressionParenthesis(self, ctx: SmallerBasicParser.AtomNumberExpressionParenthesisContext):
+        """
+        Visit AtomNumberExpressionParenthesis node in parse tree
+
+        Parameters:
+            ctx (SmallerBasicParser.AtomNumberExpressionParenthesisContext): The parse tree
+        """
+        sign: str = ctx.MINUS().getText() if ctx.MINUS() else None
+        return self.visit(ctx.additiveExpression())
 
     # ==================== STRING EXPRESSIONS ====================
 

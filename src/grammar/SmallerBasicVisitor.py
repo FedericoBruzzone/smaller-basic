@@ -119,8 +119,8 @@ class SmallerBasicVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by SmallerBasicParser#AtomNumberArithmeticalExpression.
-    def visitAtomNumberArithmeticalExpression(self, ctx:SmallerBasicParser.AtomNumberArithmeticalExpressionContext):
+    # Visit a parse tree produced by SmallerBasicParser#AtomNumberExpressionParenthesis.
+    def visitAtomNumberExpressionParenthesis(self, ctx:SmallerBasicParser.AtomNumberExpressionParenthesisContext):
         return self.visitChildren(ctx)
 
 

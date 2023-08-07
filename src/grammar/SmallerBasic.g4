@@ -89,11 +89,11 @@ atomBoolean
 
 //  ==================== ARITHMETICAL EXPRESSIONS ====================
 arithmeticalExpression
-    : additiveExpression
+    : additiveExpression                            
     ;
 
 additiveExpression
-    : multiplicativeExpression ((PLUS | MINUS) multiplicativeExpression)*
+    : multiplicativeExpression ((PLUS | MINUS) additiveExpression)*
     ;
 
 multiplicativeExpression
@@ -104,7 +104,7 @@ atomNumber
     : signedInt                                     # AtomIntLiteral 
     | signedFloat                                   # AtomFloatLiteral
     | signedId                                      # AtomNumberId
-    | ('-')? LROUND arithmeticalExpression RROUND   # AtomNumberArithmeticalExpression 
+    | ('-')? LROUND additiveExpression RROUND       # AtomNumberExpressionParenthesis
     | ('-')? libraryStatement                       # AtomNumberLibraryStatement
     ;
 

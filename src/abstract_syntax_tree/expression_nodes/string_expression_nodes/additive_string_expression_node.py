@@ -14,8 +14,9 @@ class AdditiveStringExpressionNode(StringExpressionNode):
         operator: str,
         right_string_expression_node: StringExpressionNode
     ):
-        if type(left_string_expression_node) not in [StringLiteralNode, IdNode]:
-            raise ValueError(f"Left string expression node must be of type StringLiteralNode or IdNode. Got: {type(left_string_expression_node)}") 
+        accepted_types: list = [StringLiteralNode, IdNode]
+        if type(left_string_expression_node) not in accepted_types:
+            raise ValueError(f"Left string expression node must be of type {accepted_types}. Got: {type(left_string_expression_node)}") 
         if operator and operator != '+':
             raise ValueError(f"Operator {operator} is not supported for string expressions. Only '+' is supported.")
         if right_string_expression_node and  not isinstance(right_string_expression_node, StringExpressionNode):

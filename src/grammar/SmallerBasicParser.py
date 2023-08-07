@@ -93,13 +93,13 @@ def serializedATN():
         222,3,24,12,0,222,223,5,4,0,0,223,227,1,0,0,0,224,227,3,20,10,0,
         225,227,5,34,0,0,226,219,1,0,0,0,226,220,1,0,0,0,226,224,1,0,0,0,
         226,225,1,0,0,0,227,29,1,0,0,0,228,229,3,32,16,0,229,31,1,0,0,0,
-        230,235,3,34,17,0,231,232,7,2,0,0,232,234,3,34,17,0,233,231,1,0,
+        230,235,3,34,17,0,231,232,7,2,0,0,232,234,3,32,16,0,233,231,1,0,
         0,0,234,237,1,0,0,0,235,233,1,0,0,0,235,236,1,0,0,0,236,33,1,0,0,
         0,237,235,1,0,0,0,238,243,3,36,18,0,239,240,7,3,0,0,240,242,3,34,
         17,0,241,239,1,0,0,0,242,245,1,0,0,0,243,241,1,0,0,0,243,244,1,0,
         0,0,244,35,1,0,0,0,245,243,1,0,0,0,246,261,3,46,23,0,247,261,3,48,
         24,0,248,261,3,54,27,0,249,251,5,10,0,0,250,249,1,0,0,0,250,251,
-        1,0,0,0,251,252,1,0,0,0,252,253,5,3,0,0,253,254,3,30,15,0,254,255,
+        1,0,0,0,251,252,1,0,0,0,252,253,5,3,0,0,253,254,3,32,16,0,254,255,
         5,4,0,0,255,261,1,0,0,0,256,258,5,10,0,0,257,256,1,0,0,0,257,258,
         1,0,0,0,258,259,1,0,0,0,259,261,3,20,10,0,260,246,1,0,0,0,260,247,
         1,0,0,0,260,248,1,0,0,0,260,250,1,0,0,0,260,257,1,0,0,0,261,37,1,
@@ -1717,11 +1717,15 @@ class SmallerBasicParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def multiplicativeExpression(self, i:int=None):
+        def multiplicativeExpression(self):
+            return self.getTypedRuleContext(SmallerBasicParser.MultiplicativeExpressionContext,0)
+
+
+        def additiveExpression(self, i:int=None):
             if i is None:
-                return self.getTypedRuleContexts(SmallerBasicParser.MultiplicativeExpressionContext)
+                return self.getTypedRuleContexts(SmallerBasicParser.AdditiveExpressionContext)
             else:
-                return self.getTypedRuleContext(SmallerBasicParser.MultiplicativeExpressionContext,i)
+                return self.getTypedRuleContext(SmallerBasicParser.AdditiveExpressionContext,i)
 
 
         def PLUS(self, i:int=None):
@@ -1767,20 +1771,21 @@ class SmallerBasicParser ( Parser ):
             self.multiplicativeExpression()
             self.state = 235
             self._errHandler.sync(self)
-            _la = self._input.LA(1)
-            while _la==9 or _la==10:
-                self.state = 231
-                _la = self._input.LA(1)
-                if not(_la==9 or _la==10):
-                    self._errHandler.recoverInline(self)
-                else:
-                    self._errHandler.reportMatch(self)
-                    self.consume()
-                self.state = 232
-                self.multiplicativeExpression()
+            _alt = self._interp.adaptivePredict(self._input,20,self._ctx)
+            while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
+                if _alt==1:
+                    self.state = 231
+                    _la = self._input.LA(1)
+                    if not(_la==9 or _la==10):
+                        self._errHandler.recoverInline(self)
+                    else:
+                        self._errHandler.reportMatch(self)
+                        self.consume()
+                    self.state = 232
+                    self.additiveExpression() 
                 self.state = 237
                 self._errHandler.sync(self)
-                _la = self._input.LA(1)
+                _alt = self._interp.adaptivePredict(self._input,20,self._ctx)
 
         except RecognitionException as re:
             localctx.exception = re
@@ -1894,7 +1899,7 @@ class SmallerBasicParser ( Parser ):
 
 
 
-    class AtomNumberArithmeticalExpressionContext(AtomNumberContext):
+    class AtomNumberExpressionParenthesisContext(AtomNumberContext):
 
         def __init__(self, parser, ctx:ParserRuleContext): # actually a SmallerBasicParser.AtomNumberContext
             super().__init__(parser)
@@ -1902,8 +1907,8 @@ class SmallerBasicParser ( Parser ):
 
         def LROUND(self):
             return self.getToken(SmallerBasicParser.LROUND, 0)
-        def arithmeticalExpression(self):
-            return self.getTypedRuleContext(SmallerBasicParser.ArithmeticalExpressionContext,0)
+        def additiveExpression(self):
+            return self.getTypedRuleContext(SmallerBasicParser.AdditiveExpressionContext,0)
 
         def RROUND(self):
             return self.getToken(SmallerBasicParser.RROUND, 0)
@@ -1911,16 +1916,16 @@ class SmallerBasicParser ( Parser ):
             return self.getToken(SmallerBasicParser.MINUS, 0)
 
         def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterAtomNumberArithmeticalExpression" ):
-                listener.enterAtomNumberArithmeticalExpression(self)
+            if hasattr( listener, "enterAtomNumberExpressionParenthesis" ):
+                listener.enterAtomNumberExpressionParenthesis(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitAtomNumberArithmeticalExpression" ):
-                listener.exitAtomNumberArithmeticalExpression(self)
+            if hasattr( listener, "exitAtomNumberExpressionParenthesis" ):
+                listener.exitAtomNumberExpressionParenthesis(self)
 
         def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitAtomNumberArithmeticalExpression" ):
-                return visitor.visitAtomNumberArithmeticalExpression(self)
+            if hasattr( visitor, "visitAtomNumberExpressionParenthesis" ):
+                return visitor.visitAtomNumberExpressionParenthesis(self)
             else:
                 return visitor.visitChildren(self)
 
@@ -2059,7 +2064,7 @@ class SmallerBasicParser ( Parser ):
                 pass
 
             elif la_ == 4:
-                localctx = SmallerBasicParser.AtomNumberArithmeticalExpressionContext(self, localctx)
+                localctx = SmallerBasicParser.AtomNumberExpressionParenthesisContext(self, localctx)
                 self.enterOuterAlt(localctx, 4)
                 self.state = 250
                 self._errHandler.sync(self)
@@ -2072,7 +2077,7 @@ class SmallerBasicParser ( Parser ):
                 self.state = 252
                 self.match(SmallerBasicParser.LROUND)
                 self.state = 253
-                self.arithmeticalExpression()
+                self.additiveExpression()
                 self.state = 254
                 self.match(SmallerBasicParser.RROUND)
                 pass

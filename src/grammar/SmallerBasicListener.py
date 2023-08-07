@@ -206,12 +206,12 @@ class SmallerBasicListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SmallerBasicParser#AtomNumberArithmeticalExpression.
-    def enterAtomNumberArithmeticalExpression(self, ctx:SmallerBasicParser.AtomNumberArithmeticalExpressionContext):
+    # Enter a parse tree produced by SmallerBasicParser#AtomNumberExpressionParenthesis.
+    def enterAtomNumberExpressionParenthesis(self, ctx:SmallerBasicParser.AtomNumberExpressionParenthesisContext):
         pass
 
-    # Exit a parse tree produced by SmallerBasicParser#AtomNumberArithmeticalExpression.
-    def exitAtomNumberArithmeticalExpression(self, ctx:SmallerBasicParser.AtomNumberArithmeticalExpressionContext):
+    # Exit a parse tree produced by SmallerBasicParser#AtomNumberExpressionParenthesis.
+    def exitAtomNumberExpressionParenthesis(self, ctx:SmallerBasicParser.AtomNumberExpressionParenthesisContext):
         pass
 
 
