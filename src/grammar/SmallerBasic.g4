@@ -69,21 +69,22 @@ expression
     ;
 
 //  ==================== LOGICAL AND BOOLEAN EXPRESSIONS ====================
+
 logicalExpression
-    : booleanExpression ((AND | OR) booleanExpression)+
-    | booleanExpression
+    : booleanExpression ((AND | OR) booleanExpression)*
     ;
 
 booleanExpression
-    : arithmeticalExpression (GT | LT | EQ | GTEQ | LTEQ | NEQ) arithmeticalExpression
-    | atomBoolean 
+    : arithmeticalExpression (GT | LT | EQ | GTEQ | LTEQ | NEQ) arithmeticalExpression # BooleanArithmeticalExpression
+    | stringExpression (GT | LT | EQ | GTEQ | LTEQ | NEQ) stringExpression             # BooleanStringExpression
+    | atomBoolean                                                                      # BooleanAtomExpression
     ;
 
 atomBoolean
-    : BOOLEAN 
-    | ID 
-    | LROUND logicalExpression RROUND
-    | libraryStatement
+    : BOOLEAN                                       # AtomBooleanBoolean
+    | ID                                            # AtomBooleanId
+    | LROUND logicalExpression RROUND               # AtomBooleanParenthesis
+    | libraryStatement                              # AtomBooleanLibraryStatement
     ;
 
 //  ==================== ARITHMETICAL EXPRESSIONS ====================
@@ -92,7 +93,7 @@ arithmeticalExpression
     ;
 
 additiveExpression
-    : multiplicativeExpression ((PLUS | MINUS) additiveExpression)*
+    : multiplicativeExpression ((PLUS | MINUS) multiplicativeExpression)*
     ;
 
 multiplicativeExpression
@@ -123,6 +124,7 @@ additiveStringExpression
 atomString
     : STRING                                        # AtomStringLiteral
     | ID                                            # AtomStringId  
+    | LROUND stringExpression RROUND                # AtomStringParenthesis
     | libraryStatement                              # AtomStringLibraryStatement
     ;
 

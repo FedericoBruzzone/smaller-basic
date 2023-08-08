@@ -79,13 +79,38 @@ class SmallerBasicVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by SmallerBasicParser#booleanExpression.
-    def visitBooleanExpression(self, ctx:SmallerBasicParser.BooleanExpressionContext):
+    # Visit a parse tree produced by SmallerBasicParser#BooleanArithmeticalExpression.
+    def visitBooleanArithmeticalExpression(self, ctx:SmallerBasicParser.BooleanArithmeticalExpressionContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by SmallerBasicParser#atomBoolean.
-    def visitAtomBoolean(self, ctx:SmallerBasicParser.AtomBooleanContext):
+    # Visit a parse tree produced by SmallerBasicParser#BooleanStringExpression.
+    def visitBooleanStringExpression(self, ctx:SmallerBasicParser.BooleanStringExpressionContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by SmallerBasicParser#BooleanAtomExpression.
+    def visitBooleanAtomExpression(self, ctx:SmallerBasicParser.BooleanAtomExpressionContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by SmallerBasicParser#AtomBooleanBoolean.
+    def visitAtomBooleanBoolean(self, ctx:SmallerBasicParser.AtomBooleanBooleanContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by SmallerBasicParser#AtomBooleanId.
+    def visitAtomBooleanId(self, ctx:SmallerBasicParser.AtomBooleanIdContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by SmallerBasicParser#AtomBooleanParenthesis.
+    def visitAtomBooleanParenthesis(self, ctx:SmallerBasicParser.AtomBooleanParenthesisContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by SmallerBasicParser#AtomBooleanLibraryStatement.
+    def visitAtomBooleanLibraryStatement(self, ctx:SmallerBasicParser.AtomBooleanLibraryStatementContext):
         return self.visitChildren(ctx)
 
 
@@ -151,6 +176,11 @@ class SmallerBasicVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by SmallerBasicParser#AtomStringId.
     def visitAtomStringId(self, ctx:SmallerBasicParser.AtomStringIdContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by SmallerBasicParser#AtomStringParenthesis.
+    def visitAtomStringParenthesis(self, ctx:SmallerBasicParser.AtomStringParenthesisContext):
         return self.visitChildren(ctx)
 
 

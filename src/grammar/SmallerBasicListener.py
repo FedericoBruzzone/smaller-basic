@@ -134,21 +134,66 @@ class SmallerBasicListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SmallerBasicParser#booleanExpression.
-    def enterBooleanExpression(self, ctx:SmallerBasicParser.BooleanExpressionContext):
+    # Enter a parse tree produced by SmallerBasicParser#BooleanArithmeticalExpression.
+    def enterBooleanArithmeticalExpression(self, ctx:SmallerBasicParser.BooleanArithmeticalExpressionContext):
         pass
 
-    # Exit a parse tree produced by SmallerBasicParser#booleanExpression.
-    def exitBooleanExpression(self, ctx:SmallerBasicParser.BooleanExpressionContext):
+    # Exit a parse tree produced by SmallerBasicParser#BooleanArithmeticalExpression.
+    def exitBooleanArithmeticalExpression(self, ctx:SmallerBasicParser.BooleanArithmeticalExpressionContext):
         pass
 
 
-    # Enter a parse tree produced by SmallerBasicParser#atomBoolean.
-    def enterAtomBoolean(self, ctx:SmallerBasicParser.AtomBooleanContext):
+    # Enter a parse tree produced by SmallerBasicParser#BooleanStringExpression.
+    def enterBooleanStringExpression(self, ctx:SmallerBasicParser.BooleanStringExpressionContext):
         pass
 
-    # Exit a parse tree produced by SmallerBasicParser#atomBoolean.
-    def exitAtomBoolean(self, ctx:SmallerBasicParser.AtomBooleanContext):
+    # Exit a parse tree produced by SmallerBasicParser#BooleanStringExpression.
+    def exitBooleanStringExpression(self, ctx:SmallerBasicParser.BooleanStringExpressionContext):
+        pass
+
+
+    # Enter a parse tree produced by SmallerBasicParser#BooleanAtomExpression.
+    def enterBooleanAtomExpression(self, ctx:SmallerBasicParser.BooleanAtomExpressionContext):
+        pass
+
+    # Exit a parse tree produced by SmallerBasicParser#BooleanAtomExpression.
+    def exitBooleanAtomExpression(self, ctx:SmallerBasicParser.BooleanAtomExpressionContext):
+        pass
+
+
+    # Enter a parse tree produced by SmallerBasicParser#AtomBooleanBoolean.
+    def enterAtomBooleanBoolean(self, ctx:SmallerBasicParser.AtomBooleanBooleanContext):
+        pass
+
+    # Exit a parse tree produced by SmallerBasicParser#AtomBooleanBoolean.
+    def exitAtomBooleanBoolean(self, ctx:SmallerBasicParser.AtomBooleanBooleanContext):
+        pass
+
+
+    # Enter a parse tree produced by SmallerBasicParser#AtomBooleanId.
+    def enterAtomBooleanId(self, ctx:SmallerBasicParser.AtomBooleanIdContext):
+        pass
+
+    # Exit a parse tree produced by SmallerBasicParser#AtomBooleanId.
+    def exitAtomBooleanId(self, ctx:SmallerBasicParser.AtomBooleanIdContext):
+        pass
+
+
+    # Enter a parse tree produced by SmallerBasicParser#AtomBooleanParenthesis.
+    def enterAtomBooleanParenthesis(self, ctx:SmallerBasicParser.AtomBooleanParenthesisContext):
+        pass
+
+    # Exit a parse tree produced by SmallerBasicParser#AtomBooleanParenthesis.
+    def exitAtomBooleanParenthesis(self, ctx:SmallerBasicParser.AtomBooleanParenthesisContext):
+        pass
+
+
+    # Enter a parse tree produced by SmallerBasicParser#AtomBooleanLibraryStatement.
+    def enterAtomBooleanLibraryStatement(self, ctx:SmallerBasicParser.AtomBooleanLibraryStatementContext):
+        pass
+
+    # Exit a parse tree produced by SmallerBasicParser#AtomBooleanLibraryStatement.
+    def exitAtomBooleanLibraryStatement(self, ctx:SmallerBasicParser.AtomBooleanLibraryStatementContext):
         pass
 
 
@@ -266,6 +311,15 @@ class SmallerBasicListener(ParseTreeListener):
 
     # Exit a parse tree produced by SmallerBasicParser#AtomStringId.
     def exitAtomStringId(self, ctx:SmallerBasicParser.AtomStringIdContext):
+        pass
+
+
+    # Enter a parse tree produced by SmallerBasicParser#AtomStringParenthesis.
+    def enterAtomStringParenthesis(self, ctx:SmallerBasicParser.AtomStringParenthesisContext):
+        pass
+
+    # Exit a parse tree produced by SmallerBasicParser#AtomStringParenthesis.
+    def exitAtomStringParenthesis(self, ctx:SmallerBasicParser.AtomStringParenthesisContext):
         pass
 
 
