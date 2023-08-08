@@ -1,4 +1,5 @@
 from typing import List
+import os
 from abc import ABCMeta
 from abc import abstractmethod
 
@@ -50,7 +51,55 @@ class AbstractAstNode(object, metaclass=ABCMeta):
                 res += self.children[-1].__ast_repr(end + [True])
 
         return res
-    
+   
+    def str_dot(self) -> str: 
+        dot_str: str = "digraph Ast {\n"
+        dot_str += "\trankdir=TD;\n"
+        dot_str += "\tnode [shape=box];\n"
+        
+        def traverse(node, parent_id: str):
+            node_id: str = str(id(node))
+            dot_str: str = f"\t{node_id} [label=\"{node.name}\"];\n"
+            if parent_id != "":
+                dot_str += f"\t{parent_id} -> {node_id};\n"
+
+            if node.children:
+                for child in node.children:
+                    dot_str += traverse(child, node_id)
+
+            return dot_str
+
+        dot_str += traverse(self, "")
+        dot_str += "}\n"
+        return dot_str
+
+    def create_dot_files(self, filename: str = "tree", generate_png: bool = False, view: str = "default-viewer"):
+        """
+        This function is used to create the dot file for the AST.
+            
+        Parameters:
+            filename (str): The name of the dot file.
+            generate_png (bool): Whether to generate the png file.
+            view (str): The viewer to use. ["code", "default-viewer"]
+        """
+        str_dot: str = self.str_dot()
+        
+        os.makedirs("dot_figs", exist_ok=True)
+        filename_dot: str = f"dot_figs/{filename}.dot"
+        with open(filename_dot, "w") as f:
+            f.write(str_dot)
+
+        import subprocess
+        if generate_png:
+            command: str = f"dot -Tpng dot_figs/{filename}.dot -o dot_figs/{filename}.png"
+            subprocess.run(command, shell=True, check=True) 
+        match view:
+            case "code":
+                command: str = f"code dot_figs/{filename}.png"
+            case "default-viewer":
+                command: str = f"nohup xdg-open 'dot_figs/{filename}.png' >/dev/null 2>&1 &"
+        subprocess.run(command, shell=True, check=True)
+
     @abstractmethod
     def visit(self):
         """

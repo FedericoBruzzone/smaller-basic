@@ -88,7 +88,10 @@ class Interpreter(object):
             self.print(build_antlr4_tree_string(smaller_basic_tree.toStringTree(recog = parser)))
         return smaller_basic_tree
 
-    def create_ast(self, antlr4_tree: SmallerBasicParser.ProgramContext, print_res = False) -> Ast:
+    def create_ast(self, antlr4_tree: SmallerBasicParser.ProgramContext, 
+                         print_res = False,
+                         filename: str = "ast",
+                         generate_dot_file = False) -> Ast:
         """
         Create the AST.
 
@@ -101,8 +104,14 @@ class Interpreter(object):
         self.print("Create the AST...")
         smaller_basic_ast_visitor: SmallerBasicAstVisitor = SmallerBasicAstVisitor()
         smaller_basic_ast: Ast = smaller_basic_ast_visitor.visit(antlr4_tree)
+
         if print_res:
             print(smaller_basic_ast)
+        if generate_dot_file:
+            smaller_basic_ast.create_dot_files(filename=filename, 
+                                               generate_png=True, 
+                                               view="default-viewer")
+
         return smaller_basic_ast
     @staticmethod
     def print(string: str):
@@ -123,9 +132,12 @@ class Interpreter(object):
             raise RunningRuntimeError(self.run.__name__, self.__is_running)
 
         self.print("Interpreter is running...")
-        token_stream: CommonTokenStream                       = self.do_lexical_analysis()
+        token_stream: CommonTokenStream = self.do_lexical_analysis()
         smaller_basic_tree: SmallerBasicParser.ProgramContext = self.do_parser(token_stream, print_res = False) 
-        smaller_basic_ast: Ast                                = self.create_ast(smaller_basic_tree, print_res = True)
+        smaller_basic_ast: Ast = self.create_ast(smaller_basic_tree, 
+                                                 print_res = True, 
+                                                 filename = f"ast-{file_path.split('/')[-1].split('.')[0]}",
+                                                 generate_dot_file = True)
         self.__is_running = False
 
 from src.utils.color_print import color
