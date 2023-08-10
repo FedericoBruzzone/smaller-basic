@@ -17,7 +17,7 @@ def serializedATN():
         1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,1,63,8,1,1,2,1,2,1,2,1,2,1,2,1,
         2,1,2,1,2,4,2,73,8,2,11,2,12,2,74,1,2,1,2,1,2,3,2,80,8,2,1,3,1,3,
         1,3,1,4,1,4,1,4,1,5,1,5,1,5,1,5,1,5,1,5,4,5,94,8,5,11,5,12,5,95,
-        1,5,1,5,1,5,1,5,1,5,1,5,1,5,1,5,4,5,106,8,5,11,5,12,5,107,1,5,1,
+        1,5,1,5,4,5,100,8,5,11,5,12,5,101,1,5,1,5,1,5,1,5,1,5,1,5,1,5,1,
         5,4,5,112,8,5,11,5,12,5,113,1,5,1,5,3,5,118,8,5,1,6,1,6,1,6,1,6,
         1,6,4,6,125,8,6,11,6,12,6,126,1,6,1,6,1,7,1,7,1,7,1,7,1,7,1,7,1,
         7,4,7,138,8,7,11,7,12,7,139,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,7,
@@ -52,34 +52,34 @@ def serializedATN():
         0,82,83,5,8,0,0,83,7,1,0,0,0,84,85,5,31,0,0,85,86,5,34,0,0,86,9,
         1,0,0,0,87,88,5,21,0,0,88,89,5,3,0,0,89,90,3,24,12,0,90,91,5,4,0,
         0,91,93,5,22,0,0,92,94,3,2,1,0,93,92,1,0,0,0,94,95,1,0,0,0,95,93,
-        1,0,0,0,95,96,1,0,0,0,96,97,1,0,0,0,97,98,5,24,0,0,98,118,1,0,0,
-        0,99,100,5,21,0,0,100,101,5,3,0,0,101,102,3,24,12,0,102,103,5,4,
-        0,0,103,105,5,22,0,0,104,106,3,2,1,0,105,104,1,0,0,0,106,107,1,0,
-        0,0,107,105,1,0,0,0,107,108,1,0,0,0,108,109,1,0,0,0,109,111,5,23,
-        0,0,110,112,3,2,1,0,111,110,1,0,0,0,112,113,1,0,0,0,113,111,1,0,
-        0,0,113,114,1,0,0,0,114,115,1,0,0,0,115,116,5,24,0,0,116,118,1,0,
-        0,0,117,87,1,0,0,0,117,99,1,0,0,0,118,11,1,0,0,0,119,120,5,25,0,
-        0,120,121,5,3,0,0,121,122,3,24,12,0,122,124,5,4,0,0,123,125,3,2,
-        1,0,124,123,1,0,0,0,125,126,1,0,0,0,126,124,1,0,0,0,126,127,1,0,
-        0,0,127,128,1,0,0,0,128,129,5,26,0,0,129,13,1,0,0,0,130,131,5,27,
-        0,0,131,132,5,34,0,0,132,133,5,15,0,0,133,134,3,30,15,0,134,135,
-        5,28,0,0,135,137,3,30,15,0,136,138,3,2,1,0,137,136,1,0,0,0,138,139,
-        1,0,0,0,139,137,1,0,0,0,139,140,1,0,0,0,140,141,1,0,0,0,141,142,
-        5,30,0,0,142,159,1,0,0,0,143,144,5,27,0,0,144,145,5,34,0,0,145,146,
-        5,15,0,0,146,147,3,30,15,0,147,148,5,28,0,0,148,149,3,30,15,0,149,
-        150,5,29,0,0,150,152,3,30,15,0,151,153,3,2,1,0,152,151,1,0,0,0,153,
-        154,1,0,0,0,154,152,1,0,0,0,154,155,1,0,0,0,155,156,1,0,0,0,156,
-        157,5,30,0,0,157,159,1,0,0,0,158,130,1,0,0,0,158,143,1,0,0,0,159,
-        15,1,0,0,0,160,161,5,32,0,0,161,163,5,34,0,0,162,164,3,2,1,0,163,
-        162,1,0,0,0,164,165,1,0,0,0,165,163,1,0,0,0,165,166,1,0,0,0,166,
-        167,1,0,0,0,167,168,5,33,0,0,168,17,1,0,0,0,169,170,5,34,0,0,170,
-        171,5,3,0,0,171,172,5,4,0,0,172,19,1,0,0,0,173,174,5,34,0,0,174,
-        175,5,7,0,0,175,176,5,34,0,0,176,177,5,3,0,0,177,178,3,22,11,0,178,
-        179,5,4,0,0,179,186,1,0,0,0,180,181,5,34,0,0,181,182,5,7,0,0,182,
-        183,5,34,0,0,183,184,5,3,0,0,184,186,5,4,0,0,185,173,1,0,0,0,185,
-        180,1,0,0,0,186,21,1,0,0,0,187,191,3,24,12,0,188,191,3,30,15,0,189,
-        191,3,40,20,0,190,187,1,0,0,0,190,188,1,0,0,0,190,189,1,0,0,0,191,
-        23,1,0,0,0,192,197,3,26,13,0,193,194,7,0,0,0,194,196,3,26,13,0,195,
+        1,0,0,0,95,96,1,0,0,0,96,97,1,0,0,0,97,99,5,23,0,0,98,100,3,2,1,
+        0,99,98,1,0,0,0,100,101,1,0,0,0,101,99,1,0,0,0,101,102,1,0,0,0,102,
+        103,1,0,0,0,103,104,5,24,0,0,104,118,1,0,0,0,105,106,5,21,0,0,106,
+        107,5,3,0,0,107,108,3,24,12,0,108,109,5,4,0,0,109,111,5,22,0,0,110,
+        112,3,2,1,0,111,110,1,0,0,0,112,113,1,0,0,0,113,111,1,0,0,0,113,
+        114,1,0,0,0,114,115,1,0,0,0,115,116,5,24,0,0,116,118,1,0,0,0,117,
+        87,1,0,0,0,117,105,1,0,0,0,118,11,1,0,0,0,119,120,5,25,0,0,120,121,
+        5,3,0,0,121,122,3,24,12,0,122,124,5,4,0,0,123,125,3,2,1,0,124,123,
+        1,0,0,0,125,126,1,0,0,0,126,124,1,0,0,0,126,127,1,0,0,0,127,128,
+        1,0,0,0,128,129,5,26,0,0,129,13,1,0,0,0,130,131,5,27,0,0,131,132,
+        5,34,0,0,132,133,5,15,0,0,133,134,3,30,15,0,134,135,5,28,0,0,135,
+        137,3,30,15,0,136,138,3,2,1,0,137,136,1,0,0,0,138,139,1,0,0,0,139,
+        137,1,0,0,0,139,140,1,0,0,0,140,141,1,0,0,0,141,142,5,30,0,0,142,
+        159,1,0,0,0,143,144,5,27,0,0,144,145,5,34,0,0,145,146,5,15,0,0,146,
+        147,3,30,15,0,147,148,5,28,0,0,148,149,3,30,15,0,149,150,5,29,0,
+        0,150,152,3,30,15,0,151,153,3,2,1,0,152,151,1,0,0,0,153,154,1,0,
+        0,0,154,152,1,0,0,0,154,155,1,0,0,0,155,156,1,0,0,0,156,157,5,30,
+        0,0,157,159,1,0,0,0,158,130,1,0,0,0,158,143,1,0,0,0,159,15,1,0,0,
+        0,160,161,5,32,0,0,161,163,5,34,0,0,162,164,3,2,1,0,163,162,1,0,
+        0,0,164,165,1,0,0,0,165,163,1,0,0,0,165,166,1,0,0,0,166,167,1,0,
+        0,0,167,168,5,33,0,0,168,17,1,0,0,0,169,170,5,34,0,0,170,171,5,3,
+        0,0,171,172,5,4,0,0,172,19,1,0,0,0,173,174,5,34,0,0,174,175,5,7,
+        0,0,175,176,5,34,0,0,176,177,5,3,0,0,177,178,3,22,11,0,178,179,5,
+        4,0,0,179,186,1,0,0,0,180,181,5,34,0,0,181,182,5,7,0,0,182,183,5,
+        34,0,0,183,184,5,3,0,0,184,186,5,4,0,0,185,173,1,0,0,0,185,180,1,
+        0,0,0,186,21,1,0,0,0,187,191,3,24,12,0,188,191,3,30,15,0,189,191,
+        3,40,20,0,190,187,1,0,0,0,190,188,1,0,0,0,190,189,1,0,0,0,191,23,
+        1,0,0,0,192,197,3,26,13,0,193,194,7,0,0,0,194,196,3,26,13,0,195,
         193,1,0,0,0,196,199,1,0,0,0,197,195,1,0,0,0,197,198,1,0,0,0,198,
         25,1,0,0,0,199,197,1,0,0,0,200,201,3,30,15,0,201,202,7,1,0,0,202,
         203,3,30,15,0,203,210,1,0,0,0,204,205,3,40,20,0,205,206,7,1,0,0,
@@ -103,7 +103,7 @@ def serializedATN():
         1,0,0,0,261,43,1,0,0,0,262,260,1,0,0,0,263,271,5,1,0,0,264,271,5,
         34,0,0,265,266,5,3,0,0,266,267,3,40,20,0,267,268,5,4,0,0,268,271,
         1,0,0,0,269,271,3,20,10,0,270,263,1,0,0,0,270,264,1,0,0,0,270,265,
-        1,0,0,0,270,269,1,0,0,0,271,45,1,0,0,0,24,49,62,74,79,95,107,113,
+        1,0,0,0,270,269,1,0,0,0,271,45,1,0,0,0,24,49,62,74,79,95,101,113,
         117,126,139,154,158,165,185,190,197,209,218,227,235,239,251,260,
         270
     ]
@@ -678,25 +678,37 @@ class SmallerBasicParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
+
+        def getRuleIndex(self):
+            return SmallerBasicParser.RULE_ifStatement
+
+     
+        def copyFrom(self, ctx:ParserRuleContext):
+            super().copyFrom(ctx)
+
+
+
+    class IfStatementWithElseContext(IfStatementContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a SmallerBasicParser.IfStatementContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
         def IF(self):
             return self.getToken(SmallerBasicParser.IF, 0)
-
         def LROUND(self):
             return self.getToken(SmallerBasicParser.LROUND, 0)
-
         def logicalExpression(self):
             return self.getTypedRuleContext(SmallerBasicParser.LogicalExpressionContext,0)
 
-
         def RROUND(self):
             return self.getToken(SmallerBasicParser.RROUND, 0)
-
         def THEN(self):
             return self.getToken(SmallerBasicParser.THEN, 0)
-
+        def ELSE(self):
+            return self.getToken(SmallerBasicParser.ELSE, 0)
         def ENDIF(self):
             return self.getToken(SmallerBasicParser.ENDIF, 0)
-
         def statement(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(SmallerBasicParser.StatementContext)
@@ -704,26 +716,60 @@ class SmallerBasicParser ( Parser ):
                 return self.getTypedRuleContext(SmallerBasicParser.StatementContext,i)
 
 
-        def ELSE(self):
-            return self.getToken(SmallerBasicParser.ELSE, 0)
-
-        def getRuleIndex(self):
-            return SmallerBasicParser.RULE_ifStatement
-
         def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterIfStatement" ):
-                listener.enterIfStatement(self)
+            if hasattr( listener, "enterIfStatementWithElse" ):
+                listener.enterIfStatementWithElse(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitIfStatement" ):
-                listener.exitIfStatement(self)
+            if hasattr( listener, "exitIfStatementWithElse" ):
+                listener.exitIfStatementWithElse(self)
 
         def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitIfStatement" ):
-                return visitor.visitIfStatement(self)
+            if hasattr( visitor, "visitIfStatementWithElse" ):
+                return visitor.visitIfStatementWithElse(self)
             else:
                 return visitor.visitChildren(self)
 
+
+    class IfStatementWithoutElseContext(IfStatementContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a SmallerBasicParser.IfStatementContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def IF(self):
+            return self.getToken(SmallerBasicParser.IF, 0)
+        def LROUND(self):
+            return self.getToken(SmallerBasicParser.LROUND, 0)
+        def logicalExpression(self):
+            return self.getTypedRuleContext(SmallerBasicParser.LogicalExpressionContext,0)
+
+        def RROUND(self):
+            return self.getToken(SmallerBasicParser.RROUND, 0)
+        def THEN(self):
+            return self.getToken(SmallerBasicParser.THEN, 0)
+        def ENDIF(self):
+            return self.getToken(SmallerBasicParser.ENDIF, 0)
+        def statement(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(SmallerBasicParser.StatementContext)
+            else:
+                return self.getTypedRuleContext(SmallerBasicParser.StatementContext,i)
+
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterIfStatementWithoutElse" ):
+                listener.enterIfStatementWithoutElse(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitIfStatementWithoutElse" ):
+                listener.exitIfStatementWithoutElse(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitIfStatementWithoutElse" ):
+                return visitor.visitIfStatementWithoutElse(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -737,6 +783,7 @@ class SmallerBasicParser ( Parser ):
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,7,self._ctx)
             if la_ == 1:
+                localctx = SmallerBasicParser.IfStatementWithElseContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
                 self.state = 87
                 self.match(SmallerBasicParser.IF)
@@ -761,35 +808,36 @@ class SmallerBasicParser ( Parser ):
                         break
 
                 self.state = 97
-                self.match(SmallerBasicParser.ENDIF)
-                pass
-
-            elif la_ == 2:
-                self.enterOuterAlt(localctx, 2)
-                self.state = 99
-                self.match(SmallerBasicParser.IF)
-                self.state = 100
-                self.match(SmallerBasicParser.LROUND)
-                self.state = 101
-                self.logicalExpression()
-                self.state = 102
-                self.match(SmallerBasicParser.RROUND)
-                self.state = 103
-                self.match(SmallerBasicParser.THEN)
-                self.state = 105 
+                self.match(SmallerBasicParser.ELSE)
+                self.state = 99 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 while True:
-                    self.state = 104
+                    self.state = 98
                     self.statement()
-                    self.state = 107 
+                    self.state = 101 
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
                     if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & 23792189440) != 0)):
                         break
 
+                self.state = 103
+                self.match(SmallerBasicParser.ENDIF)
+                pass
+
+            elif la_ == 2:
+                localctx = SmallerBasicParser.IfStatementWithoutElseContext(self, localctx)
+                self.enterOuterAlt(localctx, 2)
+                self.state = 105
+                self.match(SmallerBasicParser.IF)
+                self.state = 106
+                self.match(SmallerBasicParser.LROUND)
+                self.state = 107
+                self.logicalExpression()
+                self.state = 108
+                self.match(SmallerBasicParser.RROUND)
                 self.state = 109
-                self.match(SmallerBasicParser.ELSE)
+                self.match(SmallerBasicParser.THEN)
                 self.state = 111 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)

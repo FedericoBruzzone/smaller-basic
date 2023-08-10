@@ -1,0 +1,32 @@
+If ((1+2) < (2+5)) Then 
+    a = 3 
+    a = a + 4
+    p = "ciao"
+    x = 5  
+EndIf
+
+
+If ((1+2) < (2+5)) Then 
+    a = 3 
+    a = a + 4
+Else 
+    p = "ciao"
+    x = 5  
+EndIf
+
+If ((1+2) < (2+5)) Then 
+    If ((1+2) < (2+5)) Then 
+        a = 3 
+        a = a + 4
+    Else 
+        p = "ciao"
+        x = 5  
+    EndIf
+    a = 3 
+    a = a + 4
+Else 
+    p = "ciao"
+    x = 5  
+EndIf
+
+

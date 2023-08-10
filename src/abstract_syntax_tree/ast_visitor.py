@@ -12,9 +12,15 @@ from src.abstract_syntax_tree.ast import Ast
 # ===================== STATEMENTS =====================
 # ======================================================
 from src.abstract_syntax_tree.statement_nodes.abstract_statement_node import AbstractStatementNode
+from src.abstract_syntax_tree.statement_nodes.statements_node import StatementsNode
+# ==================== DECLARATION STATEMENTS ====================
 from src.abstract_syntax_tree.statement_nodes.declaration_statement_nodes.varible_declaration_statement_node import VariableDeclarationStatementNode
+# ==================== LIBRARY STATEMENTS ====================
 from src.abstract_syntax_tree.statement_nodes.library_statement_nodes.library_statement_node_with_parameters import LibraryStatementWithParametersNode
 from src.abstract_syntax_tree.statement_nodes.library_statement_nodes.library_statement_node_without_parameters import LibraryStatementWithoutParametersNode
+# ==================== IF STATEMENTS ====================
+from src.abstract_syntax_tree.statement_nodes.if_statement_nodes.if_statement_with_else_node import IfStatementWithElseNode
+from src.abstract_syntax_tree.statement_nodes.if_statement_nodes.if_statement_without_else_node import IfStatementWithoutElseNode
 
 # ======================================================
 # ===================== EXPRESSIONS ====================
@@ -67,6 +73,8 @@ class SmallerBasicAstVisitor(SmallerBasicVisitor):
             ctx (SmallerBasicParser.StatementContext): The parse tree
         """
         return super().visitStatement(ctx)
+    
+    # ==================== DECLARATION STATEMENTS ====================
 
     def visitVariableDeclarationStatement(self, ctx: SmallerBasicParser.VariableDeclarationStatementContext):
         """
@@ -79,7 +87,9 @@ class SmallerBasicAstVisitor(SmallerBasicVisitor):
             IdNode(ctx.ID().getText()),
             self.visit(ctx.expression())
         )
-    
+   
+    # ==================== LIBRARY STATEMENTS ====================
+
     def visitLibraryStatementWithParameters(self, ctx: SmallerBasicParser.LibraryStatementWithParametersContext):
         """
         Visit LibraryStatementWithParameters node in parse tree
@@ -105,6 +115,40 @@ class SmallerBasicAstVisitor(SmallerBasicVisitor):
             IdNode(ctx.ID(1).getText())
         )
     
+    # ==================== IF STATEMENTS ====================
+    def visitIfStatementWithElse(self, ctx: SmallerBasicParser.IfStatementWithElseContext):
+        """
+        Visit IfStatementWithElse node in parse tree
+
+        Parameters:
+            ctx (SmallerBasicParser.IfStatementWithElseContext): The parse tree
+        """
+        # IF LROUND logicalExpression RROUND THEN statement+ ELSE statement+ ENDIF
+        #                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+        _, _, _, _, _, *statements, _ = ctx.children
+        else_index: int = statements.index(ctx.ELSE())
+        
+        return IfStatementWithElseNode(
+            self.visit(ctx.logicalExpression()),
+            StatementsNode([self.visit(statement) for statement in statements[:else_index]]),
+            StatementsNode([self.visit(statement) for statement in statements[else_index + 1:]])
+        )
+
+    def visitIfStatementWithoutElse(self, ctx: SmallerBasicParser.IfStatementWithoutElseContext):
+        """
+        Visit IfStatementWithoutElse node in parse tree
+            
+        Parameters:
+            ctx (SmallerBasicParser.IfStatementWithoutElseContext): The parse tree
+        """
+        # IF LROUND logicalExpression RROUND THEN statement+ ENDIF
+        #                                         ^^^^^^^^^^
+        _, _, _, _, _, *statements, _ = ctx.children
+        return IfStatementWithoutElseNode(
+            self.visit(ctx.logicalExpression()),
+            StatementsNode([self.visit(statement) for statement in statements])
+        )
+
     # ======================================================
     # ===================== EXPRESSIONS ====================
     # ======================================================

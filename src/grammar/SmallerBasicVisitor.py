@@ -39,8 +39,13 @@ class SmallerBasicVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by SmallerBasicParser#ifStatement.
-    def visitIfStatement(self, ctx:SmallerBasicParser.IfStatementContext):
+    # Visit a parse tree produced by SmallerBasicParser#IfStatementWithElse.
+    def visitIfStatementWithElse(self, ctx:SmallerBasicParser.IfStatementWithElseContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by SmallerBasicParser#IfStatementWithoutElse.
+    def visitIfStatementWithoutElse(self, ctx:SmallerBasicParser.IfStatementWithoutElseContext):
         return self.visitChildren(ctx)
 
 
