@@ -7,9 +7,14 @@ from src.grammar.SmallerBasicParser import SmallerBasicParser
 from src.abstract_syntax_tree.ast_visitor_helper import get_unary_sign
 
 from src.abstract_syntax_tree.ast import Ast
-from src.abstract_syntax_tree.statement_nodes.abstract_statement_node import AbstractStatementNode
-from src.abstract_syntax_tree.statement_nodes.varible_declaration_statement_node import VariableDeclarationStatementNode
 
+# ======================================================
+# ===================== STATEMENTS =====================
+# ======================================================
+from src.abstract_syntax_tree.statement_nodes.abstract_statement_node import AbstractStatementNode
+from src.abstract_syntax_tree.statement_nodes.declaration_statement_nodes.varible_declaration_statement_node import VariableDeclarationStatementNode
+from src.abstract_syntax_tree.statement_nodes.library_statement_nodes.library_statement_node_with_parameters import LibraryStatementWithParametersNode
+from src.abstract_syntax_tree.statement_nodes.library_statement_nodes.library_statement_node_without_parameters import LibraryStatementWithoutParametersNode
 
 # ======================================================
 # ===================== EXPRESSIONS ====================
@@ -24,7 +29,10 @@ from src.abstract_syntax_tree.expression_nodes.arithmetical_expression_nodes.mul
 from src.abstract_syntax_tree.expression_nodes.arithmetical_expression_nodes.unary_atom_number_node import UnaryAtomNumberNode
 # ==================== STRING EXPRESSIONS ====================
 from src.abstract_syntax_tree.expression_nodes.string_expression_nodes.additive_string_expression_node import AdditiveStringExpressionNode
-# ==================== TOKENS ====================
+
+# ======================================================
+# ======================= TOKENS ======================= 
+# ======================================================
 from src.abstract_syntax_tree.token_nodes.id_node import IdNode
 from src.abstract_syntax_tree.token_nodes.string_node import StringNode
 from src.abstract_syntax_tree.token_nodes.int_node import IntNode
@@ -46,6 +54,10 @@ class SmallerBasicAstVisitor(SmallerBasicVisitor):
         statements: List[AbstractStatementNode] = [
             self.visit(child) for child in ctx.statement()]
         return Ast(statements)
+    
+    # ======================================================
+    # ===================== STATEMENTS =====================
+    # ======================================================
 
     def visitStatement(self, ctx: SmallerBasicParser.StatementContext):
         """
@@ -67,10 +79,35 @@ class SmallerBasicAstVisitor(SmallerBasicVisitor):
             IdNode(ctx.ID().getText()),
             self.visit(ctx.expression())
         )
+    
+    def visitLibraryStatementWithParameters(self, ctx: SmallerBasicParser.LibraryStatementWithParametersContext):
+        """
+        Visit LibraryStatementWithParameters node in parse tree
 
-    # # ======================================================
-    # # ===================== EXPRESSIONS ====================
-    # # ======================================================
+        Parameters:
+            ctx (SmallerBasicParser.LibraryStatementWithParametersContext): The parse tree
+        """
+        return LibraryStatementWithParametersNode(
+            IdNode(ctx.ID(0).getText()),
+            IdNode(ctx.ID(1).getText()),
+            self.visit(ctx.expression())
+        )
+
+    def visitLibraryStatementWithoutParameters(self, ctx: SmallerBasicParser.LibraryStatementWithoutParametersContext):
+        """
+        Visit LibraryStatementWithoutParameters node in parse tree
+
+        Parameters:
+            ctx (SmallerBasicParser.LibraryStatementWithoutParametersContext): The parse tree
+        """
+        return LibraryStatementWithoutParametersNode(
+            IdNode(ctx.ID(0).getText()),
+            IdNode(ctx.ID(1).getText())
+        )
+    
+    # ======================================================
+    # ===================== EXPRESSIONS ====================
+    # ======================================================
 
     def visitExpression(self, ctx: SmallerBasicParser.ExpressionContext):
         """
@@ -173,10 +210,6 @@ class SmallerBasicAstVisitor(SmallerBasicVisitor):
             ctx (SmallerBasicParser.AtomBooleanContext): The parse tree
         """
         return super().visitAtomBoolean(ctx)
- 
- # AtomBooleanId                  
- # AtomBooleanParenthesis
- # AtomBooleanLibraryStatement
 
     def visitAtomBooleanBoolean(self, ctx: SmallerBasicParser.AtomBooleanBooleanContext):
         """
@@ -204,6 +237,15 @@ class SmallerBasicAstVisitor(SmallerBasicVisitor):
             ctx (SmallerBasicParser.AtomBooleanParenthesisContext): The parse tree
         """
         return self.visit(ctx.logicalExpression())
+
+    def visitAtomBooleanLibraryStatement(self, ctx: SmallerBasicParser.AtomBooleanLibraryStatementContext):
+        """
+        Visit AtomBooleanLibraryStatement node in parse tree
+
+        Parameters:
+            ctx (SmallerBasicParser.AtomBooleanLibraryStatementContext): The parse tree
+        """
+        return self.visit(ctx.libraryStatement())
 
     # ==================== ARITHMETICAL EXPRESSIONS ==================== 
    
@@ -304,6 +346,15 @@ class SmallerBasicAstVisitor(SmallerBasicVisitor):
             ctx (SmallerBasicParser.AtomNumberParenthesisContext): The parse tree
         """
         return self.visit(ctx.additiveExpression())
+
+    def visitAtomNumberLibraryStatement(self, ctx: SmallerBasicParser.AtomNumberLibraryStatementContext):
+        """
+        Visit AtomNumberLibraryStatement node in parse tree
+
+        Parameters:
+            ctx (SmallerBasicParser.AtomNumberLibraryStatementContext): The parse tree
+        """
+        return self.visit(ctx.libraryStatement())
     
     # ==================== STRING EXPRESSIONS ====================
 
@@ -359,4 +410,12 @@ class SmallerBasicAstVisitor(SmallerBasicVisitor):
             ctx (SmallerBasicParser.AtomStringParenthesisContext): The parse tree
         """
         return self.visit(ctx.stringExpression())
+    
+    def visitAtomStringLibraryStatement(self, ctx: SmallerBasicParser.AtomStringLibraryStatementContext):
+        """
+        Visit AtomStringLibraryStatement node in parse tree
 
+        Parameters:
+            ctx (SmallerBasicParser.AtomStringLibraryStatementContext): The parse tree
+        """
+        return self.visit(ctx.libraryStatement())

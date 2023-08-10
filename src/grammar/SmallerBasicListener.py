@@ -107,12 +107,21 @@ class SmallerBasicListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SmallerBasicParser#libraryStatement.
-    def enterLibraryStatement(self, ctx:SmallerBasicParser.LibraryStatementContext):
+    # Enter a parse tree produced by SmallerBasicParser#LibraryStatementWithParameters.
+    def enterLibraryStatementWithParameters(self, ctx:SmallerBasicParser.LibraryStatementWithParametersContext):
         pass
 
-    # Exit a parse tree produced by SmallerBasicParser#libraryStatement.
-    def exitLibraryStatement(self, ctx:SmallerBasicParser.LibraryStatementContext):
+    # Exit a parse tree produced by SmallerBasicParser#LibraryStatementWithParameters.
+    def exitLibraryStatementWithParameters(self, ctx:SmallerBasicParser.LibraryStatementWithParametersContext):
+        pass
+
+
+    # Enter a parse tree produced by SmallerBasicParser#LibraryStatementWithoutParameters.
+    def enterLibraryStatementWithoutParameters(self, ctx:SmallerBasicParser.LibraryStatementWithoutParametersContext):
+        pass
+
+    # Exit a parse tree produced by SmallerBasicParser#LibraryStatementWithoutParameters.
+    def exitLibraryStatementWithoutParameters(self, ctx:SmallerBasicParser.LibraryStatementWithoutParametersContext):
         pass
 
 

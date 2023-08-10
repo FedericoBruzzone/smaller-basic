@@ -1,9 +1,10 @@
 IO.Read()
-IO.Read.think()
+IO.think()
+
 IO.Read()
 a = 5
-IO.Write(True)
-a[1][1] = True
+IO.Write(true)
+IO.Write(a)
 
 
 a = IO.Write()

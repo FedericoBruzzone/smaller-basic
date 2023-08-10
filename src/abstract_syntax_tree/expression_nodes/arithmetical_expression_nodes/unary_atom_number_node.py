@@ -1,4 +1,5 @@
 from typing import Any
+from src.abstract_syntax_tree.statement_nodes.library_statement_nodes.library_statement_node import LibraryStatementNode 
 from src.abstract_syntax_tree.expression_nodes.arithmetical_expression_nodes.arithmetical_expression_node import ArithmeticalExpressionNode
 from src.abstract_syntax_tree.token_nodes.id_node import IdNode
 from src.abstract_syntax_tree.token_nodes.int_node import IntNode
@@ -14,14 +15,16 @@ class UnaryAtomNumberNode(ArithmeticalExpressionNode):
         sign: str,
         atom_number_node: Any 
     ):
-        accepted_types = [IntNode, 
+        accepted_types = [IdNode,
+                          IntNode,
                           FloatNode, 
                           IdNode]
-        if (type(atom_number_node) not in accepted_types and 
-            not issubclass(type(atom_number_node), ArithmeticalExpressionNode)):
-            raise ValueError(                
-                f"Left expression node must be of type {accepted_types}. Got: {type(atom_number_node)}")
-
+        accepted_subtypes = [ArithmeticalExpressionNode,
+                LibraryStatementNode]
+        if ((type(atom_number_node) not in accepted_types) and 
+            not issubclass(type(atom_number_node), tuple(accepted_subtypes))):
+            raise ValueError(
+                f"Right expression node must be of type {accepted_types} or a subclass of {accepted_subtypes}. Got: {type(atom_number_node)}")
         super().__init__([atom_number_node])
         self.sign: str = sign
         self.name: str = "UnaryAtomNumberNode"

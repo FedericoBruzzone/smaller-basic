@@ -64,8 +64,13 @@ class SmallerBasicVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by SmallerBasicParser#libraryStatement.
-    def visitLibraryStatement(self, ctx:SmallerBasicParser.LibraryStatementContext):
+    # Visit a parse tree produced by SmallerBasicParser#LibraryStatementWithParameters.
+    def visitLibraryStatementWithParameters(self, ctx:SmallerBasicParser.LibraryStatementWithParametersContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by SmallerBasicParser#LibraryStatementWithoutParameters.
+    def visitLibraryStatementWithoutParameters(self, ctx:SmallerBasicParser.LibraryStatementWithoutParametersContext):
         return self.visitChildren(ctx)
 
 
