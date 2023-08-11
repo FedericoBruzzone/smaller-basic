@@ -21,6 +21,11 @@ from src.abstract_syntax_tree.statement_nodes.library_statement_nodes.library_st
 # ==================== IF STATEMENTS ====================
 from src.abstract_syntax_tree.statement_nodes.if_statement_nodes.if_statement_with_else_node import IfStatementWithElseNode
 from src.abstract_syntax_tree.statement_nodes.if_statement_nodes.if_statement_without_else_node import IfStatementWithoutElseNode
+# ==================== WHILE STATEMENTS ====================
+from src.abstract_syntax_tree.statement_nodes.while_statement_nodes.while_statement_standard_node import WhileStatementStandardNode
+# ==================== FOR STATEMENTS ====================
+from src.abstract_syntax_tree.statement_nodes.for_statement_nodes.for_statement_standard_node import ForStatementStandardNode
+from src.abstract_syntax_tree.statement_nodes.for_statement_nodes.for_statement_with_step_node import ForStatementWithStepNode
 
 # ======================================================
 # ===================== EXPRESSIONS ====================
@@ -146,6 +151,59 @@ class SmallerBasicAstVisitor(SmallerBasicVisitor):
         _, _, _, _, _, *statements, _ = ctx.children
         return IfStatementWithoutElseNode(
             self.visit(ctx.logicalExpression()),
+            StatementsNode([self.visit(statement) for statement in statements])
+        )
+    
+    # ==================== WHILE STATEMENTS ====================
+    
+    def visitWhileStatementStandard(self, ctx: SmallerBasicParser.WhileStatementStandardContext):
+        """
+        Visit WhileStatementStandard node in parse tree
+
+        Parameters:
+            ctx (SmallerBasicParser.WhileStatementStandardContext): The parse tree
+        """
+        # WHILE LROUND logicalExpression RROUND statement+ ENDWHILE
+        #                                       ^^^^^^^^^^
+        _, _, _, _, *statements, _ = ctx.children
+        return WhileStatementStandardNode(
+            self.visit(ctx.logicalExpression()),
+            StatementsNode([self.visit(statement) for statement in statements])
+        )
+    
+    # ==================== FOR STATEMENTS ====================
+    def visitForStatementStandard(self, ctx: SmallerBasicParser.ForStatementStandardContext):
+        """
+        Visit ForStatementStandard node in parse tree
+
+        Parameters:
+            ctx (SmallerBasicParser.ForStatementStandardContext): The parse tree
+        """
+        # FOR ID EQ arithmeticalExpression TO arithmeticalExpression statement+ ENDFOR
+        #                                                            ^^^^^^^^^^
+        _, _, _, _, _, _, *statements, _ = ctx.children
+        return ForStatementStandardNode(
+            VariableDeclarationStatementNode(IdNode(ctx.ID().getText()), 
+                                             self.visit(ctx.arithmeticalExpression(0))),
+            self.visit(ctx.arithmeticalExpression(1)),
+            StatementsNode([self.visit(statement) for statement in statements])
+        )
+
+    def visitForStatementWithStep(self, ctx: SmallerBasicParser.ForStatementWithStepContext):
+        """
+        Visit ForStatementWithStep node in parse tree
+
+        Parameters:
+            ctx (SmallerBasicParser.ForStatementWithStepContext): The parse tree
+        """
+        # FOR ID EQ arithmeticalExpression TO arithmeticalExpression STEP arithmeticalExpression statement+ ENDFOR
+        #                                                                                        ^^^^^^^^^^
+        _, _, _, _, _, _, _, _, *statements, _ = ctx.children
+        return ForStatementWithStepNode(
+            VariableDeclarationStatementNode(IdNode(ctx.ID().getText()), 
+                                             self.visit(ctx.arithmeticalExpression(0))),
+            self.visit(ctx.arithmeticalExpression(1)),
+            self.visit(ctx.arithmeticalExpression(2)),
             StatementsNode([self.visit(statement) for statement in statements])
         )
 

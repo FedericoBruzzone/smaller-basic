@@ -21,8 +21,8 @@ statement
     ;
 
 declarationStatement //(EQ expression)?
-    : ID EQ expression                                            # VariableDeclarationStatement
-    | ID (LSQUARE arithmeticalExpression RSQUARE)+ EQ expression  # ArrayDeclarationStatement
+    : ID EQ expression                                                                                            # VariableDeclarationStatement
+    | ID (LSQUARE arithmeticalExpression RSQUARE)+ EQ expression                                                  # ArrayDeclarationStatement
     ;
 
 labelStatement
@@ -34,17 +34,17 @@ gotoStatement
     ;
 
 ifStatement
-    : IF LROUND logicalExpression RROUND THEN statement+ ELSE statement+ ENDIF         # IfStatementWithElse
-    | IF LROUND logicalExpression RROUND THEN statement+ ENDIF                         # IfStatementWithoutElse
+    : IF LROUND logicalExpression RROUND THEN statement+ ELSE statement+ ENDIF                                    # IfStatementWithElse
+    | IF LROUND logicalExpression RROUND THEN statement+ ENDIF                                                    # IfStatementWithoutElse
     ;
 
 whileStatement
-    : WHILE LROUND logicalExpression RROUND statement+ ENDWHILE
+    : WHILE LROUND logicalExpression RROUND statement+ ENDWHILE                                                   # WhileStatementStandard
     ;
 
 forStatement
-    : FOR ID EQ arithmeticalExpression TO arithmeticalExpression statement+ ENDFOR
-    | FOR ID EQ arithmeticalExpression TO arithmeticalExpression STEP arithmeticalExpression statement+ ENDFOR
+    : FOR ID EQ arithmeticalExpression TO arithmeticalExpression statement+ ENDFOR                                # ForStatementStandard
+    | FOR ID EQ arithmeticalExpression TO arithmeticalExpression STEP arithmeticalExpression statement+ ENDFOR    # ForStatementWithStep
     ;
 
 subroutineStatement
@@ -56,8 +56,8 @@ callSubroutineStatement
     ;
 
 libraryStatement
-    : ID DOT ID LROUND expression RROUND                                               # LibraryStatementWithParameters
-    | ID DOT ID LROUND RROUND                                                          # LibraryStatementWithoutParameters
+    : ID DOT ID LROUND expression RROUND                                                                          # LibraryStatementWithParameters
+    | ID DOT ID LROUND RROUND                                                                                     # LibraryStatementWithoutParameters
     ;
 
 // ======================================================
@@ -76,16 +76,16 @@ logicalExpression
     ;
 
 booleanExpression
-    : arithmeticalExpression (GT | LT | EQ | GTEQ | LTEQ | NEQ) arithmeticalExpression # BooleanArithmeticalExpression
-    | stringExpression (GT | LT | EQ | GTEQ | LTEQ | NEQ) stringExpression             # BooleanStringExpression
-    | atomBoolean                                                                      # BooleanAtomExpression
+    : arithmeticalExpression (GT | LT | EQ | GTEQ | LTEQ | NEQ) arithmeticalExpression                            # BooleanArithmeticalExpression
+    | stringExpression (GT | LT | EQ | GTEQ | LTEQ | NEQ) stringExpression                                        # BooleanStringExpression
+    | atomBoolean                                                                                                 # BooleanAtomExpression
     ;
 
 atomBoolean
-    : BOOLEAN                                                                          # AtomBooleanBoolean
-    | ID                                                                               # AtomBooleanId
-    | LROUND logicalExpression RROUND                                                  # AtomBooleanParenthesis
-    | libraryStatement                                                                 # AtomBooleanLibraryStatement
+    : BOOLEAN                                                                                                     # AtomBooleanBoolean
+    | ID                                                                                                          # AtomBooleanId
+    | LROUND logicalExpression RROUND                                                                             # AtomBooleanParenthesis
+    | libraryStatement                                                                                            # AtomBooleanLibraryStatement
     ;
 
 //  ==================== ARITHMETICAL EXPRESSIONS ====================
@@ -106,11 +106,11 @@ unaryAtomNumber
     ;
 
 atomNumber
-    : INT                                                                              # AtomNumberInt
-    | FLOAT                                                                            # AtomNumberFloat
-    | ID                                                                               # AtomNumberId
-    | LROUND additiveExpression RROUND                                                 # AtomNumberParenthesis
-    | libraryStatement                                                                 # AtomNumberLibraryStatement
+    : INT                                                                                                         # AtomNumberInt
+    | FLOAT                                                                                                       # AtomNumberFloat
+    | ID                                                                                                          # AtomNumberId
+    | LROUND additiveExpression RROUND                                                                            # AtomNumberParenthesis
+    | libraryStatement                                                                                            # AtomNumberLibraryStatement
     ;
 
 //  ==================== STRING EXPRESSIONS ====================
@@ -123,10 +123,10 @@ additiveStringExpression
     ;
 
 atomString
-    : STRING                                                                           # AtomStringLiteral
-    | ID                                                                               # AtomStringId  
-    | LROUND stringExpression RROUND                                                   # AtomStringParenthesis
-    | libraryStatement                                                                 # AtomStringLibraryStatement
+    : STRING                                                                                                      # AtomStringLiteral
+    | ID                                                                                                          # AtomStringId  
+    | LROUND stringExpression RROUND                                                                              # AtomStringParenthesis
+    | libraryStatement                                                                                            # AtomStringLibraryStatement
     ;
 
 // ================================================

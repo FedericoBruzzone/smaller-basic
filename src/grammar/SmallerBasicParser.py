@@ -871,22 +871,33 @@ class SmallerBasicParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
+
+        def getRuleIndex(self):
+            return SmallerBasicParser.RULE_whileStatement
+
+     
+        def copyFrom(self, ctx:ParserRuleContext):
+            super().copyFrom(ctx)
+
+
+
+    class WhileStatementStandardContext(WhileStatementContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a SmallerBasicParser.WhileStatementContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
         def WHILE(self):
             return self.getToken(SmallerBasicParser.WHILE, 0)
-
         def LROUND(self):
             return self.getToken(SmallerBasicParser.LROUND, 0)
-
         def logicalExpression(self):
             return self.getTypedRuleContext(SmallerBasicParser.LogicalExpressionContext,0)
 
-
         def RROUND(self):
             return self.getToken(SmallerBasicParser.RROUND, 0)
-
         def ENDWHILE(self):
             return self.getToken(SmallerBasicParser.ENDWHILE, 0)
-
         def statement(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(SmallerBasicParser.StatementContext)
@@ -894,23 +905,19 @@ class SmallerBasicParser ( Parser ):
                 return self.getTypedRuleContext(SmallerBasicParser.StatementContext,i)
 
 
-        def getRuleIndex(self):
-            return SmallerBasicParser.RULE_whileStatement
-
         def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterWhileStatement" ):
-                listener.enterWhileStatement(self)
+            if hasattr( listener, "enterWhileStatementStandard" ):
+                listener.enterWhileStatementStandard(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitWhileStatement" ):
-                listener.exitWhileStatement(self)
+            if hasattr( listener, "exitWhileStatementStandard" ):
+                listener.exitWhileStatementStandard(self)
 
         def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitWhileStatement" ):
-                return visitor.visitWhileStatement(self)
+            if hasattr( visitor, "visitWhileStatementStandard" ):
+                return visitor.visitWhileStatementStandard(self)
             else:
                 return visitor.visitChildren(self)
-
 
 
 
@@ -920,6 +927,7 @@ class SmallerBasicParser ( Parser ):
         self.enterRule(localctx, 12, self.RULE_whileStatement)
         self._la = 0 # Token type
         try:
+            localctx = SmallerBasicParser.WhileStatementStandardContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
             self.state = 119
             self.match(SmallerBasicParser.WHILE)
@@ -959,28 +967,40 @@ class SmallerBasicParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
+
+        def getRuleIndex(self):
+            return SmallerBasicParser.RULE_forStatement
+
+     
+        def copyFrom(self, ctx:ParserRuleContext):
+            super().copyFrom(ctx)
+
+
+
+    class ForStatementWithStepContext(ForStatementContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a SmallerBasicParser.ForStatementContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
         def FOR(self):
             return self.getToken(SmallerBasicParser.FOR, 0)
-
         def ID(self):
             return self.getToken(SmallerBasicParser.ID, 0)
-
         def EQ(self):
             return self.getToken(SmallerBasicParser.EQ, 0)
-
         def arithmeticalExpression(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(SmallerBasicParser.ArithmeticalExpressionContext)
             else:
                 return self.getTypedRuleContext(SmallerBasicParser.ArithmeticalExpressionContext,i)
 
-
         def TO(self):
             return self.getToken(SmallerBasicParser.TO, 0)
-
+        def STEP(self):
+            return self.getToken(SmallerBasicParser.STEP, 0)
         def ENDFOR(self):
             return self.getToken(SmallerBasicParser.ENDFOR, 0)
-
         def statement(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(SmallerBasicParser.StatementContext)
@@ -988,26 +1008,63 @@ class SmallerBasicParser ( Parser ):
                 return self.getTypedRuleContext(SmallerBasicParser.StatementContext,i)
 
 
-        def STEP(self):
-            return self.getToken(SmallerBasicParser.STEP, 0)
-
-        def getRuleIndex(self):
-            return SmallerBasicParser.RULE_forStatement
-
         def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterForStatement" ):
-                listener.enterForStatement(self)
+            if hasattr( listener, "enterForStatementWithStep" ):
+                listener.enterForStatementWithStep(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitForStatement" ):
-                listener.exitForStatement(self)
+            if hasattr( listener, "exitForStatementWithStep" ):
+                listener.exitForStatementWithStep(self)
 
         def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitForStatement" ):
-                return visitor.visitForStatement(self)
+            if hasattr( visitor, "visitForStatementWithStep" ):
+                return visitor.visitForStatementWithStep(self)
             else:
                 return visitor.visitChildren(self)
 
+
+    class ForStatementStandardContext(ForStatementContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a SmallerBasicParser.ForStatementContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def FOR(self):
+            return self.getToken(SmallerBasicParser.FOR, 0)
+        def ID(self):
+            return self.getToken(SmallerBasicParser.ID, 0)
+        def EQ(self):
+            return self.getToken(SmallerBasicParser.EQ, 0)
+        def arithmeticalExpression(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(SmallerBasicParser.ArithmeticalExpressionContext)
+            else:
+                return self.getTypedRuleContext(SmallerBasicParser.ArithmeticalExpressionContext,i)
+
+        def TO(self):
+            return self.getToken(SmallerBasicParser.TO, 0)
+        def ENDFOR(self):
+            return self.getToken(SmallerBasicParser.ENDFOR, 0)
+        def statement(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(SmallerBasicParser.StatementContext)
+            else:
+                return self.getTypedRuleContext(SmallerBasicParser.StatementContext,i)
+
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterForStatementStandard" ):
+                listener.enterForStatementStandard(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitForStatementStandard" ):
+                listener.exitForStatementStandard(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitForStatementStandard" ):
+                return visitor.visitForStatementStandard(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -1021,6 +1078,7 @@ class SmallerBasicParser ( Parser ):
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,11,self._ctx)
             if la_ == 1:
+                localctx = SmallerBasicParser.ForStatementStandardContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
                 self.state = 130
                 self.match(SmallerBasicParser.FOR)
@@ -1051,6 +1109,7 @@ class SmallerBasicParser ( Parser ):
                 pass
 
             elif la_ == 2:
+                localctx = SmallerBasicParser.ForStatementWithStepContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
                 self.state = 143
                 self.match(SmallerBasicParser.FOR)

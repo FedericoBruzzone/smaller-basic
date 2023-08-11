@@ -49,13 +49,18 @@ class SmallerBasicVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by SmallerBasicParser#whileStatement.
-    def visitWhileStatement(self, ctx:SmallerBasicParser.WhileStatementContext):
+    # Visit a parse tree produced by SmallerBasicParser#WhileStatementStandard.
+    def visitWhileStatementStandard(self, ctx:SmallerBasicParser.WhileStatementStandardContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by SmallerBasicParser#forStatement.
-    def visitForStatement(self, ctx:SmallerBasicParser.ForStatementContext):
+    # Visit a parse tree produced by SmallerBasicParser#ForStatementStandard.
+    def visitForStatementStandard(self, ctx:SmallerBasicParser.ForStatementStandardContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by SmallerBasicParser#ForStatementWithStep.
+    def visitForStatementWithStep(self, ctx:SmallerBasicParser.ForStatementWithStepContext):
         return self.visitChildren(ctx)
 
 

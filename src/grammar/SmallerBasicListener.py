@@ -80,21 +80,30 @@ class SmallerBasicListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SmallerBasicParser#whileStatement.
-    def enterWhileStatement(self, ctx:SmallerBasicParser.WhileStatementContext):
+    # Enter a parse tree produced by SmallerBasicParser#WhileStatementStandard.
+    def enterWhileStatementStandard(self, ctx:SmallerBasicParser.WhileStatementStandardContext):
         pass
 
-    # Exit a parse tree produced by SmallerBasicParser#whileStatement.
-    def exitWhileStatement(self, ctx:SmallerBasicParser.WhileStatementContext):
+    # Exit a parse tree produced by SmallerBasicParser#WhileStatementStandard.
+    def exitWhileStatementStandard(self, ctx:SmallerBasicParser.WhileStatementStandardContext):
         pass
 
 
-    # Enter a parse tree produced by SmallerBasicParser#forStatement.
-    def enterForStatement(self, ctx:SmallerBasicParser.ForStatementContext):
+    # Enter a parse tree produced by SmallerBasicParser#ForStatementStandard.
+    def enterForStatementStandard(self, ctx:SmallerBasicParser.ForStatementStandardContext):
         pass
 
-    # Exit a parse tree produced by SmallerBasicParser#forStatement.
-    def exitForStatement(self, ctx:SmallerBasicParser.ForStatementContext):
+    # Exit a parse tree produced by SmallerBasicParser#ForStatementStandard.
+    def exitForStatementStandard(self, ctx:SmallerBasicParser.ForStatementStandardContext):
+        pass
+
+
+    # Enter a parse tree produced by SmallerBasicParser#ForStatementWithStep.
+    def enterForStatementWithStep(self, ctx:SmallerBasicParser.ForStatementWithStepContext):
+        pass
+
+    # Exit a parse tree produced by SmallerBasicParser#ForStatementWithStep.
+    def exitForStatementWithStep(self, ctx:SmallerBasicParser.ForStatementWithStepContext):
         pass
 
 
