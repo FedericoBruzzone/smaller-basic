@@ -1,7 +1,7 @@
 a = 4
 
-If (True) Then a = 3 EndIf
-If (True) Then a = 3 EndIf
+If (true) Then a = 3 EndIf
+If (false) Then a = 3 EndIf 
 
 If ((1+2) < (2+5))                            Then a = 3 EndIf
 If (exp = exp)                                Then a = 3 EndIf
@@ -50,7 +50,6 @@ If ((1 + (2 * 3) < 5) Or (a = ((1 + b) + 2))) Then
 EndIf
 
 
-
 If ((1+2) < (2+5)) Then 
     a = 3 
     a = a + 4
@@ -90,8 +89,6 @@ Else
     p = "ciao"
     x = 5  
 EndIf
-
-// coap
 
 If (exp) Then 
     a = 3 
@@ -289,5 +286,3 @@ EndSub
 While (i < 10)
     iPlusOne()
 EndWhile
-
-

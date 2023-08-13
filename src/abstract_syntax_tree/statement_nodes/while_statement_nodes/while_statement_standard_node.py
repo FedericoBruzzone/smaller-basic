@@ -1,6 +1,8 @@
 from src.abstract_syntax_tree.statement_nodes.while_statement_nodes.while_statement_node import WhileStatementNode
 from src.abstract_syntax_tree.statement_nodes.statements_node import StatementsNode
 from src.abstract_syntax_tree.expression_nodes.logical_boolean_expression_nodes.logical_boolean_expression_node import LogicalBooleanExpressionNode
+from src.abstract_syntax_tree.token_nodes.boolean_node import BooleanNode
+from src.abstract_syntax_tree.token_nodes.id_node import IdNode
 
 class WhileStatementStandardNode(WhileStatementNode):
     """
@@ -16,9 +18,12 @@ class WhileStatementStandardNode(WhileStatementNode):
         Parameters:
             children (list): The children of the node.
         """
-        if not issubclass(type(condition), LogicalBooleanExpressionNode):
+        accepted_types = [BooleanNode, 
+                          IdNode]
+        if (type(condition) not in accepted_types and
+                not issubclass(type(condition), LogicalBooleanExpressionNode)):
             raise ValueError(
-                f"Condition must be of type LogicalBooleanExpressionNode. Got: {type(condition)}")
+                f"Condition must be of type LogicalBooleanExpressionNode or {accepted_types}. Got: {type(condition)}")
         if not isinstance(while_body, StatementsNode):
             raise ValueError(
                 f"While body must be of type StatementsNode. Got: {type(while_body)}")

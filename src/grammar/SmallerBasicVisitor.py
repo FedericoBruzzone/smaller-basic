@@ -64,13 +64,13 @@ class SmallerBasicVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by SmallerBasicParser#subroutineStatement.
-    def visitSubroutineStatement(self, ctx:SmallerBasicParser.SubroutineStatementContext):
+    # Visit a parse tree produced by SmallerBasicParser#SubroutineStatementStandard.
+    def visitSubroutineStatementStandard(self, ctx:SmallerBasicParser.SubroutineStatementStandardContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by SmallerBasicParser#callSubroutineStatement.
-    def visitCallSubroutineStatement(self, ctx:SmallerBasicParser.CallSubroutineStatementContext):
+    # Visit a parse tree produced by SmallerBasicParser#CallSubroutineStatementStandard.
+    def visitCallSubroutineStatementStandard(self, ctx:SmallerBasicParser.CallSubroutineStatementStandardContext):
         return self.visitChildren(ctx)
 
 

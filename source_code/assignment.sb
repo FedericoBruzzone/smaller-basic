@@ -1,11 +1,9 @@
-// INT
 int = 1
 int = 10
 
 int = -1
 int = -10
 
-// FLOAT 
 int = -1e10
 int = -1e-10
 int = -1E10
@@ -48,7 +46,6 @@ float = -123.123E-123
 float = -.1E-0
 float = -.123E-1
 
-// STRING
 string = "" 
 string = "  " 
 string = "ciao" 
@@ -61,15 +58,13 @@ string = "132"
 string = "!@#$%^&*(){}[]/'"
 string = "A"
 
-// BOOLEAN
 boolean_1 = true 
 boolean_2 = false
 
-// Vector
-i = 0
-v[1] = 1
-v[2] = 3 
-v[i] = 0
-v[0][0] = 5
-v[0][0] = "ciao"
-v[i][j][k][l] = "ciao"
+' i = 0
+' v[1] = 1
+' v[2] = 3 
+' v[i] = 0
+' v[0][0] = 5
+' v[0][0] = "ciao"
+' v[i][j][k][l] = "ciao"

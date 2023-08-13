@@ -1,13 +1,11 @@
 from typing import List
-from src.abstract_syntax_tree.statement_nodes.abstract_statement_node import AbstractStatementNode
-
 from src.grammar.SmallerBasicVisitor import SmallerBasicVisitor
 from src.grammar.SmallerBasicParser import SmallerBasicParser
 
 from src.abstract_syntax_tree.ast_visitor_helper import get_unary_sign
 
 from src.abstract_syntax_tree.ast import Ast
-
+from src.abstract_syntax_tree.statement_nodes.abstract_statement_node import AbstractStatementNode
 # ======================================================
 # ===================== STATEMENTS =====================
 # ======================================================
@@ -26,6 +24,12 @@ from src.abstract_syntax_tree.statement_nodes.while_statement_nodes.while_statem
 # ==================== FOR STATEMENTS ====================
 from src.abstract_syntax_tree.statement_nodes.for_statement_nodes.for_statement_standard_node import ForStatementStandardNode
 from src.abstract_syntax_tree.statement_nodes.for_statement_nodes.for_statement_with_step_node import ForStatementWithStepNode
+# ==================== SUBROUTINE STATEMENTS ====================
+from src.abstract_syntax_tree.statement_nodes.subroutine_statement_nodes.subroutine_statement_standard_node import SubroutineStatementStandardNode
+from src.abstract_syntax_tree.statement_nodes.subroutine_statement_nodes.call_subroutine_statement_standard_node import CallSubroutineStatementStandardNode
+# ==================== GOTO and LABEL STATEMENTS ====================
+from src.abstract_syntax_tree.statement_nodes.goto_label_statement_nodes.goto_statement_standard_node import GotoStatementStandardNode
+from src.abstract_syntax_tree.statement_nodes.goto_label_statement_nodes.label_statement_standard_node import LabelStatementStandardNode
 
 # ======================================================
 # ===================== EXPRESSIONS ====================
@@ -206,7 +210,51 @@ class SmallerBasicAstVisitor(SmallerBasicVisitor):
             self.visit(ctx.arithmeticalExpression(2)),
             StatementsNode([self.visit(statement) for statement in statements])
         )
+    
+    # ==================== SUBROUTINE STATEMENTS ====================
+    def visitSubroutineStatementStandard(self, ctx: SmallerBasicParser.SubroutineStatementStandardContext):
+        """
+        Visit SubroutineStatementStandard node in parse tree
 
+        Parameters:
+            ctx (SmallerBasicParser.SubroutineStatementStandardContext): The parse tree
+        """
+        # SUBROUTINE ID statement+ ENDSUBROUTINE
+        #                      ^^^^^^^^^^
+        _, _, *statements, _ = ctx.children
+        return SubroutineStatementStandardNode(
+            IdNode(ctx.ID().getText()),
+            StatementsNode([self.visit(statement) for statement in statements])
+        )
+
+    def visitCallSubroutineStatementStandard(self, ctx: SmallerBasicParser.CallSubroutineStatementStandardContext):
+        """
+        Visit CallSubroutineStatementStandard node in parse tree
+
+        Parameters:
+            ctx (SmallerBasicParser.CallSubroutineStatementStandardContext): The parse tree
+        """
+        return CallSubroutineStatementStandardNode(IdNode(ctx.ID().getText()))
+
+    # ==================== GOTO and LABEL STATEMENTS ====================
+    def visitGotoStatement(self, ctx: SmallerBasicParser.GotoStatementContext):
+        """
+        Visit GotoStatement node in parse tree
+
+        Parameters:
+            ctx (SmallerBasicParser.GotoStatementContext): The parse tree
+        """
+        return GotoStatementStandardNode(IdNode(ctx.ID().getText()))
+
+    def visitLabelStatement(self, ctx: SmallerBasicParser.LabelStatementContext):
+        """
+        Visit LabelStatement node in parse tree
+
+        Parameters:
+            ctx (SmallerBasicParser.LabelStatementContext): The parse tree
+        """
+        return LabelStatementStandardNode(IdNode(ctx.ID().getText()))
+    
     # ======================================================
     # ===================== EXPRESSIONS ====================
     # ======================================================

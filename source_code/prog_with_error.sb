@@ -8,7 +8,3 @@ While ((A < 10) And (B < 10))
     B = B + 1
 EndWhile
 
-/* While (A < 10) And (B < 10) Do */
-/*     A = A + 1 */
-/*     B = B + 1 */
-/* End While */

@@ -107,21 +107,21 @@ class SmallerBasicListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SmallerBasicParser#subroutineStatement.
-    def enterSubroutineStatement(self, ctx:SmallerBasicParser.SubroutineStatementContext):
+    # Enter a parse tree produced by SmallerBasicParser#SubroutineStatementStandard.
+    def enterSubroutineStatementStandard(self, ctx:SmallerBasicParser.SubroutineStatementStandardContext):
         pass
 
-    # Exit a parse tree produced by SmallerBasicParser#subroutineStatement.
-    def exitSubroutineStatement(self, ctx:SmallerBasicParser.SubroutineStatementContext):
+    # Exit a parse tree produced by SmallerBasicParser#SubroutineStatementStandard.
+    def exitSubroutineStatementStandard(self, ctx:SmallerBasicParser.SubroutineStatementStandardContext):
         pass
 
 
-    # Enter a parse tree produced by SmallerBasicParser#callSubroutineStatement.
-    def enterCallSubroutineStatement(self, ctx:SmallerBasicParser.CallSubroutineStatementContext):
+    # Enter a parse tree produced by SmallerBasicParser#CallSubroutineStatementStandard.
+    def enterCallSubroutineStatementStandard(self, ctx:SmallerBasicParser.CallSubroutineStatementStandardContext):
         pass
 
-    # Exit a parse tree produced by SmallerBasicParser#callSubroutineStatement.
-    def exitCallSubroutineStatement(self, ctx:SmallerBasicParser.CallSubroutineStatementContext):
+    # Exit a parse tree produced by SmallerBasicParser#CallSubroutineStatementStandard.
+    def exitCallSubroutineStatementStandard(self, ctx:SmallerBasicParser.CallSubroutineStatementStandardContext):
         pass
 
 

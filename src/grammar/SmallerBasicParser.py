@@ -130,8 +130,8 @@ class SmallerBasicParser ( Parser ):
                       "MUL", "DIV", "GT", "LT", "EQ", "GTEQ", "LTEQ", "NEQ", 
                       "AND", "OR", "IF", "THEN", "ELSE", "ENDIF", "WHILE", 
                       "ENDWHILE", "FOR", "TO", "STEP", "ENDFOR", "GOTO", 
-                      "SUB", "ENDSUB", "ID", "INT", "FLOAT", "WS", "COMMENT", 
-                      "NEWLINE", "LINE_COMMENT" ]
+                      "SUB", "ENDSUB", "ID", "INT", "FLOAT", "WS", "NEWLINE", 
+                      "LINE_COMMENT", "COMMENT" ]
 
     RULE_program = 0
     RULE_statement = 1
@@ -203,9 +203,9 @@ class SmallerBasicParser ( Parser ):
     INT=35
     FLOAT=36
     WS=37
-    COMMENT=38
-    NEWLINE=39
-    LINE_COMMENT=40
+    NEWLINE=38
+    LINE_COMMENT=39
+    COMMENT=40
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
@@ -1160,15 +1160,28 @@ class SmallerBasicParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
+
+        def getRuleIndex(self):
+            return SmallerBasicParser.RULE_subroutineStatement
+
+     
+        def copyFrom(self, ctx:ParserRuleContext):
+            super().copyFrom(ctx)
+
+
+
+    class SubroutineStatementStandardContext(SubroutineStatementContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a SmallerBasicParser.SubroutineStatementContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
         def SUB(self):
             return self.getToken(SmallerBasicParser.SUB, 0)
-
         def ID(self):
             return self.getToken(SmallerBasicParser.ID, 0)
-
         def ENDSUB(self):
             return self.getToken(SmallerBasicParser.ENDSUB, 0)
-
         def statement(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(SmallerBasicParser.StatementContext)
@@ -1176,23 +1189,19 @@ class SmallerBasicParser ( Parser ):
                 return self.getTypedRuleContext(SmallerBasicParser.StatementContext,i)
 
 
-        def getRuleIndex(self):
-            return SmallerBasicParser.RULE_subroutineStatement
-
         def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterSubroutineStatement" ):
-                listener.enterSubroutineStatement(self)
+            if hasattr( listener, "enterSubroutineStatementStandard" ):
+                listener.enterSubroutineStatementStandard(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitSubroutineStatement" ):
-                listener.exitSubroutineStatement(self)
+            if hasattr( listener, "exitSubroutineStatementStandard" ):
+                listener.exitSubroutineStatementStandard(self)
 
         def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitSubroutineStatement" ):
-                return visitor.visitSubroutineStatement(self)
+            if hasattr( visitor, "visitSubroutineStatementStandard" ):
+                return visitor.visitSubroutineStatementStandard(self)
             else:
                 return visitor.visitChildren(self)
-
 
 
 
@@ -1202,6 +1211,7 @@ class SmallerBasicParser ( Parser ):
         self.enterRule(localctx, 16, self.RULE_subroutineStatement)
         self._la = 0 # Token type
         try:
+            localctx = SmallerBasicParser.SubroutineStatementStandardContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
             self.state = 160
             self.match(SmallerBasicParser.SUB)
@@ -1237,32 +1247,42 @@ class SmallerBasicParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def ID(self):
-            return self.getToken(SmallerBasicParser.ID, 0)
-
-        def LROUND(self):
-            return self.getToken(SmallerBasicParser.LROUND, 0)
-
-        def RROUND(self):
-            return self.getToken(SmallerBasicParser.RROUND, 0)
 
         def getRuleIndex(self):
             return SmallerBasicParser.RULE_callSubroutineStatement
 
+     
+        def copyFrom(self, ctx:ParserRuleContext):
+            super().copyFrom(ctx)
+
+
+
+    class CallSubroutineStatementStandardContext(CallSubroutineStatementContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a SmallerBasicParser.CallSubroutineStatementContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def ID(self):
+            return self.getToken(SmallerBasicParser.ID, 0)
+        def LROUND(self):
+            return self.getToken(SmallerBasicParser.LROUND, 0)
+        def RROUND(self):
+            return self.getToken(SmallerBasicParser.RROUND, 0)
+
         def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterCallSubroutineStatement" ):
-                listener.enterCallSubroutineStatement(self)
+            if hasattr( listener, "enterCallSubroutineStatementStandard" ):
+                listener.enterCallSubroutineStatementStandard(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitCallSubroutineStatement" ):
-                listener.exitCallSubroutineStatement(self)
+            if hasattr( listener, "exitCallSubroutineStatementStandard" ):
+                listener.exitCallSubroutineStatementStandard(self)
 
         def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitCallSubroutineStatement" ):
-                return visitor.visitCallSubroutineStatement(self)
+            if hasattr( visitor, "visitCallSubroutineStatementStandard" ):
+                return visitor.visitCallSubroutineStatementStandard(self)
             else:
                 return visitor.visitChildren(self)
-
 
 
 
@@ -1271,6 +1291,7 @@ class SmallerBasicParser ( Parser ):
         localctx = SmallerBasicParser.CallSubroutineStatementContext(self, self._ctx, self.state)
         self.enterRule(localctx, 18, self.RULE_callSubroutineStatement)
         try:
+            localctx = SmallerBasicParser.CallSubroutineStatementStandardContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
             self.state = 169
             self.match(SmallerBasicParser.ID)

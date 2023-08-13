@@ -80,9 +80,9 @@ ID
 INT
 FLOAT
 WS
-COMMENT
 NEWLINE
 LINE_COMMENT
+COMMENT
 
 rule names:
 program

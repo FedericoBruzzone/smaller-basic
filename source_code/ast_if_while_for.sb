@@ -6,47 +6,47 @@ For i = 1 To 10 Step 2
     x = 10
 EndFor
 
-/* While (a < 10) */
-/*     a = a + 1 */
-/* EndWhile */
+While (a < 10)
+    a = a + 1
+EndWhile
 
-/* While (a < 10) */
-/*     If (a < 5) Then */
-/*         a = a + 1 */
-/*     Else */
-/*         a = a + 2 */ 
-/*     EndIf */
-/* EndWhile */
+While (a < 10)
+    If (a < 5) Then
+        a = a + 1
+    Else
+        a = a + 2 
+    EndIf
+EndWhile
 
-/* If ((1+2) < (2+5)) Then */ 
-/*     a = 3 */ 
-/*     a = a + 4 */
-/*     p = "ciao" */
-/*     x = 5 */  
-/* EndIf */
+If ((1+2) < (2+5)) Then 
+    a = 3 
+    a = a + 4
+    p = "ciao"
+    x = 5  
+EndIf
 
 
-/* If ((1+2) < (2+5)) Then */ 
-/*     a = 3 */ 
-/*     a = a + 4 */
-/* Else */ 
-/*     p = "ciao" */
-/*     x = 5 */  
-/* EndIf */
+If ((1+2) < (2+5)) Then 
+    a = 3 
+    a = a + 4
+Else 
+    p = "ciao"
+    x = 5  
+EndIf
 
-/* If ((1+2) < (2+5)) Then */ 
-/*     If ((1+2) < (2+5)) Then */ 
-/*         a = 3 */ 
-/*         a = a + 4 */
-/*     Else */ 
-/*         p = "ciao" */
-/*         x = 5 */  
-/*     EndIf */
-/*     a = 3 */ 
-/*     a = a + 4 */
-/* Else */ 
-/*     p = "ciao" */
-/*     x = 5 */  
-/* EndIf */
+If ((1+2) < (2+5)) Then 
+    If ((1+2) < (2+5)) Then 
+        a = 3 
+        a = a + 4
+    Else 
+        p = "ciao"
+        x = 5  
+    EndIf
+    a = 3 
+    a = a + 4
+Else 
+    p = "ciao"
+    x = 5  
+EndIf
 
 

@@ -48,11 +48,11 @@ forStatement
     ;
 
 subroutineStatement
-    : SUB ID statement+ ENDSUB
+    : SUB ID statement+ ENDSUB                                                                                    # SubroutineStatementStandard
     ;
 
 callSubroutineStatement
-    : ID LROUND RROUND
+    : ID LROUND RROUND                                                                                            # CallSubroutineStatementStandard
     ;
 
 libraryStatement
@@ -292,6 +292,8 @@ fragment CHAR
     ;
 
 WS           : [ \t\n\r]+    -> skip ; // channel(HIDDEN) 
-COMMENT      : '/*' .*? '*/' -> skip ;
 NEWLINE      : '\r'? '\n' ;
-LINE_COMMENT : '//' ~[\r\n]* -> skip ;
+LINE_COMMENT : '\'' ~[\r\n]* -> skip ;
+COMMENT      : '\'*' .*? '*\'' -> skip ;
+// COMMENT      : '/*' .*? '*/' -> skip ;
+// LINE_COMMENT : '//' ~[\r\n]* -> skip ;

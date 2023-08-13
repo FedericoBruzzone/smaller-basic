@@ -9,6 +9,5 @@ if __name__ == "__main__":
         file_path = sys.argv[1]
         interpreter.run(file_path)
     else:
-        print("No file path provided.")
-
+       print("No file path provided.")
 
