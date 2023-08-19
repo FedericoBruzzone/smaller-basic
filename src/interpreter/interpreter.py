@@ -113,6 +113,7 @@ class Interpreter(object):
                                                view="default-viewer")
 
         return smaller_basic_ast
+
     @staticmethod
     def print(string: str):
         print(string)

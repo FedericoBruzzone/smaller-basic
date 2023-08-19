@@ -13,6 +13,7 @@ from src.abstract_syntax_tree.statement_nodes.abstract_statement_node import Abs
 from src.abstract_syntax_tree.statement_nodes.statements_node import StatementsNode
 # ==================== DECLARATION STATEMENTS ====================
 from src.abstract_syntax_tree.statement_nodes.declaration_statement_nodes.varible_declaration_statement_node import VariableDeclarationStatementNode
+from src.abstract_syntax_tree.statement_nodes.declaration_statement_nodes.array_declaration_statement_node import ArrayDeclarationStatementNode
 # ==================== LIBRARY STATEMENTS ====================
 from src.abstract_syntax_tree.statement_nodes.library_statement_nodes.library_statement_node_with_parameters import LibraryStatementWithParametersNode
 from src.abstract_syntax_tree.statement_nodes.library_statement_nodes.library_statement_node_without_parameters import LibraryStatementWithoutParametersNode
@@ -34,6 +35,8 @@ from src.abstract_syntax_tree.statement_nodes.goto_label_statement_nodes.label_s
 # ======================================================
 # ===================== EXPRESSIONS ====================
 # ======================================================
+from src.abstract_syntax_tree.expression_nodes.abstract_expression_node import AbstractExpressionNode
+from src.abstract_syntax_tree.expression_nodes.expressions_node import ExpressionsNode
 # ==================== LOGICAL AND BOOELAN EXPRESSIONS ====================
 from src.abstract_syntax_tree.expression_nodes.logical_boolean_expression_nodes.logical_expression_node import LogicalExpressionNode
 from src.abstract_syntax_tree.expression_nodes.logical_boolean_expression_nodes.boolean_arithmetical_expression_node import BooleanArithmeticalExpressionNode
@@ -97,6 +100,24 @@ class SmallerBasicAstVisitor(SmallerBasicVisitor):
             self.visit(ctx.expression())
         )
    
+    def visitArrayDeclarationStatement(self, ctx: SmallerBasicParser.ArrayDeclarationStatementContext):
+        """
+        Visit ArrayDeclarationStatement node in parse tree
+
+        Parameters:
+            ctx (SmallerBasicParser.ArrayDeclarationStatementContext): The parse tree
+        """
+        # ID (LSQUARE arithmeticalExpression RSQUARE)+ EQ expression
+        #    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        _, *arithmetical_expressions, _, _ = ctx.children
+        arithmetical_expressions: list = [i for i in arithmetical_expressions if i.getText() not in [ctx.LSQUARE()[0].getText(), ctx.RSQUARE()[0].getText()]]
+
+        return ArrayDeclarationStatementNode(
+            IdNode(ctx.ID().getText()),
+            ExpressionsNode([self.visit(i) for i in arithmetical_expressions]), 
+            self.visit(ctx.expression())
+        )
+        
     # ==================== LIBRARY STATEMENTS ====================
 
     def visitLibraryStatementWithParameters(self, ctx: SmallerBasicParser.LibraryStatementWithParametersContext):
