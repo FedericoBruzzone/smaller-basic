@@ -16,5 +16,6 @@ class BooleanNode(AbstractTokenNode):
         self.value = value 
         self.name = "BooleanNode"
 
-    def visit(self): pass 
+    def visit(self, interpreter) -> bool:
+        return self.value == "true"
 

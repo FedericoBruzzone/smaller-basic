@@ -56,4 +56,10 @@ class LibraryStatementWithParametersNode(LibraryStatementNode):
         """
         return self.children[2]
 
-    def visit(self): pass
+    def visit(self, interpreter):
+        res = interpreter.invoke_library_function(self.get_lib_name().get_id_name(), 
+                                                       self.get_func_name().get_id_name(), 
+                                                       self.get_expression().visit(interpreter))
+
+        return res
+        

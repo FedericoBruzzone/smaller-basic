@@ -13,4 +13,12 @@ class Ast(AbstractAstNode):
         
         self.name = "Ast"
 
-    def visit(self): pass
+    def visit(self, interpreter): 
+        i = 0
+        for statement in self.children:
+            # print("AST statement: ", i)
+            statement.visit(interpreter)
+            i += 1
+        
+
+

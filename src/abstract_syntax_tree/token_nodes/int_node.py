@@ -16,5 +16,9 @@ class IntNode(AbstractTokenNode):
         self.value = value 
         self.name = "IntNode"
 
-    def visit(self): pass 
+    def visit(self, interpreter):
+        """
+        Visitor pattern acceptor.
+        """
+        return int(self.value)
 

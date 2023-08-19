@@ -16,4 +16,8 @@ class FloatNode(AbstractTokenNode):
         self.value = value 
         self.name = "FloatNode"
 
-    def visit(self): pass
+    def visit(self, interpreter):
+        """
+        Visitor pattern acceptor.
+        """
+        return float(self.value)

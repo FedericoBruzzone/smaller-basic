@@ -14,4 +14,8 @@ class StringNode(AbstractTokenNode):
         self.name: str = "StringNode"
         
 
-    def visit(self): pass
+    def visit(self, interpreter):
+        """
+        Visitor pattern acceptor.
+        """
+        return str(self.string)

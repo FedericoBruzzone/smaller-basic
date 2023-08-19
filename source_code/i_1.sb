@@ -1,0 +1,11 @@
+IO.WriteLine(1)
+IO.WriteLine("")
+IO.WriteLine("Hello World")
+IO.WriteLine(1.0)
+IO.WriteLine(true)
+IO.WriteLine(false)
+IO.WriteLine(2)
+IO.WriteLine(IO.ReadLine())
+IO.WriteLine(x)
+
+

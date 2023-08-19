@@ -1,7 +1,10 @@
 from typing import Any
 
+from src.utils.color_print import color
+
 from src.interpreter.running_runtime_error import RunningRuntimeError
 from src.interpreter.interpreter_helper import build_antlr4_tree_string 
+from src.interpreter.global_memory import GlobalMemory
 from src.error.smaller_basic_error_listener import SmallerBasicErrorListener
 from src.grammar.SmallerBasicLexer import SmallerBasicLexer
 from src.grammar.SmallerBasicParser import SmallerBasicParser
@@ -14,9 +17,11 @@ from antlr4.CommonTokenStream import CommonTokenStream
 
 class Interpreter(object):
     def __init__(self):
+        self.__file_path: str = None
         self.__source_code: Any = None
-        self.__source_code_splitted: Any = None
         self.__is_running: bool = False 
+        self.__libraries: list = ["IO"]
+        self.global_memory: GlobalMemory = GlobalMemory()
    
     def load_file(self, file_path: str) -> None:
         """
@@ -27,25 +32,14 @@ class Interpreter(object):
         """
         if self.__is_running:
             raise RunningRuntimeError(self.load_file.__name__, self.__is_running)
+        
+        self.__file_path = file_path
 
         with open(file_path, encoding="UTF-8", mode="r") as file:
             source_code = file.read()
 
         if source_code is not None:
             self.__source_code = source_code
-            self.split_source_code(self.__source_code)
-
-    def split_source_code(self, source_code: str) -> None:
-        """
-        Split the source code into lines.
-
-        Args:
-            source_code (str): The source code.
-        """
-        if self.__is_running:
-            raise RunningRuntimeError(self.load_file.__name__, self.__is_running)
-
-        self.__source_code_splitted = source_code.splitlines()
 
     def do_lexical_analysis(self) -> CommonTokenStream:
         """
@@ -58,7 +52,7 @@ class Interpreter(object):
         if not self.__is_running:
             raise RunningRuntimeError(self.do_lexical_analysis.__name__, self.__is_running)
 
-        self.print("Do the lexical analysis...")
+        self.print("Do the lexical analysis...\n")
         input_stream: InputStream       = InputStream(self.__source_code)
         lexer: SmallerBasicLexer        = SmallerBasicLexer(input_stream)
         token_stream: CommonTokenStream = CommonTokenStream(lexer)
@@ -79,8 +73,8 @@ class Interpreter(object):
         if not self.__is_running:
             raise RunningRuntimeError(self.do_parser.__name__, self.__is_running)
 
-        self.print("Do the parser...")
-        parser: SmallerBasicParser                            = SmallerBasicParser(token_stream)
+        self.print("Do the parser...\n")
+        parser: SmallerBasicParser = SmallerBasicParser(token_stream)
         parser.removeErrorListeners()
         parser.addErrorListener(SmallerBasicErrorListener())
         smaller_basic_tree: SmallerBasicParser.ProgramContext = parser.program()
@@ -88,10 +82,7 @@ class Interpreter(object):
             self.print(build_antlr4_tree_string(smaller_basic_tree.toStringTree(recog = parser)))
         return smaller_basic_tree
 
-    def create_ast(self, antlr4_tree: SmallerBasicParser.ProgramContext, 
-                         print_res = False,
-                         filename: str = "ast",
-                         generate_dot_file = False) -> Ast:
+    def create_ast(self, antlr4_tree: SmallerBasicParser.ProgramContext) -> Ast:
         """
         Create the AST.
 
@@ -101,22 +92,71 @@ class Interpreter(object):
         if not self.__is_running:
             raise RunningRuntimeError(self.create_ast.__name__, self.__is_running)
         
-        self.print("Create the AST...")
+        self.print("Create the AST...\n")
         smaller_basic_ast_visitor: SmallerBasicAstVisitor = SmallerBasicAstVisitor()
         smaller_basic_ast: Ast = smaller_basic_ast_visitor.visit(antlr4_tree)
 
-        if print_res:
-            print(smaller_basic_ast)
-        if generate_dot_file:
-            smaller_basic_ast.create_dot_files(filename=filename, 
-                                               generate_png=True, 
-                                               view="default-viewer")
-
         return smaller_basic_ast
 
-    @staticmethod
-    def print(string: str):
-        print(string)
+    def print_ast(self, smaller_basic_ast: Ast) -> None:
+        """
+        Print the AST.
+
+        Args:
+            smaller_basic_ast (Ast): The AST.
+        """
+        if not self.__is_running:
+            raise RunningRuntimeError(self.print_ast.__name__, self.__is_running)
+
+        self.print("Print the AST...\n")
+        print(smaller_basic_ast)
+
+    def generate_dot_file(self, smaller_basic_ast: Ast, filename: str = "ast") -> None:
+        """
+        Generate the dot file.
+
+        Args:
+            smaller_basic_ast (Ast): The AST.
+        """
+        if not self.__is_running:
+            raise RunningRuntimeError(self.generate_dot_file.__name__, self.__is_running)
+
+        self.print("Generate the dot file...\n")
+        smaller_basic_ast.create_dot_files(filename=filename, 
+                                           generate_png=True, 
+                                           view="default-viewer")
+
+    def invoke_library_function(self, lib_name: str, func_name: str, *args) -> Any:
+        """
+        Invoke the library function.
+        """
+        if not self.__is_running:
+            raise RunningRuntimeError(self.invoke_library_function.__name__, self.__is_running)
+        
+        if lib_name not in self.__libraries:
+            raise NameError(f"Library {lib_name} is not defined.")
+
+        if lib_name == "IO":
+            from src.interpreter.library.io import IO
+            io: IO = IO()
+            res = io.call(func_name, *args)
+
+        return res
+
+    def eval(self, smaller_basic_ast: Ast) -> None:
+        """
+        Evaluate the AST.
+        """
+        if not self.__is_running:
+            raise RunningRuntimeError(self.eval.__name__, self.__is_running)
+
+        self.print("Evaluate the AST...\n")
+        print(f"+----------{len(self.__file_path) * '-'}--------+")
+        print(f"| ----- Run {color.set_color_cyan(self.__file_path)} ----- |")
+        print(f"+----------{len(self.__file_path) * '-'}--------+")
+        print()
+        self.global_memory.reset()
+        smaller_basic_ast.visit(self)
 
     def run(self, file_path):
         """
@@ -132,16 +172,21 @@ class Interpreter(object):
         else:
             raise RunningRuntimeError(self.run.__name__, self.__is_running)
 
-        self.print("Interpreter is running...")
+        self.print("Interpreter is running...\n")
+
         token_stream: CommonTokenStream = self.do_lexical_analysis()
         smaller_basic_tree: SmallerBasicParser.ProgramContext = self.do_parser(token_stream, print_res = False) 
-        smaller_basic_ast: Ast = self.create_ast(smaller_basic_tree, 
-                                                 print_res = True, 
-                                                 filename = f"ast-{file_path.split('/')[-1].split('.')[0]}",
-                                                 generate_dot_file = True)
+        smaller_basic_ast: Ast = self.create_ast(smaller_basic_tree) 
+
+        self.print_ast(smaller_basic_ast)
+        self.generate_dot_file(smaller_basic_ast, filename = f"ast-{file_path.split('/')[-1].split('.')[0]}")
+        self.eval(smaller_basic_ast)
         self.__is_running = False
 
-from src.utils.color_print import color
+    @staticmethod
+    def print(string: str):
+        print(string)
+
 from src.utils.color_print import apply_color_print
 Interpreter = apply_color_print(Interpreter, color.CYAN)
 

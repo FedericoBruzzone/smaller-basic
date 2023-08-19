@@ -562,7 +562,7 @@ class SmallerBasicAstVisitor(SmallerBasicVisitor):
         Parameters:
             ctx (SmallerBasicParser.AtomStringLiteralContext): The parse tree
         """
-        return StringNode(ctx.STRING().getText())
+        return StringNode(ctx.STRING().getText()[1:-1])
 
     def visitAtomStringId(self, ctx: SmallerBasicParser.AtomStringIdContext):
         """

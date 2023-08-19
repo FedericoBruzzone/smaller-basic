@@ -22,4 +22,14 @@ class IdNode(AbstractTokenNode):
         self.id_name = id_name 
         self.name = "IdNode"
 
-    def visit(self): pass 
+    def get_id_name(self) -> str:
+        """
+        Get the name of the identifier.
+
+        Returns:
+            str: The name of the identifier.
+        """
+        return self.id_name
+
+    def visit(self, interpreter): 
+        return interpreter.global_memory.get_value_of(self.id_name) 

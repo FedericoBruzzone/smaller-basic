@@ -17,8 +17,5 @@ class AbstractTokenNode(AbstractAstNode):
         self.name = "AbstractTokenNode"
     
     @abstractmethod
-    def get_symbol(self): pass
-        
-    @abstractmethod
     def visit(self): pass
 

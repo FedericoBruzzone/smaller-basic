@@ -14,4 +14,5 @@ class DeclarationStatementNode(AbstractStatementNode):
         """
         super().__init__(children)
         self.name = "DeclarationStatementNode"
-
+    
+    def visit(self, interpreter): pass

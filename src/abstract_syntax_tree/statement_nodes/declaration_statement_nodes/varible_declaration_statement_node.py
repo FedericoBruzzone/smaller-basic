@@ -40,5 +40,7 @@ class VariableDeclarationStatementNode(DeclarationStatementNode):
         """
         return self.children[1]
     
-    def visit(self): pass
+    def visit(self, interpreter):
+        interpreter.global_memory.set_value_of(self.get_var_name().get_id_name(), 
+                                               self.get_expression().visit(interpreter))
     
