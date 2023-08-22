@@ -40,4 +40,19 @@ class MultiplicativeExpressionNode(ArithmeticalExpressionNode):
         self.operator: str = operator
         self.name: str = "MultiplicativeExpressionNode"
 
-    def visit(self): pass
+    def get_left_expression_node(self) -> Any:
+        return self.children[0]
+
+    def get_operator(self) -> str:
+        return self.operator
+
+    def get_right_expression_node(self) -> Any:
+        return self.children[1]
+
+    def visit(self, interpreter):
+        left_expression_node = self.get_left_expression_node().visit(interpreter)
+        right_expression_node = self.get_right_expression_node().visit(interpreter)
+        operator = self.get_operator()
+        return interpreter.dispatch_table.apply_binary(self.get_operator(),
+                                                       left_expression_node,
+                                                       right_expression_node)

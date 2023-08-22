@@ -1,4 +1,18 @@
+' x = "Hello World!"
+
+' IO.WriteLine("Write something to print in the console: ")
+
+' y = IO.ReadLine()
+
+' IO.WriteLine(y)
+
+x = 1
+IO.WriteLine(x)
+x = x 
+IO.WriteLine(x)
+x = 1.2
+IO.WriteLine(x)
 x = "Hello World!"
-IO.WriteLine("Write something to print in the console: ")
-y = IO.ReadLine()
-IO.WriteLine(y)
+IO.WriteLine(x)
+x = true
+IO.WriteLine(x)

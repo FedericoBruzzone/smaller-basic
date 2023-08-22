@@ -5,6 +5,7 @@ from src.utils.color_print import color
 from src.interpreter.running_runtime_error import RunningRuntimeError
 from src.interpreter.interpreter_helper import build_antlr4_tree_string 
 from src.interpreter.global_memory import GlobalMemory
+from src.interpreter.dispatch_table import DispatchTable
 from src.error.smaller_basic_error_listener import SmallerBasicErrorListener
 from src.grammar.SmallerBasicLexer import SmallerBasicLexer
 from src.grammar.SmallerBasicParser import SmallerBasicParser
@@ -22,6 +23,7 @@ class Interpreter(object):
         self.__is_running: bool = False 
         self.__libraries: list = ["IO"]
         self.global_memory: GlobalMemory = GlobalMemory()
+        self.dispatch_table: DispatchTable = DispatchTable()
    
     def load_file(self, file_path: str) -> None:
         """
@@ -80,6 +82,9 @@ class Interpreter(object):
         smaller_basic_tree: SmallerBasicParser.ProgramContext = parser.program()
         if print_res:
             self.print(build_antlr4_tree_string(smaller_basic_tree.toStringTree(recog = parser)))
+        if parser.getNumberOfSyntaxErrors() > 0:
+            print()
+            raise SyntaxError("There is syntax error in the source code.")
         return smaller_basic_tree
 
     def create_ast(self, antlr4_tree: SmallerBasicParser.ProgramContext) -> Ast:

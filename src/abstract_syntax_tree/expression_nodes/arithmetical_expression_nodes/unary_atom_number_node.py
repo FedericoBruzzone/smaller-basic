@@ -29,4 +29,13 @@ class UnaryAtomNumberNode(ArithmeticalExpressionNode):
         self.sign: str = sign
         self.name: str = "UnaryAtomNumberNode"
 
-    def visit(self): pass
+    def get_atom_number_node(self) -> Any:
+        return self.children[0]
+
+    def get_sign(self) -> str:
+        return self.sign
+
+    def visit(self, interpreter):
+        atom_number_node = self.get_atom_number_node().visit(interpreter)
+        return interpreter.dispatch_table.apply_unary(self.get_sign(), atom_number_node)
+        

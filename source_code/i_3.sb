@@ -1,0 +1,19 @@
+x = 1 + 2
+IO.WriteLine(x)
+x = 1 - 2
+IO.WriteLine(x)
+x = 1 + 2.2
+IO.WriteLine(x)
+x = 1 - 2.2
+IO.WriteLine(x)
+x = 1.1 + -2
+IO.WriteLine(x)
+x = 1.1 - -2
+IO.WriteLine(x)
+x = 1.1 + -2.2
+IO.WriteLine(x)
+x = 1.1 - -2.2
+IO.WriteLine(x)
+x = -1 + 2
+IO.WriteLine(x)
+x = -1 - 2
