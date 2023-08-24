@@ -1,0 +1,45 @@
+a = (1 < 2 And 2 >= 3) Or 3 <> 4
+IO.WriteLine(a)
+IO.WriteLine(1 < 2)
+b = true And true 
+IO.WriteLine(b)
+c = true Or false
+IO.WriteLine(c)
+IO.WriteLine(1 < 2 And 2 >= 3)
+IO.WriteLine("Hello World" + "!")
+
+If (true) Then 
+    a = 3 
+    IO.WriteLine(a)
+EndIf
+
+If (false) Then 
+    a = 3 
+    IO.WriteLine(a)
+EndIf 
+
+If ((1+2) < (2+5)) Then 
+    IO.WriteLine("(1+2) < (2+5)")
+    IO.WriteLine((1+2) < (2+5))
+EndIf
+
+If (1<0 And 2<0) Then 
+    IO.WriteLine("1<0 And 2<0")
+    IO.WriteLine(1<0 And 2<0)
+EndIf
+
+If (1<0 Or 2<3) Then 
+    IO.WriteLine("1<0 Or 2<0")
+    IO.WriteLine(1<0 Or 2<0)
+EndIf
+
+a = 1
+b = 1
+If ((1 + (2 * 3) < 5) Or (a = ((1 + b) + 2))) Then 
+    IO.WriteLine("((1 + (2 * 3) < 5) Or (a = ((1 + b) + 2)))")
+    IO.WriteLine((1 + (2 * 3) < 5) Or (a = ((1 + b) + 2)))
+    IO.WriteLine("If True")
+Else 
+    IO.WriteLine("If False")
+EndIf
+

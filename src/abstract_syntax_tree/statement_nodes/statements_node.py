@@ -19,10 +19,10 @@ class StatementsNode(AbstractAstNode):
         super().__init__(children)
         self.name = "StatementsNode"
     
-    def visit(self): 
+    def visit(self, interpreter): 
         """
         Visit each child of the node.
         """
         for child in self.children:
-            child.visit()
+            child.visit(interpreter)
 

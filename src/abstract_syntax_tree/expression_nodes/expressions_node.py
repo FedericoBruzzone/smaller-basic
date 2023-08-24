@@ -19,10 +19,7 @@ class ExpressionsNode(AbstractAstNode):
         super().__init__(children)
         self.name = "ExpressionsNode"
     
-    def visit(self): 
-        """
-        Visit each child of the node.
-        """
+    def visit(self, interpreter): 
         for child in self.children:
-            child.visit()
+            child.visit(interpreter)
 

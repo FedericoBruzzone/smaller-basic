@@ -30,4 +30,27 @@ class IfStatementWithoutElseNode(IfStatementNode):
         
         super().__init__([condition, then_body])
         self.name = "IfStatementWithoutElseNode"
+   
+    def get_condition(self) -> LogicalBooleanExpressionNode:
+        """
+        Get the condition of the if statement.
+
+        Returns:
+            LogicalBooleanExpressionNode: The condition of the if statement.
+        """
+        return self.children[0]
+
+    def get_then_body(self) -> StatementsNode:
+        """
+        Get the then body of the if statement.
+
+        Returns:
+            StatementsNode: The then body of the if statement.
+        """
+        return self.children[1]
+
+    def visit(self, interpreter):
+        condition = self.get_condition().visit(interpreter)
+        if condition:
+            self.get_then_body().visit(interpreter)
 

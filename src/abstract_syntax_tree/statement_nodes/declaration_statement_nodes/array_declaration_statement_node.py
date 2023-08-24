@@ -25,3 +25,25 @@ class ArrayDeclarationStatementNode(DeclarationStatementNode):
         super().__init__([var_name, indexes, expression])
         self.name: str = "ArrayDeclarationStatementNode"
 
+    def get_indexes(self) -> ExpressionsNode: 
+        """
+        Get the indexes.
+        
+        Returns:
+            ExpressionsNode: The indexes.
+        """
+        return self.children[1]
+
+    def get_expression(self) -> AbstractExpressionNode:
+        """
+        Get the expression.
+        
+        Returns:
+            AbstractExpressionNode: The expression.
+        """
+        return self.children[2]
+    
+    def visit(self, interpreter):
+        interpreter.global_memory.set_value_of_array(self.get_var_name().get_id_name(), 
+                                                     self.get_indexes().visit(interpreter),
+                                                     self.get_expression().visit(interpreter))

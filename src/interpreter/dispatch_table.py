@@ -12,6 +12,14 @@ class DispatchTable(object):
             "-" : operator.sub,
             "*" : operator.mul,
             "/" : operator.truediv,
+            "=" : operator.eq,
+            "<>" : operator.ne,
+            ">=" : operator.ge,
+            "<=" : operator.le,
+            ">" : operator.gt,
+            "<" : operator.lt,
+            "And" : operator.and_,
+            "Or" : operator.or_,
         }
         self.dispatch_table_unary: dict = {
             "+" : operator.pos,

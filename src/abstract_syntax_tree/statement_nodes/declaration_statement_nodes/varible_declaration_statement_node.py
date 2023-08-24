@@ -22,15 +22,6 @@ class VariableDeclarationStatementNode(DeclarationStatementNode):
         super().__init__([var_name, expression])
         self.name: str = "VariableDeclarationStatementNode"
 
-    def get_var_name(self) -> IdNode:
-        """
-        Get the variable name.
-
-        Returns:
-            IdNode: The variable name.
-        """
-        return self.children[0]
-
     def get_expression(self) -> AbstractExpressionNode:
         """
         Get the expression.
@@ -41,6 +32,6 @@ class VariableDeclarationStatementNode(DeclarationStatementNode):
         return self.children[1]
     
     def visit(self, interpreter):
-        interpreter.global_memory.set_value_of(self.get_var_name().get_id_name(), 
-                                               self.get_expression().visit(interpreter))
+        interpreter.global_memory.set_value_of_variable(self.get_var_name().get_id_name(), 
+                                                        self.get_expression().visit(interpreter))
     

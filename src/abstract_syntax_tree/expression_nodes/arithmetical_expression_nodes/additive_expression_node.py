@@ -42,15 +42,9 @@ class AdditiveExpressionNode(ArithmeticalExpressionNode):
         self.operator: str = operator
         self.name: str = "AdditiveExpressionNode"
 
-    def get_left_expression_node(self) -> Any:
-        return self.children[0]
-
     def get_operator(self) -> str:
         return self.operator
     
-    def get_right_expression_node(self) -> Any:
-        return self.children[1]
-
     def visit(self, interpreter):
         left_expression_node = self.get_left_expression_node().visit(interpreter)
         right_expression_node = self.get_right_expression_node().visit(interpreter)

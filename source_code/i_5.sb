@@ -1,0 +1,37 @@
+a = "1" = "2"
+IO.WriteLine("1 < 2 = ")
+IO.WriteLine(a)
+
+y = "1" ' IO.ReadLine()
+IO.WriteLine()
+a = y + " -> " + "ciao" + " " + "mondo"
+IO.WriteLine(a)
+
+a = 1 <> 2
+IO.WriteLine("1 <> 2 = ")
+IO.WriteLine(a)
+
+a = 1 = 2
+IO.WriteLine("1 = 2 = ")
+IO.WriteLine(a)
+
+a = 1 < 2
+IO.WriteLine("1 < 2 = ")
+IO.WriteLine(a)
+
+a = 1 > 2
+IO.WriteLine("1 > 2 = ")
+IO.WriteLine(a)
+
+a = 1 <= 2
+IO.WriteLine("1 <= 2 = ")
+IO.WriteLine(a)
+
+a = 1 >= 2
+IO.WriteLine("1 >= 2 = ")
+IO.WriteLine(a)
+
+a = (1 + 2) = 3
+IO.WriteLine("(1 + 2) = 3 = ")
+IO.WriteLine(a)
+

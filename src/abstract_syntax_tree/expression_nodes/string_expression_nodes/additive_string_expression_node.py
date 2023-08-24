@@ -27,5 +27,20 @@ class AdditiveStringExpressionNode(StringExpressionNode):
         super().__init__([left_string_expression_node, right_string_expression_node])
         self.operator: str = operator
         self.name: str = "AdditiveStringExpressionNode"
+    
+    def get_operator(self) -> str:
+        """
+        Get the operator.
 
-    def visit(self): pass
+        Returns:
+            str: The operator.
+        """
+        return self.operator
+
+    def visit(self, interpreter):
+        left_expression_node = self.get_left_expression_node().visit(interpreter)
+        right_expression_node = self.get_right_expression_node().visit(interpreter)
+        return interpreter.dispatch_table.apply_binary(self.get_operator(),
+                                                       left_expression_node,
+                                                       right_expression_node)
+        

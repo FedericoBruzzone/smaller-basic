@@ -40,4 +40,12 @@ class BooleanArithmeticalExpressionNode(LogicalBooleanExpressionNode):
         self.operator: str = operator
         self.name: str = "BooleanArithmeticalExpressionNode"
 
-    def visit(self): pass
+    def get_operator(self) -> str:
+        return self.operator
+    
+    def visit(self, interpreter):
+        left_expression_node = self.get_left_expression_node().visit(interpreter)
+        right_expression_node = self.get_right_expression_node().visit(interpreter)
+        return interpreter.dispatch_table.apply_binary(self.get_operator(),
+                                                       left_expression_node,
+                                                       right_expression_node)

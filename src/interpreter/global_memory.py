@@ -24,7 +24,7 @@ class GlobalMemory(object):
         else:
             raise Exception("Identifier " + id_name + " is not defined")
 
-    def set_value_of(self, id_name: str, value):
+    def set_value_of_variable(self, id_name: str, value):
         """
         Set the value of the identifier.
 
@@ -33,6 +33,17 @@ class GlobalMemory(object):
             value (object): The value of the identifier.
         """
         self.__global_memory[id_name] = value
+
+    def set_value_of_array(self, id_name: str, indexes: list, value):
+        """
+        Set the value of the identifier.
+
+        Parameters:
+            id_name (str): The name of the identifier.
+            indexes (list): The indexes of the array.
+            value (object): The value of the identifier.
+        """
+        print("indexes", indexes)
 
     def is_defined(self, id_name: str) -> bool:
         """
