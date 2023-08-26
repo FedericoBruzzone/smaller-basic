@@ -28,9 +28,7 @@ class ArrayDeclarationStatementNode(DeclarationStatementNode):
     def get_indexes(self) -> ExpressionsNode: 
         """
         Get the indexes.
-        
-        Returns:
-            ExpressionsNode: The indexes.
+xpressionsNode: The indexes.
         """
         return self.children[1]
 

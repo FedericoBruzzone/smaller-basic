@@ -20,9 +20,6 @@ class StatementsNode(AbstractAstNode):
         self.name = "StatementsNode"
     
     def visit(self, interpreter): 
-        """
-        Visit each child of the node.
-        """
         for child in self.children:
             child.visit(interpreter)
 

@@ -17,8 +17,5 @@ class IntNode(AbstractTokenNode):
         self.name = "IntNode"
 
     def visit(self, interpreter):
-        """
-        Visitor pattern acceptor.
-        """
         return int(self.value)
 
