@@ -3,14 +3,14 @@ from typing import Any
 from src.utils.color_print import color
 
 from src.interpreter.running_runtime_error import RunningRuntimeError
-from src.interpreter.interpreter_helper import build_antlr4_tree_string 
+from src.interpreter.interpreter_helper import build_antlr4_tree_string
 from src.interpreter.global_memory import GlobalMemory
 from src.interpreter.dispatch_table import DispatchTable
 from src.error.smaller_basic_error_listener import SmallerBasicErrorListener
 from src.grammar.SmallerBasicLexer import SmallerBasicLexer
 from src.grammar.SmallerBasicParser import SmallerBasicParser
 
-from src.abstract_syntax_tree.ast_visitor import SmallerBasicAstVisitor 
+from src.abstract_syntax_tree.ast_visitor import SmallerBasicAstVisitor
 from src.abstract_syntax_tree.ast import Ast
 
 from antlr4.InputStream import InputStream
@@ -20,11 +20,11 @@ class Interpreter(object):
     def __init__(self):
         self.__file_path: str = None
         self.__source_code: Any = None
-        self.__is_running: bool = False 
+        self.__is_running: bool = False
         self.__libraries: list = ["IO"]
         self.global_memory: GlobalMemory = GlobalMemory()
         self.dispatch_table: DispatchTable = DispatchTable()
-   
+
     def load_file(self, file_path: str) -> None:
         """
         Load the source code from a file.
@@ -34,7 +34,7 @@ class Interpreter(object):
         """
         if self.__is_running:
             raise RunningRuntimeError(self.load_file.__name__, self.__is_running)
-        
+
         self.__file_path = file_path
 
         with open(file_path, encoding="UTF-8", mode="r") as file:
@@ -96,7 +96,7 @@ class Interpreter(object):
         """
         if not self.__is_running:
             raise RunningRuntimeError(self.create_ast.__name__, self.__is_running)
-        
+
         self.print("Create the AST...\n")
         smaller_basic_ast_visitor: SmallerBasicAstVisitor = SmallerBasicAstVisitor()
         smaller_basic_ast: Ast = smaller_basic_ast_visitor.visit(antlr4_tree)
@@ -127,8 +127,8 @@ class Interpreter(object):
             raise RunningRuntimeError(self.generate_dot_file.__name__, self.__is_running)
 
         self.print("Generate the dot file...\n")
-        smaller_basic_ast.create_dot_files(filename=filename, 
-                                           generate_png=True, 
+        smaller_basic_ast.create_dot_files(filename=filename,
+                                           generate_png=True,
                                            view="default-viewer")
 
     def invoke_library_function(self, lib_name: str, func_name: str, *args) -> Any:
@@ -137,7 +137,7 @@ class Interpreter(object):
         """
         if not self.__is_running:
             raise RunningRuntimeError(self.invoke_library_function.__name__, self.__is_running)
-        
+
         if lib_name not in self.__libraries:
             raise NameError(f"Library {lib_name} is not defined.")
 
@@ -180,8 +180,8 @@ class Interpreter(object):
         self.print("Interpreter is running...\n")
 
         token_stream: CommonTokenStream = self.do_lexical_analysis()
-        smaller_basic_tree: SmallerBasicParser.ProgramContext = self.do_parser(token_stream, print_res = False) 
-        smaller_basic_ast: Ast = self.create_ast(smaller_basic_tree) 
+        smaller_basic_tree: SmallerBasicParser.ProgramContext = self.do_parser(token_stream, print_res = False)
+        smaller_basic_ast: Ast = self.create_ast(smaller_basic_tree)
 
         self.print_ast(smaller_basic_ast)
         # self.generate_dot_file(smaller_basic_ast, filename = f"ast-{file_path.split('/')[-1].split('.')[0]}")
