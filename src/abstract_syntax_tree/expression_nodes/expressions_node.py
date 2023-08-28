@@ -18,8 +18,10 @@ class ExpressionsNode(AbstractAstNode):
                 raise TypeError(f"Children of ExpressionsNode must be of type AbstractAstNode. Got: {type(child)}")
         super().__init__(children)
         self.name = "ExpressionsNode"
-    
-    def visit(self, interpreter): 
+
+    def visit(self, interpreter):
+        res = []
         for child in self.children:
-            child.visit(interpreter)
+            res.append(child.visit(interpreter))
+        return res
 

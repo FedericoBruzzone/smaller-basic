@@ -84,6 +84,11 @@ class SmallerBasicVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by SmallerBasicParser#ArrayAccessStandard.
+    def visitArrayAccessStandard(self, ctx:SmallerBasicParser.ArrayAccessStandardContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by SmallerBasicParser#expression.
     def visitExpression(self, ctx:SmallerBasicParser.ExpressionContext):
         return self.visitChildren(ctx)
@@ -126,6 +131,11 @@ class SmallerBasicVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by SmallerBasicParser#AtomBooleanLibraryStatement.
     def visitAtomBooleanLibraryStatement(self, ctx:SmallerBasicParser.AtomBooleanLibraryStatementContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by SmallerBasicParser#AtomBooleanArrayAccess.
+    def visitAtomBooleanArrayAccess(self, ctx:SmallerBasicParser.AtomBooleanArrayAccessContext):
         return self.visitChildren(ctx)
 
 
@@ -174,6 +184,11 @@ class SmallerBasicVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by SmallerBasicParser#AtomNumberArrayAccess.
+    def visitAtomNumberArrayAccess(self, ctx:SmallerBasicParser.AtomNumberArrayAccessContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by SmallerBasicParser#stringExpression.
     def visitStringExpression(self, ctx:SmallerBasicParser.StringExpressionContext):
         return self.visitChildren(ctx)
@@ -201,6 +216,11 @@ class SmallerBasicVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by SmallerBasicParser#AtomStringLibraryStatement.
     def visitAtomStringLibraryStatement(self, ctx:SmallerBasicParser.AtomStringLibraryStatementContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by SmallerBasicParser#AtomStringArrayAccess.
+    def visitAtomStringArrayAccess(self, ctx:SmallerBasicParser.AtomStringArrayAccessContext):
         return self.visitChildren(ctx)
 
 

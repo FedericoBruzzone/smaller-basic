@@ -60,13 +60,17 @@ libraryStatement
     | ID DOT ID LROUND RROUND                                                                                     # LibraryStatementWithoutParameters
     ;
 
+arrayAccess
+    : ID (LSQUARE arithmeticalExpression RSQUARE)+                                                                # ArrayAccessStandard
+    ;
+
 // ======================================================
 // ==================== EXPRESSIONS =====================
 // ======================================================
 expression
     : logicalExpression
-    | arithmeticalExpression 
-    | stringExpression 
+    | arithmeticalExpression
+    | stringExpression
     ;
 
 //  ==================== LOGICAL AND BOOLEAN EXPRESSIONS ====================
@@ -86,11 +90,12 @@ atomBoolean
     | ID                                                                                                          # AtomBooleanId
     | LROUND logicalExpression RROUND                                                                             # AtomBooleanParenthesis
     | libraryStatement                                                                                            # AtomBooleanLibraryStatement
+    | arrayAccess                                                                                                 # AtomBooleanArrayAccess
     ;
 
 //  ==================== ARITHMETICAL EXPRESSIONS ====================
 arithmeticalExpression
-    : additiveExpression                            
+    : additiveExpression
     ;
 
 additiveExpression
@@ -111,6 +116,7 @@ atomNumber
     | ID                                                                                                          # AtomNumberId
     | LROUND additiveExpression RROUND                                                                            # AtomNumberParenthesis
     | libraryStatement                                                                                            # AtomNumberLibraryStatement
+    | arrayAccess                                                                                                 # AtomNumberArrayAccess
     ;
 
 //  ==================== STRING EXPRESSIONS ====================
@@ -119,21 +125,22 @@ stringExpression
     ;
 
 additiveStringExpression
-    : atomString (PLUS  additiveStringExpression)* 
+    : atomString (PLUS  additiveStringExpression)*
     ;
 
 atomString
     : STRING                                                                                                      # AtomStringLiteral
-    | ID                                                                                                          # AtomStringId  
+    | ID                                                                                                          # AtomStringId
     | LROUND stringExpression RROUND                                                                              # AtomStringParenthesis
     | libraryStatement                                                                                            # AtomStringLibraryStatement
+    | arrayAccess                                                                                                 # AtomStringArrayAccess
     ;
 
 // ================================================
 //  ==================== LEXER ====================
 // ================================================
 STRING
-    : '"' ~["\u0000-\u001F\u007F]* '"' // '"' ~[\r\n"]* '"' 
+    : '"' ~["\u0000-\u001F\u007F]* '"' // '"' ~[\r\n"]* '"'
     ;
 
 BOOLEAN
@@ -166,30 +173,30 @@ COLON
     : ':'
     ;
 
-PLUS     
-    : '+' 
+PLUS
+    : '+'
     ;
 
 MINUS
-    : '-' 
+    : '-'
     ;
 
-MUL      
-    : '*' 
+MUL
+    : '*'
     ;
 
 DIV
-    : '/' 
+    : '/'
     ;
 
 GT
     : '>'
     ;
-    
+
 LT
     : '<'
     ;
-    
+
 EQ
     : '='
     ;
@@ -266,32 +273,32 @@ ENDSUB
     : 'EndSub'
     ;
 
-ID       
-    : CHAR (CHAR | NUM | '_')* 
+ID
+    : CHAR (CHAR | NUM | '_')*
     ;
 
-INT      
-    : '0' 
-    | [1-9] NUM* // EXPONENT? 
+INT
+    : '0'
+    | [1-9] NUM* // EXPONENT?
     ;
 
-FLOAT    
-    : ([1-9] NUM* | '0')? ('.')? NUM+ EXPONENT? 
+FLOAT
+    : ([1-9] NUM* | '0')? ('.')? NUM+ EXPONENT?
     ;
 
-fragment EXPONENT 
-    : ([eE] ('+' | '-')? NUM+) 
-    ; 
-
-fragment NUM   
-    : [0-9] 
+fragment EXPONENT
+    : ([eE] ('+' | '-')? NUM+)
     ;
 
-fragment CHAR   
-    : [a-zA-Z] 
+fragment NUM
+    : [0-9]
     ;
 
-WS           : [ \t\n\r]+    -> skip ; // channel(HIDDEN) 
+fragment CHAR
+    : [a-zA-Z]
+    ;
+
+WS           : [ \t\n\r]+    -> skip ; // channel(HIDDEN)
 NEWLINE      : '\r'? '\n' ;
 LINE_COMMENT : '\'' ~[\r\n]* -> skip ;
 COMMENT      : '\'*' .*? '*\'' -> skip ;

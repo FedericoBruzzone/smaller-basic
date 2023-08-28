@@ -1,11 +1,31 @@
-v[1][2] = 1
-IO.WriteLine(v)
-
-
+' v[5] = 1
+' IO.WriteLine(v[5])
+' IO.WriteLine(v)
+'
+' v[1][2] = 1
+' a = v[1][2]
+'
+' new_arr[7] = "ciao"
+'
+' arr_bool[1][0][0][0][0][0] = true
+'
+' IO.WriteLine("--- Test ---")
+' IO.WriteLine(a)
+' IO.WriteLine(v)
+' IO.WriteLine(new_arr)
+' IO.WriteLine(arr_bool)
+'
+'
 ' array[0][1][2][3][4][5] = ("c" + "i" + "a" + "o") = "ciao"
+' IO.WriteLine(array)
 ' x[0][1][2] = 2
-' v[2] = 3 
+' v[2] = 3
 ' v[i] = 0
 ' v[0][0] = 5
 ' v[0][0] = "ciao"
 ' v[i][j][k][l] = "ciao"
+
+v[5][5] = 0
+
+
+IO.WriteLine(v)

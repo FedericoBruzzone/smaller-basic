@@ -19,7 +19,7 @@ class IdNode(AbstractTokenNode):
             raise Exception("IdName must be a valid identifier")
 
         super().__init__()
-        self.id_name = id_name 
+        self.id_name = id_name
         self.name = "IdNode"
 
     def get_id_name(self) -> str:
@@ -31,5 +31,5 @@ class IdNode(AbstractTokenNode):
         """
         return self.id_name
 
-    def visit(self, interpreter): 
-        return interpreter.global_memory.get_value_of(self.id_name) 
+    def visit(self, interpreter):
+        return interpreter.global_memory.get_value_of_variable(self.get_id_name())

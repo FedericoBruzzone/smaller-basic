@@ -143,6 +143,15 @@ class SmallerBasicListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by SmallerBasicParser#ArrayAccessStandard.
+    def enterArrayAccessStandard(self, ctx:SmallerBasicParser.ArrayAccessStandardContext):
+        pass
+
+    # Exit a parse tree produced by SmallerBasicParser#ArrayAccessStandard.
+    def exitArrayAccessStandard(self, ctx:SmallerBasicParser.ArrayAccessStandardContext):
+        pass
+
+
     # Enter a parse tree produced by SmallerBasicParser#expression.
     def enterExpression(self, ctx:SmallerBasicParser.ExpressionContext):
         pass
@@ -221,6 +230,15 @@ class SmallerBasicListener(ParseTreeListener):
 
     # Exit a parse tree produced by SmallerBasicParser#AtomBooleanLibraryStatement.
     def exitAtomBooleanLibraryStatement(self, ctx:SmallerBasicParser.AtomBooleanLibraryStatementContext):
+        pass
+
+
+    # Enter a parse tree produced by SmallerBasicParser#AtomBooleanArrayAccess.
+    def enterAtomBooleanArrayAccess(self, ctx:SmallerBasicParser.AtomBooleanArrayAccessContext):
+        pass
+
+    # Exit a parse tree produced by SmallerBasicParser#AtomBooleanArrayAccess.
+    def exitAtomBooleanArrayAccess(self, ctx:SmallerBasicParser.AtomBooleanArrayAccessContext):
         pass
 
 
@@ -305,6 +323,15 @@ class SmallerBasicListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by SmallerBasicParser#AtomNumberArrayAccess.
+    def enterAtomNumberArrayAccess(self, ctx:SmallerBasicParser.AtomNumberArrayAccessContext):
+        pass
+
+    # Exit a parse tree produced by SmallerBasicParser#AtomNumberArrayAccess.
+    def exitAtomNumberArrayAccess(self, ctx:SmallerBasicParser.AtomNumberArrayAccessContext):
+        pass
+
+
     # Enter a parse tree produced by SmallerBasicParser#stringExpression.
     def enterStringExpression(self, ctx:SmallerBasicParser.StringExpressionContext):
         pass
@@ -356,6 +383,15 @@ class SmallerBasicListener(ParseTreeListener):
 
     # Exit a parse tree produced by SmallerBasicParser#AtomStringLibraryStatement.
     def exitAtomStringLibraryStatement(self, ctx:SmallerBasicParser.AtomStringLibraryStatementContext):
+        pass
+
+
+    # Enter a parse tree produced by SmallerBasicParser#AtomStringArrayAccess.
+    def enterAtomStringArrayAccess(self, ctx:SmallerBasicParser.AtomStringArrayAccessContext):
+        pass
+
+    # Exit a parse tree produced by SmallerBasicParser#AtomStringArrayAccess.
+    def exitAtomStringArrayAccess(self, ctx:SmallerBasicParser.AtomStringArrayAccessContext):
         pass
 
 
