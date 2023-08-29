@@ -97,15 +97,12 @@ class GlobalMemory(object):
                 if index not in array:
                     array[index] = {}
                 array = array[index]
-
             for i in range(indexes[-1]):
                 if i not in array:
                     array[i] = default_value
             array[indexes[-1]] = value
         else:
             array = self.__global_memory[id_name]
-            print(array)
-
             for index in indexes[:-1]:
                 if index not in array:
                     raise Exception("Array index " + str(index) + " is not defined")

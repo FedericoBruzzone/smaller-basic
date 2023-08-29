@@ -9,8 +9,8 @@ class ForStatementWithStepNode(ForStatementNode):
     """
     For statement with step node class. It represents a for statement in the AST.
     """
-    
-    def __init__(self, 
+
+    def __init__(self,
                  dec_statement: DeclarationStatementNode,
                  to_expression: ArithmeticalExpressionNode,
                  step_expression: ArithmeticalExpressionNode,
@@ -37,7 +37,30 @@ class ForStatementWithStepNode(ForStatementNode):
         if not isinstance(statements, StatementsNode):
             raise ValueError(
                 f"Statements must be of type StatementsNode. Got: {type(statements)}")
-        
-        super().__init__([dec_statement, to_expression, step_expression, statements])
+
+        super().__init__([dec_statement, to_expression, statements, step_expression])
         self.name = "ForStatementWithStep"
+
+    def get_step_expression(self) -> ArithmeticalExpressionNode:
+        """
+        Returns the step expression of the for statement.
+
+        Returns:
+            ArithmeticalExpressionNode: The step expression of the for statement.
+        """
+        return self.children[3]
+
+
+    def visit(self, interpreter):
+        name = self.get_dec_statement().get_var_name().get_id_name()
+
+        dec_statement = self.get_dec_statement().visit(interpreter)
+        from_expression = self.get_dec_statement().get_expression().visit(interpreter)
+        to_expression = self.get_to_expression().visit(interpreter)
+        statements = self.get_statements()
+        step_expression = self.get_step_expression().visit(interpreter)
+
+        for i in range(from_expression, to_expression, step_expression):
+            statements.visit(interpreter)
+            interpreter.global_memory.set_value_of_variable(name, i + step_expression)
 

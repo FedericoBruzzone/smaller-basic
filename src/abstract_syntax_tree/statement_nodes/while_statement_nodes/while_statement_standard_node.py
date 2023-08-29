@@ -18,7 +18,7 @@ class WhileStatementStandardNode(WhileStatementNode):
         Parameters:
             children (list): The children of the node.
         """
-        accepted_types = [BooleanNode, 
+        accepted_types = [BooleanNode,
                           IdNode]
         if (type(condition) not in accepted_types and
                 not issubclass(type(condition), LogicalBooleanExpressionNode)):
@@ -27,7 +27,32 @@ class WhileStatementStandardNode(WhileStatementNode):
         if not isinstance(while_body, StatementsNode):
             raise ValueError(
                 f"While body must be of type StatementsNode. Got: {type(while_body)}")
-        
+
         super().__init__([condition, while_body])
         self.name = "WhileStatementStandard"
+
+    def get_condition(self):
+        """
+        Gets the condition of the while statement.
+
+        Returns:
+            LogicalBooleanExpressionNode: The condition of the while statement.
+        """
+        return self.children[0]
+
+    def get_while_body(self):
+        """
+        Gets the body of the while statement.
+
+        Returns:
+            StatementsNode: The body of the while statement.
+        """
+        return self.children[1]
+
+    # : WHILE LROUND logicalExpression RROUND statement+ ENDWHILE                                                   # WhileStatementStandard
+    def visit(self, interpreter):
+        condition = self.get_condition()
+        while_body = self.get_while_body()
+        while condition.visit(interpreter):
+            while_body.visit(interpreter)
 

@@ -9,8 +9,8 @@ class ForStatementStandardNode(ForStatementNode):
     """
     For statement standard node class. It represents a for statement in the AST.
     """
-    
-    def __init__(self, 
+
+    def __init__(self,
                  dec_statement: DeclarationStatementNode,
                  to_expression: ArithmeticalExpressionNode,
                  statements: StatementsNode):
@@ -21,7 +21,7 @@ class ForStatementStandardNode(ForStatementNode):
             children (list): The children of the node.
         """
         accepted_types = [IdNode,
-                               IntNode]
+                          IntNode]
         if (not issubclass(type(dec_statement), DeclarationStatementNode)):
             raise ValueError(
                 f"Dec statement must be of type DeclarationStatementNode. Got: {type(dec_statement)}")
@@ -32,7 +32,18 @@ class ForStatementStandardNode(ForStatementNode):
         if not isinstance(statements, StatementsNode):
             raise ValueError(
                 f"Statements must be of type StatementsNode. Got: {type(statements)}")
-        
+
         super().__init__([dec_statement, to_expression, statements])
         self.name = "ForStatementStandard"
 
+    def visit(self, interpreter):
+        name = self.get_dec_statement().get_var_name().get_id_name()
+
+        dec_statement = self.get_dec_statement().visit(interpreter)
+        from_expression = self.get_dec_statement().get_expression().visit(interpreter)
+        to_expression = self.get_to_expression().visit(interpreter)
+        statements = self.get_statements()
+
+        for i in range(from_expression, to_expression):
+            statements.visit(interpreter)
+            interpreter.global_memory.set_value_of_variable(name, i + 1)
