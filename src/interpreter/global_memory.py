@@ -1,3 +1,5 @@
+import copy
+
 class GlobalMemory(object):
     """
     Global memory for the interpreter.
@@ -8,8 +10,15 @@ class GlobalMemory(object):
         Constructor for GlobalMemory class.
         """
         self.__global_memory = {}
+        self.__global_functions = {}
 
     def get_default_value(self, type_of_value: type):
+        """
+        Get the default value for the given type.
+
+        Parameters:
+            type_of_value (type): The type of the value.
+        """
         if type_of_value == int:
             return 0
         elif type_of_value == float:
@@ -61,6 +70,21 @@ class GlobalMemory(object):
         else:
             raise Exception("Identifier " + id_name + " is not defined")
 
+    def get_body_of_function(self, id_name: str):
+        """
+        Get the body of the function.
+
+        Parameters:
+            id_name (str): The name of the identifier.
+
+        Returns:
+            object: The body of the function.
+        """
+        if self.is_function_defined(id_name):
+            return self.__global_functions[id_name]
+        else:
+            raise Exception("Function " + id_name + " is not defined")
+
     def set_value_of_variable(self, id_name: str, value):
         """
         Set the value of the identifier.
@@ -88,27 +112,35 @@ class GlobalMemory(object):
             type_of_value = type(value)
             default_value = self.get_default_value(type_of_value)
 
-            self.__global_memory[id_name] = {}
-            array = self.__global_memory[id_name]
+            array = [default_value for _ in range(indexes[-1] + 1)]
+            for index in reversed(indexes[:-1]):
+                array = [copy.deepcopy(array) for _ in range(index + 1)]
+
+            tmp = array
             for index in indexes[:-1]:
-                for i in range(index):
-                    if i not in array:
-                        array[i] = default_value
-                if index not in array:
-                    array[index] = {}
-                array = array[index]
-            for i in range(indexes[-1]):
-                if i not in array:
-                    array[i] = default_value
-            array[indexes[-1]] = value
+                tmp = tmp[index]
+            tmp[indexes[-1]] = value
+
+            self.__global_memory[id_name] = array
         else:
             array = self.__global_memory[id_name]
             for index in indexes[:-1]:
-                if index not in array:
-                    raise Exception("Array index " + str(index) + " is not defined")
                 array = array[index]
-
             array[indexes[-1]] = value
+
+    def set_body_of_function(self, id_name: str, body):
+        """
+        Set the body of the function.
+
+        Parameters:
+            id_name (str): The name of the identifier.
+            body (object): The body of the function.
+        """
+        print()
+        print("id_name", id_name)
+        print("body", body)
+        print()
+        self.__global_functions[id_name] = body
 
     def is_defined(self, id_name: str) -> bool:
         """
@@ -122,8 +154,21 @@ class GlobalMemory(object):
         """
         return id_name in self.__global_memory
 
+    def is_function_defined(self, id_name: str) -> bool:
+        """
+        Check if the function is defined.
+
+        Parameters:
+            id_name (str): The name of the function.
+
+        Returns:
+            bool: True if the function is defined, False otherwise.
+        """
+        return id_name in self.__global_functions
+
     def reset(self):
         """
         Reset the global memory.
         """
         self.__global_memory = {}
+        self.__global_functions = {}

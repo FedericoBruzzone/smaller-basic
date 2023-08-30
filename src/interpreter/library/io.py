@@ -11,25 +11,11 @@ class IO(object):
         """
         pass
 
-    def __convert_dict_to_list(self, input_dict):
-        if isinstance(input_dict, dict):
-            keys = list(input_dict.keys())
-            if len(keys) == 1 and keys[0] == 0:
-                return self.__convert_dict_to_list(input_dict[0])
-            else:
-                return [self.__convert_dict_to_list(input_dict[key]) for key in keys]
-        else:
-            return input_dict
-
     def WriteLine(self, *args):
         """
         Write a line to stdout.
         """
-        if type(args[0]) == dict:
-            converted_list = self.__convert_dict_to_list(args[0])
-            print(converted_list)
-        else:
-            print(*args)
+        print(*args)
 
     def ReadLine(self):
         """

@@ -7,7 +7,7 @@ class SubroutineStatementStandardNode(SubroutineStatementNode):
     """
     Subroutine statement standard node class. It represents a subroutine statement in the AST.
     """
-    
+
     def __init__(self,
                  id_node: IdNode,
                  subroutine_body: StatementsNode):
@@ -23,7 +23,30 @@ class SubroutineStatementStandardNode(SubroutineStatementNode):
         if not isinstance(subroutine_body, StatementsNode):
             raise ValueError(
                 f"Subroutine body must be of type StatementsNode. Got: {type(subroutine_body)}")
-        
+
         super().__init__([id_node, subroutine_body])
         self.name = "SubroutineStatementStandard"
+
+    def get_id_node(self) -> IdNode:
+        """
+        Gets the id node.
+
+        Returns:
+            IdNode: The id node.
+        """
+        return self.children[0]
+
+    def get_subroutine_body(self) -> StatementsNode:
+        """
+        Gets the subroutine body.
+
+        Returns:
+            StatementsNode: The subroutine body.
+        """
+        return self.children[1]
+
+    def visit(self, interpreter):
+        id_name = self.get_id_node().get_id_name()
+        subroutine_body = self.get_subroutine_body()
+        interpreter.global_memory.set_body_of_function(id_name, subroutine_body)
 

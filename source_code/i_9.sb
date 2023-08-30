@@ -1,11 +1,34 @@
-For i = 0 To 10
-    IO.WriteLine(i)
-EndFor
+' For i = 0 To 10
+'     IO.WriteLine(i)
+' EndFor
+'
+' For i = 0 To 10 Step 2
+'     IO.WriteLine(i)
+' EndFor
+'
+' For i = 10 To 0 Step -1
+'     IO.WriteLine(i)
+' EndFor
 
+a = 10
 For i = 0 To 10 Step 2
     IO.WriteLine(i)
+    If (i = 6) Then
+        IO.WriteLine("Breaking")
+        a = a + 1
+    EndIf
 EndFor
 
-For i = 10 To 0 Step -1
-    IO.WriteLine(i)
+IO.WriteLine(a)
+
+my_vec[2][2] = 0
+IO.WriteLine(my_vec)
+For i = 0 To 3
+    For j = 0 To 3
+        my_vec[i][j] = i + j
+    EndFor
 EndFor
+
+IO.WriteLine(my_vec)
+
+

@@ -1,0 +1,11 @@
+' Subroutine
+
+x = 0
+
+Sub AddOneTox
+    x = x + 1
+EndSub
+
+IO.WriteLine(x)
+AddOneTox()
+IO.WriteLine(x)
