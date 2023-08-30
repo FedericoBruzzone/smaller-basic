@@ -2,10 +2,19 @@
 
 x = 0
 
+Sub SumTenToXWithFor
+    For i = 1 To 10
+        x = x + i
+    EndFor
+EndSub
+
 Sub AddOneTox
     x = x + 1
 EndSub
 
+
 IO.WriteLine(x)
 AddOneTox()
+IO.WriteLine(x)
+SumTenToXWithFor()
 IO.WriteLine(x)

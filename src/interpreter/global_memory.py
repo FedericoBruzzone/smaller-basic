@@ -136,10 +136,6 @@ class GlobalMemory(object):
             id_name (str): The name of the identifier.
             body (object): The body of the function.
         """
-        print()
-        print("id_name", id_name)
-        print("body", body)
-        print()
         self.__global_functions[id_name] = body
 
     def is_defined(self, id_name: str) -> bool:
