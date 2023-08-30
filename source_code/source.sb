@@ -1,0 +1,30 @@
+Sub x_as_int
+    If (x = "1") Then x = 1 EndIf
+    If (x = "2") Then x = 2 EndIf
+    If (x = "3") Then x = 3 EndIf
+    If (x = "4") Then x = 4 EndIf
+    If (x = "5") Then x = 5 EndIf
+    If (x = "6") Then x = 6 EndIf
+    If (x = "7") Then x = 7 EndIf
+    If (x = "8") Then x = 8 EndIf
+    If (x = "9") Then x = 9 EndIf
+EndSub
+
+Sub main
+    While (true)
+        IO.WriteLine("Enter a number from 0 to 9: ")
+        x = IO.ReadLine()
+        x_as_int()
+
+        IO.WriteLine("Enter your name: ")
+        name = IO.ReadLine()
+
+        For i = 0 To x Step 2
+            IO.WriteLine("Hello " + name)
+        EndFor
+
+        IO.WriteLine()
+    EndWhile
+EndSub
+
+main()

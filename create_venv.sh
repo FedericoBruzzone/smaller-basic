@@ -18,7 +18,7 @@ alias antlr4='java -jar $ANTLR4_JAR'
 alias grun='java org.antlr.v4.gui.TestRig'
 
 smallbasic_run_all () {
-    antlr4 -Dlanguage=Python3 -visitor src/grammar/SmallerBasic.g4; 
+    antlr4 -Dlanguage=Python3 -visitor src/grammar/SmallerBasic.g4;
     for file in source_code/*.sb; do
         echo "Running $file"
         file=${file#source_code/}
@@ -35,21 +35,21 @@ smallbasic() {
         echo "Options:"
         echo "  -h      display this help and exit"
         echo "  -g      generate grammar"
-        echo "  -ga     generate grammar and run all files in source_code folder"
-        echo "  -a      run all files in source_code folder"
+        echo "  -gas    generate grammar and run all files in source_code folder"
+        echo "  -as     run all files in source_code folder"
         echo ""
+    elif [[ $1 == "-gas" ]]; then
+        antlr4 -Dlanguage=Python3 -visitor src/grammar/SmallerBasic.g4;
+        smallbasic_run_all
+    elif [[ $1 == "-as" ]]; then
+        smallbasic_run_all
     elif [[ $1 == "-g" ]]; then
-        antlr4 -Dlanguage=Python3 -visitor src/grammar/SmallerBasic.g4; 
+        antlr4 -Dlanguage=Python3 -visitor src/grammar/SmallerBasic.g4;
         if [[ $2 ]]; then
-            python3 -m src.main source_code/"$2"
+            python3 -m src.main "$2"
         fi
-    elif [[ $1 == "-ga" ]]; then
-        antlr4 -Dlanguage=Python3 -visitor src/grammar/SmallerBasic.g4; 
-        smallbasic_run_all
-    elif [[ $1 == "-a" ]]; then
-        smallbasic_run_all
     else
-        python3 -m src.main source_code/"$1"
+        python3 -m src.main "$1"
     fi
 }
 

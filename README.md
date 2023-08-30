@@ -1,15 +1,121 @@
-[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0) 
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-blue.svg)](http://creativecommons.org/licenses/by-sa/4.0/)
 
 # Smaller Basic
 
-A simple Python interpreter using ANTLR4 as a parser generator for a version of Microsoft's Small Basic language renamed "Smaller Basic."
+A Python interpreter using ANTLR4 as a parser generator for a version of Microsoft's Small Basic language renamed "Smaller Basic."
+
+## An example of source code
+
+Location of this source code: `source_code/source.sb`.
+
+```python
+Sub x_as_int
+    If (x = "1") Then x = 1 EndIf
+    If (x = "2") Then x = 2 EndIf
+    If (x = "3") Then x = 3 EndIf
+    If (x = "4") Then x = 4 EndIf
+    If (x = "5") Then x = 5 EndIf
+    If (x = "6") Then x = 6 EndIf
+    If (x = "7") Then x = 7 EndIf
+    If (x = "8") Then x = 8 EndIf
+    If (x = "9") Then x = 9 EndIf
+EndSub
+
+Sub main
+    While (true)
+        IO.WriteLine("Enter a number from 0 to 9: ")
+        x = IO.ReadLine()
+        x_as_int()
+
+        IO.WriteLine("Enter your name: ")
+        name = IO.ReadLine()
+
+        For i = 0 To x Step 2
+            IO.WriteLine("Hello " + name)
+        EndFor
+    EndWhile
+EndSub
+
+main()
+```
+
+The output of this source code is:
+
+```bash
++---------------------------------------+
+| ----- Run source_code/source.sb ----- |
++---------------------------------------+
+
+Enter a number from 0 to 9:
+|> 8
+Enter your name:
+|> Federico
+Hello Federico
+Hello Federico
+Hello Federico
+Hello Federico
+```
+Parsing errors and warnings are displayed as follows:
+
+![warning_error](link)
+
+## Project directory structure
+
+```
+.
+├── source_code
+│   ├── ...
+└── src
+    ├── abstract_syntax_tree
+    │   ├── ...
+    ├── error
+    │   ├── ...
+    ├── grammar
+    │   ├── SmallerBasic.g4
+    │   └── ...
+    ├── interpreter
+    │   ├── dispatch_table.py
+    │   ├── global_memory.py
+    │   ├── interpreter.py
+    │   └── library
+    │       └── ...
+    ├── main.py
+    └── utils
+        └── ...
+```
+
+### Overview
+
+- `source_code`: This directory likely contains the source code files of your SmallerBasic programming language.
+
+- `src`: The main source code directory containing various subdirectories and files related to the interpreter and language implementation.
+
+    - `abstract_syntax_tree`: This directory could hold files related to constructing and manipulating the abstract syntax tree of programs written in SmallerBasic.
+
+    - `error`: Here, you might find files related to error handling and reporting within the interpreter.
+
+    - `grammar`: This directory could contain the grammar definition files, such as `SmallerBasic.g4`, which define the syntax and structure of the SmallerBasic language using ANTLR grammar notation.
+
+    - `interpreter`: This is a crucial directory containing the implementation of the interpreter for the SmallerBasic language.
+
+        - `dispatch_table.py`: This file might contain the implementation of a dispatch table used for efficiently executing different language constructs.
+
+        - `global_memory.py`: Here, you could have code related to managing the global memory and variables within the interpreter.
+
+        - `interpreter.py`: This could be the main interpreter implementation that executes SmallerBasic programs by traversing the abstract syntax tree and performing actions based on the language constructs.
+
+        - `library`: If present, this directory might contain additional library files that provide built-in functions or utilities for SmallerBasic programs.
+
+- `main.py`: This is likely the entry point of your interpreter, where execution starts when running the interpreter.
+
+- `utils`: This directory could hold utility files that are used throughout the project.
 
 ## Starting point working locally
 
 **Create and start a new virtual environment**
 
-`source create_venv.sh venv` 
+`source create_venv.sh venv`
 
 **Start current virtual environment**
 
@@ -19,7 +125,7 @@ A simple Python interpreter using ANTLR4 as a parser generator for a version of 
 
 `deactivate`
 
-## Usage 
+## Usage
 
 ```
 Usage: smallbasic [OPTION] [FILE]
@@ -28,23 +134,25 @@ Run Smaller Basic program
 Options:
   -h      display this help and exit
   -g      generate grammar
-  -ga     generate grammar and run all files in source_code
-  -a      run all files in source_code
+  -gas    generate grammar and run all files in source_code
+  -as     run all files in source_code
 ```
 
-## Run interpreter
+## Interpreter
 
-In development phase the following command will re-generate the grammar related files from scratch. 
-Note that, again for the development phase, the file must be contained in the `source_code` folder.
+### Run a file
 
-`smallbasic <name>.sb`
+`smallbasic <file>.sb`
 
+For example, you can ri-generate the grammar and run a file in `source_code` directory in the following way:
+
+`smallbasic -g source_code/source.sb`
 
 ### Generate grammar
 
 `antlr4 -Dlanguage=Python3 -visitor src/grammar/SmallerBasic.g4`
 
-- **Requirements**: the same or greater java version used to compile the antlr4 jar. (in my case **java-18-openjdk-amd64**)  
+- **Requirements**: the same or greater java version used to compile the antlr4 jar. (in my case **java-18-openjdk-amd64**)
 
 - Change version of java: `update-alternatives --config java`.
 
@@ -52,13 +160,5 @@ Note that, again for the development phase, the file must be contained in the `s
 
 ### Run main
 
-`python3 -m src.main source_code/test.sb`
-
-
-### Run the `main.py` file of the `<x>` package 
-
-`python3 -m src.<x>.main`
-
-
-
+`python3 -m src.main source_code/<file>.sb`
 
