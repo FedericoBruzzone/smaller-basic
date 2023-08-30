@@ -58,7 +58,7 @@ Hello Federico
 ```
 Parsing errors and warnings are displayed as follows:
 
-![warning_error](link)
+![warning_error](https://github.com/FedericoBruzzone/smaller-basic/blob/main/img_readme/warning_error.png)
 
 ## Project directory structure
 
