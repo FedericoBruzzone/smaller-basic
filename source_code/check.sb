@@ -1,0 +1,7 @@
+IO.WriteLine("Hello World")
+n = IO.ReadLine()
+IO.WriteLine(n)
+sin = Math.Sin(10)
+IO.WriteLine(Random.GetRandomNumber())
+IO.WriteLine()
+IO.WriteLine(String.Length("Hello World"))

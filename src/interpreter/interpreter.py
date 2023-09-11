@@ -16,12 +16,17 @@ from src.abstract_syntax_tree.ast import Ast
 from antlr4.InputStream import InputStream
 from antlr4.CommonTokenStream import CommonTokenStream
 
+LIBRARIES = ["IO",
+             "Math",
+             "Random",
+             "String"]
+
 class Interpreter(object):
     def __init__(self):
-        self.__file_path: str = None
+        self.__file_path: str = ""
         self.__source_code: Any = None
         self.__is_running: bool = False
-        self.__libraries: list = ["IO"]
+        self.__libraries: list = LIBRARIES
         self.global_memory: GlobalMemory = GlobalMemory()
         self.dispatch_table: DispatchTable = DispatchTable()
 
@@ -145,6 +150,18 @@ class Interpreter(object):
             from src.interpreter.library.io import IO
             io: IO = IO()
             res = io.call(func_name, *args)
+        elif lib_name == "Math":
+            from src.interpreter.library.math import Math
+            math: Math = Math()
+            res = math.call(func_name, *args)
+        elif lib_name == "Random":
+            from src.interpreter.library.random import Random
+            random: Random = Random()
+            res = random.call(func_name, *args)
+        elif lib_name == "String":
+            from src.interpreter.library.string import String
+            string: String = String()
+            res = string.call(func_name, *args)
 
         return res
 
