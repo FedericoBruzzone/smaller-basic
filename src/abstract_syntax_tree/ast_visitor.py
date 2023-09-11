@@ -16,6 +16,7 @@ from src.abstract_syntax_tree.statement_nodes.declaration_statement_nodes.varibl
 from src.abstract_syntax_tree.statement_nodes.declaration_statement_nodes.array_declaration_statement_node import ArrayDeclarationStatementNode
 # ==================== LIBRARY STATEMENTS ====================
 from src.abstract_syntax_tree.statement_nodes.library_statement_nodes.library_statement_node_with_parameters import LibraryStatementWithParametersNode
+from src.abstract_syntax_tree.statement_nodes.library_statement_nodes.library_statement_node_with_parameter import LibraryStatementWithParameterNode
 from src.abstract_syntax_tree.statement_nodes.library_statement_nodes.library_statement_node_without_parameters import LibraryStatementWithoutParametersNode
 # ==================== IF STATEMENTS ====================
 from src.abstract_syntax_tree.statement_nodes.if_statement_nodes.if_statement_with_else_node import IfStatementWithElseNode
@@ -121,19 +122,38 @@ class SmallerBasicAstVisitor(SmallerBasicVisitor):
         )
 
     # ==================== LIBRARY STATEMENTS ====================
-
     def visitLibraryStatementWithParameters(self, ctx: SmallerBasicParser.LibraryStatementWithParametersContext):
         """
         Visit LibraryStatementWithParameters node in parse tree
 
         Parameters:
-            ctx (SmallerBasicParser.LibraryStatementWithParametersContext): The parse tree
+            ctx (SmallerBasicParser.LibraryStatementWithoutParametersContext): The parse tree
         """
+        lib_name: str = IdNode(ctx.ID(0).getText())
+        func_name: str = IdNode(ctx.ID(1).getText())
+        exp0 = self.visit(ctx.expression(0))
+        # ID DOT ID LROUND expression (COMMA expression)+ RROUND
+        #                             ^^^^^^^^^^^^^^^^^^^
+        _, _, _, _, _, *expressions, _ = ctx.children
+        exp1toN: list = [i for i in expressions if i.getText() not in [ctx.COMMA()[0].getText()]]
         return LibraryStatementWithParametersNode(
-            IdNode(ctx.ID(0).getText()),
-            IdNode(ctx.ID(1).getText()),
-            self.visit(ctx.expression())
+            lib_name,
+            func_name,
+            ExpressionsNode([exp0] + [self.visit(i) for i in exp1toN])
         )
+
+    # def visitLibraryStatementWithParameter(self, ctx: SmallerBasicParser.LibraryStatementWithParameterContext):
+    #     """
+    #     Visit LibraryStatementWithParameter node in parse tree
+    #
+    #     Parameters:
+    #         ctx (SmallerBasicParser.LibraryStatementWithParameterContext): The parse tree
+    #     """
+    #     return LibraryStatementWithParameterNode(
+    #         IdNode(ctx.ID(0).getText()),
+    #         IdNode(ctx.ID(1).getText()),
+    #         self.visit(ctx.expression())
+    #     )
 
     def visitLibraryStatementWithoutParameters(self, ctx: SmallerBasicParser.LibraryStatementWithoutParametersContext):
         """
@@ -182,7 +202,6 @@ class SmallerBasicAstVisitor(SmallerBasicVisitor):
         )
 
     # ==================== WHILE STATEMENTS ====================
-
     def visitWhileStatementStandard(self, ctx: SmallerBasicParser.WhileStatementStandardContext):
         """
         Visit WhileStatementStandard node in parse tree

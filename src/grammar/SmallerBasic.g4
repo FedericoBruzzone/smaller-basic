@@ -56,7 +56,7 @@ callSubroutineStatement
     ;
 
 libraryStatement
-    : ID DOT ID LROUND expression RROUND                                                                          # LibraryStatementWithParameters
+    : ID DOT ID LROUND expression (COMMA expression)* RROUND                                                      # LibraryStatementWithParameters
     | ID DOT ID LROUND RROUND                                                                                     # LibraryStatementWithoutParameters
     ;
 
@@ -156,7 +156,6 @@ RROUND
     : ')'
     ;
 
-
 LSQUARE
     : '['
     ;
@@ -171,6 +170,10 @@ DOT
 
 COLON
     : ':'
+    ;
+
+COMMA
+    : ','
     ;
 
 PLUS

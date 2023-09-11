@@ -90,6 +90,14 @@ class String(object):
         res.append(s[start:])
         return res
 
+    def At(self, s: str, index: int) -> str:
+        """
+        Return the character at the given index.
+        """
+        if index < 0 or index >= len(s):
+            raise Exception("Index out of bounds")
+        return s[index]
+
     def call(self, func_name: str, *args):
         """
         Call a function with the given arguments and keyword arguments.

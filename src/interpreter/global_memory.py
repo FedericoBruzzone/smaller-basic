@@ -62,8 +62,10 @@ class GlobalMemory(object):
 
         if self.is_defined(id_name):
             array = self.__global_memory[id_name]
+            if type(array) != list:
+                raise Exception("Identifier " + id_name + " is not an array")
             for index in indexes:
-                if index not in array:
+                if index not in set(range(len(array))):
                     raise Exception("Array index " + str(index) + " is not defined")
                 array = array[index]
             return array

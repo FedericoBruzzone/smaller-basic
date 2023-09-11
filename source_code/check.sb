@@ -1,7 +1,30 @@
-IO.WriteLine("Hello World")
-n = IO.ReadLine()
-IO.WriteLine(n)
-sin = Math.Sin(10)
-IO.WriteLine(Random.GetRandomNumber())
-IO.WriteLine()
-IO.WriteLine(String.Length("Hello World"))
+
+ppp = "IOIOIO"
+IO.WriteLine(ppp[0])
+
+' IO.WriteLine(Math.Pow(2, 3))
+' IO.WriteLine("Hello World")
+' sin = Math.Sin(10)
+' IO.WriteLine(Random.GetRandomNumber())
+' IO.WriteLine()
+' IO.WriteLine(String.Length("Hello World"))
+' IO.WriteLine(String.Substr("Hello World", 0, 5))
+' IO.WriteLine(Random.Random(10, 20))
+' new_string = String.Concat("Hello ", "World")
+' po = "p" + "o" + "t" + "a" + "t" + "o"
+' IO.WriteLine(po)
+' IO.WriteLine(new_string)
+'
+' IO.WriteLine()
+'
+' x = "a-b-c-d-e-f-g-h-i-j-k-l-m-n-o-p-q-r-s-t-u-v-w-x-y-z"
+' upp = String.ToUpper(x)
+' IO.WriteLine(upp)
+' new_x = String.Split(x, "-")
+' IO.WriteLine(new_x)
+'
+' test = String.Concat("Hello ", new_x[10])
+' IO.WriteLine(test)
+' IO.WriteLine(test[0])
+'
+' IO.WriteLine(new_x[10])

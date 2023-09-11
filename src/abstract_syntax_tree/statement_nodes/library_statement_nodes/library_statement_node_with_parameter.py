@@ -4,7 +4,7 @@ from src.abstract_syntax_tree.statement_nodes.library_statement_nodes.library_st
 from src.abstract_syntax_tree.token_nodes.abstract_token_node import AbstractTokenNode
 from src.abstract_syntax_tree.token_nodes.id_node import IdNode
 
-class LibraryStatementWithParametersNode(LibraryStatementNode):
+class LibraryStatementWithParameterNode(LibraryStatementNode):
     """
     Class representing a library statement with parameters in the abstract syntax tree.
     """
@@ -15,15 +15,18 @@ class LibraryStatementWithParametersNode(LibraryStatementNode):
         """
         Initialize a VariableDeclarationStatementNode object.
         """
+        accepted_types = [AbstractExpressionNode,
+                          AbstractTokenNode,
+                          LibraryStatementNode]
         if not isinstance(lib_name, IdNode):
             raise TypeError(
                 "LibraryStatementNode expects an IdNode as the first argument and got " + str(type(lib_name)))
         if not isinstance(func_name, IdNode):
             raise TypeError(
                 "LibraryStatementNode expects an IdNode as the second argument and got " + str(type(func_name)))
-        if not isinstance(expression, ExpressionsNode):
+        if  not issubclass(type(expression), tuple(accepted_types)):
             raise TypeError(
-                "LibraryStatementNode expects an ExpressionsNode as the third argument and got " + str(type(expression)))
+                f"LibraryStatementNode expects an {accepted_types} as the third argument and got " + str(type(expression)))
         super().__init__([lib_name, func_name, expression])
         self.name: str = "LibraryStatementNode"
 
@@ -56,8 +59,8 @@ class LibraryStatementWithParametersNode(LibraryStatementNode):
 
     def visit(self, interpreter):
         res = interpreter.invoke_library_function(self.get_lib_name().get_id_name(),
-                                                  self.get_func_name().get_id_name(),
-                                                  *self.get_expression().visit(interpreter))
+                                                   self.get_func_name().get_id_name(),
+                                                   self.get_expression().visit(interpreter))
 
         return res
 
