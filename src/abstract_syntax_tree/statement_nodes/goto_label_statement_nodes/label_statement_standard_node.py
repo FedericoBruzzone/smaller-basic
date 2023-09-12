@@ -1,3 +1,4 @@
+from src.abstract_syntax_tree.handle_goto import handle_goto
 from src.abstract_syntax_tree.statement_nodes.goto_label_statement_nodes.label_statement_node import LabelStatementNode
 from src.abstract_syntax_tree.token_nodes.id_node import IdNode
 
@@ -30,8 +31,5 @@ class LabelStatementStandardNode(LabelStatementNode):
         """
         return self.children[0]
 
-    def visit(self, interpreter):
-        if interpreter.goto_label == self.get_id_node().get_id_name():
-            interpreter.goto_mode = False
-            interpreter.goto_label = None
+
 

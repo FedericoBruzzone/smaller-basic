@@ -1,4 +1,5 @@
 from typing import List
+from src.abstract_syntax_tree.goto_exception import GotoException
 from src.abstract_syntax_tree.handle_goto import handle_goto
 
 from src.abstract_syntax_tree.statement_nodes.abstract_statement_node import AbstractStatementNode
@@ -16,6 +17,12 @@ class Ast(AbstractAstNode):
 
     @handle_goto
     def visit(self, interpreter):
-        interpreter.ast_root = self
         for statement in self.children:
-            statement.visit(interpreter)
+            try:
+                statement.visit(interpreter)
+            except GotoException as e:
+                interpreter.goto_mode = True
+                interpreter.goto_label = e.label
+                self.visit(interpreter)
+                return
+

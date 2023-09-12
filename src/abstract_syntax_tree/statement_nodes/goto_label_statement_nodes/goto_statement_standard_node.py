@@ -1,3 +1,4 @@
+from src.abstract_syntax_tree.goto_exception import GotoException
 from src.abstract_syntax_tree.handle_goto import handle_goto
 from src.abstract_syntax_tree.statement_nodes.goto_label_statement_nodes.goto_statement_node import GotoStatementNode
 from src.abstract_syntax_tree.token_nodes.id_node import IdNode
@@ -20,7 +21,7 @@ class GotoStatementStandardNode(GotoStatementNode):
                 f"Id node must be of type IdNode. Got: {type(id_node)}")
 
         super().__init__([id_node])
-        self.name = "GotoStatementStandard"
+        self.name = "GotoStatementStandardNode"
 
     def get_id_node(self):
         """
@@ -31,7 +32,9 @@ class GotoStatementStandardNode(GotoStatementNode):
         """
         return self.children[0]
 
+    @handle_goto
     def visit(self, interpreter):
-        interpreter.goto_mode = True
-        interpreter.goto_label = self.get_id_node().get_id_name()
-        interpreter.ast_root.visit(interpreter)
+        raise GotoException(self.get_id_node().get_id_name())
+
+
+

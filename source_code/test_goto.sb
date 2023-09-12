@@ -1,5 +1,19 @@
-a = 10
-Goto End
-IO.WriteLine("Hello World")
+IO.WriteLine(" SC: Start ")
+
 End:
-    IO.WriteLine("End")
+    IO.WriteLine(" SC: End ")
+    Goto Break
+    IO.WriteLine(" Never here ")
+Goto End
+
+Break:
+    IO.WriteLine(" SC: Break ")
+
+i = 0
+Start:
+    IO.WriteLine(i)
+    i = i + 1
+    If (i < 10) Then
+        Goto Start
+    EndIf
+IO.WriteLine(" Done ")

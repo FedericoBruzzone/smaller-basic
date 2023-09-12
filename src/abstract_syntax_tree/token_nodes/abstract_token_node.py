@@ -1,4 +1,3 @@
-from abc import abstractmethod
 from src.abstract_syntax_tree.abstract_ast_node import AbstractAstNode
 
 class AbstractTokenNode(AbstractAstNode):
@@ -15,7 +14,5 @@ class AbstractTokenNode(AbstractAstNode):
         """
         super().__init__(children)
         self.name = "AbstractTokenNode"
-    
-    @abstractmethod
-    def visit(self): pass
+
 

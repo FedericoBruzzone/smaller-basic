@@ -32,7 +32,9 @@ Sub Main
     my_vec[2][2] = 0
     IO.WriteLine(my_vec)
 
-    Label1:
+    count = 0
+    LabelFor5:
+    IO.WriteLine(count)
 
     IO.WriteLine("Enter the value with which you want to initialize the array: ")
     init_value = IO.ReadLine()
@@ -48,12 +50,17 @@ Sub Main
     ArrayIncrement()
     IO.WriteLine(my_vec)
 
+    count = count + 1
+    If (count < 5) Then
+        Goto LabelFor5
+    EndIf
+
+    Goto End
+
     While (my_vec[2][2] < 10)
         ArrayIncrement()
         IO.WriteLine(my_vec)
     EndWhile
-
-    Goto End
 EndSub
 
 Main()
