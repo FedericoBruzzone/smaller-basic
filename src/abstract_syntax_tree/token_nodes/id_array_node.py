@@ -1,3 +1,4 @@
+from src.abstract_syntax_tree.handle_goto import handle_goto
 from src.abstract_syntax_tree.token_nodes.id_node import IdNode
 from src.abstract_syntax_tree.expression_nodes.expressions_node import ExpressionsNode
 
@@ -21,6 +22,7 @@ class IdArrayNode(IdNode):
         self.indexes = indexes
         self.name = "IdArrayNode"
 
+    @handle_goto
     def visit(self, interpreter):
         return interpreter.global_memory.get_value_of_array(self.get_id_name(),
                                                             self.indexes.visit(interpreter))

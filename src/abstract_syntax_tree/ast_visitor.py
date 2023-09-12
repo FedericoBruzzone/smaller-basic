@@ -1,8 +1,8 @@
+from antlr4 import ParserRuleContext
+
 from typing import List
 from src.grammar.SmallerBasicVisitor import SmallerBasicVisitor
 from src.grammar.SmallerBasicParser import SmallerBasicParser
-
-from src.abstract_syntax_tree.ast_visitor_helper import get_unary_sign
 
 from src.abstract_syntax_tree.ast import Ast
 from src.abstract_syntax_tree.statement_nodes.abstract_statement_node import AbstractStatementNode
@@ -16,7 +16,7 @@ from src.abstract_syntax_tree.statement_nodes.declaration_statement_nodes.varibl
 from src.abstract_syntax_tree.statement_nodes.declaration_statement_nodes.array_declaration_statement_node import ArrayDeclarationStatementNode
 # ==================== LIBRARY STATEMENTS ====================
 from src.abstract_syntax_tree.statement_nodes.library_statement_nodes.library_statement_node_with_parameters import LibraryStatementWithParametersNode
-from src.abstract_syntax_tree.statement_nodes.library_statement_nodes.library_statement_node_with_parameter import LibraryStatementWithParameterNode
+
 from src.abstract_syntax_tree.statement_nodes.library_statement_nodes.library_statement_node_without_parameters import LibraryStatementWithoutParametersNode
 # ==================== IF STATEMENTS ====================
 from src.abstract_syntax_tree.statement_nodes.if_statement_nodes.if_statement_with_else_node import IfStatementWithElseNode
@@ -60,6 +60,19 @@ from src.abstract_syntax_tree.token_nodes.boolean_node import BooleanNode
 # ==================== ARRAY ACCESS ====================
 from src.abstract_syntax_tree.token_nodes.id_array_node import IdArrayNode
 
+def get_unary_sign(ctx: ParserRuleContext) -> str:
+    """
+    Get unary sign of the given context.
+
+    Returns:
+        str: unary sign of the given context.
+    """
+    if ctx.PLUS():
+        return '+'
+    elif ctx.MINUS():
+        return '-'
+    else:
+        return ""
 
 class SmallerBasicAstVisitor(SmallerBasicVisitor):
     """

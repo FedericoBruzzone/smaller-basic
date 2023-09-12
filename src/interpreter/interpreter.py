@@ -29,6 +29,9 @@ class Interpreter(object):
         self.__libraries: list = LIBRARIES
         self.global_memory: GlobalMemory = GlobalMemory()
         self.dispatch_table: DispatchTable = DispatchTable()
+        self.ast_root: Ast = None
+        self.goto_mode: bool = False
+        self.goto_label: str = ""
 
     def load_file(self, file_path: str) -> None:
         """

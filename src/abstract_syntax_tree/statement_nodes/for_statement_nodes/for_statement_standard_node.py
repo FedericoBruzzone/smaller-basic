@@ -1,4 +1,5 @@
 from src.abstract_syntax_tree.expression_nodes.arithmetical_expression_nodes.arithmetical_expression_node import ArithmeticalExpressionNode
+from src.abstract_syntax_tree.handle_goto import handle_goto
 from src.abstract_syntax_tree.statement_nodes.declaration_statement_nodes.declaration_statement_node import DeclarationStatementNode
 from src.abstract_syntax_tree.statement_nodes.for_statement_nodes.for_statement_node import ForStatementNode
 from src.abstract_syntax_tree.statement_nodes.statements_node import StatementsNode
@@ -36,6 +37,7 @@ class ForStatementStandardNode(ForStatementNode):
         super().__init__([dec_statement, to_expression, statements])
         self.name = "ForStatementStandard"
 
+    @handle_goto
     def visit(self, interpreter):
         name = self.get_dec_statement().get_var_name().get_id_name()
 

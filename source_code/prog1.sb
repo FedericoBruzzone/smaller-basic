@@ -1,10 +1,8 @@
 For A = 1 To 10
   For B = 1 To 10
     C = 3 * 4
-    Goto fine
   EndFor
 EndFor
 B = 1 + 2
-fine:
 D = 4
 

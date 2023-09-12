@@ -1,0 +1,62 @@
+' The first progam in smallerbasic
+
+Sub init_value_as_int
+    If (init_value = "1") Then init_value = 1 EndIf
+    If (init_value = "2") Then init_value = 2 EndIf
+    If (init_value = "3") Then init_value = 3 EndIf
+    If (init_value = "4") Then init_value = 4 EndIf
+    If (init_value = "5") Then init_value = 5 EndIf
+    If (init_value = "6") Then init_value = 6 EndIf
+    If (init_value = "7") Then init_value = 7 EndIf
+    If (init_value = "8") Then init_value = 8 EndIf
+    If (init_value = "9") Then init_value = 9 EndIf
+EndSub
+
+Sub ArrayInit
+    For i = 0 To 3
+        For j = 0 To 3
+            my_vec[i][j] = init_value
+        EndFor
+    EndFor
+EndSub
+
+Sub ArrayIncrement
+    For i = 0 To 3
+        For j = 0 To 3
+            my_vec[i][j] = my_vec[i][j] + 1
+        EndFor
+    EndFor
+EndSub
+
+Sub Main
+    my_vec[2][2] = 0
+    IO.WriteLine(my_vec)
+
+    Label1:
+
+    IO.WriteLine("Enter the value with which you want to initialize the array: ")
+    init_value = IO.ReadLine()
+    If (String.Length(init_value) > 1) Then
+        IO.WriteLine("You entered more than one character. Only the first character will be used.")
+        init_value = String.Substr(init_value, 0, 1)
+    EndIf
+    init_value_as_int()
+
+    ArrayInit()
+    IO.WriteLine(my_vec)
+
+    ArrayIncrement()
+    IO.WriteLine(my_vec)
+
+    While (my_vec[2][2] < 10)
+        ArrayIncrement()
+        IO.WriteLine(my_vec)
+    EndWhile
+
+    Goto End
+EndSub
+
+Main()
+
+End:
+    IO.WriteLine("End of program.")

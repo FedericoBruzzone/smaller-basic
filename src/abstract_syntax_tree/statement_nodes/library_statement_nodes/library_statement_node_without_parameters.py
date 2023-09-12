@@ -1,3 +1,4 @@
+from src.abstract_syntax_tree.handle_goto import handle_goto
 from src.abstract_syntax_tree.token_nodes.id_node import IdNode
 from src.abstract_syntax_tree.statement_nodes.library_statement_nodes.library_statement_node import LibraryStatementNode
 
@@ -38,7 +39,8 @@ class LibraryStatementWithoutParametersNode(LibraryStatementNode):
         """
         return self.children[1]
 
+    @handle_goto
     def visit(self, interpreter):
-        res = interpreter.invoke_library_function(self.get_lib_name().get_id_name(), 
+        res = interpreter.invoke_library_function(self.get_lib_name().get_id_name(),
                                                        self.get_func_name().get_id_name())
         return res

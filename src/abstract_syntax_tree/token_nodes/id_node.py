@@ -1,3 +1,4 @@
+from src.abstract_syntax_tree.handle_goto import handle_goto
 from src.abstract_syntax_tree.token_nodes.abstract_token_node import AbstractTokenNode
 
 class IdNode(AbstractTokenNode):
@@ -31,5 +32,6 @@ class IdNode(AbstractTokenNode):
         """
         return self.id_name
 
+    @handle_goto
     def visit(self, interpreter):
         return interpreter.global_memory.get_value_of_variable(self.get_id_name())

@@ -1,7 +1,9 @@
+exp = 1
+b = 2
 a = 4
 
 If (true) Then a = 3 EndIf
-If (false) Then a = 3 EndIf 
+If (false) Then a = 3 EndIf
 
 If ((1+2) < (2+5))                            Then a = 3 EndIf
 If (exp = exp)                                Then a = 3 EndIf
@@ -10,118 +12,118 @@ If (true And false)                           Then a = 3 EndIf
 If (false Or 1 < exp)                         Then a = 3 EndIf
 If (exp)                                      Then a = 3 EndIf
 If (true And exp)                             Then a = 3 EndIf
-If ((1 < exp) And False)                      Then a = 3 EndIf
+If ((1 < exp) And false)                      Then a = 3 EndIf
 If ((1 + (2 * 3) < 5) Or (a = ((1 + b) + 2))) Then a = 3 EndIf
 
-If ((1+2) < (2+5)) Then 
-    a = 3 
+If ((1+2) < (2+5)) Then
+    a = 3
 EndIf
 
-If (exp = exp) Then 
-    a = 3 
+If (exp = exp) Then
+    a = 3
 EndIf
 
-If (1<0 And 2<0) Then 
-    a = 3 
+If (1<0 And 2<0) Then
+    a = 3
 EndIf
 
-If (true And false) Then 
-    a = 3 
+If (true And false) Then
+    a = 3
 EndIf
 
-If (false Or 1 < exp) Then 
-    a = 3 
+If (false Or 1 < exp) Then
+    a = 3
 EndIf
 
-If (exp) Then 
-    a = 3 
+If (exp) Then
+    a = 3
 EndIf
 
-If (true And exp) Then 
-    a = 3 
+If (true And exp) Then
+    a = 3
 EndIf
 
-If ((1 < exp) And False) Then 
-    a = 3   
+If ((1 < exp) And false) Then
+    a = 3
 EndIf
-   
-If ((1 + (2 * 3) < 5) Or (a = ((1 + b) + 2))) Then 
-    a = 3  
+
+If ((1 + (2 * 3) < 5) Or (a = ((1 + b) + 2))) Then
+    a = 3
 EndIf
 
 
-If ((1+2) < (2+5)) Then 
-    a = 3 
+If ((1+2) < (2+5)) Then
+    a = 3
     a = a + 4
-Else 
+Else
     p = "ciao"
-    x = 5  
+    x = 5
 EndIf
 
-If (exp = exp) Then 
-    a = 3 
+If (exp = exp) Then
+    a = 3
     a = a + 4
-Else 
+Else
     p = "ciao"
-    x = 5  
+    x = 5
 EndIf
 
-If (1<0 And 2<0) Then 
-    a = 3 
+If (1<0 And 2<0) Then
+    a = 3
     a = a + 4
-Else 
+Else
     p = "ciao"
-    x = 5  
+    x = 5
 EndIf
 
-If (true And false) Then 
-    a = 3 
+If (true And false) Then
+    a = 3
     a = a + 4
-Else 
+Else
     p = "ciao"
-    x = 5  
+    x = 5
 EndIf
 
-If (false Or 1 < exp) Then 
-    a = 3 
+If (false Or 1 < exp) Then
+    a = 3
     a = a + 4
-Else 
+Else
     p = "ciao"
-    x = 5  
+    x = 5
 EndIf
 
-If (exp) Then 
-    a = 3 
+If (exp) Then
+    a = 3
     a = a + 4
-Else 
+Else
     p = "ciao"
-    x = 5  
+    x = 5
 EndIf
 
-If (true And exp) Then 
-    a = 3 
+If (true And exp) Then
+    a = 3
     a = a + 4
-Else 
+Else
     p = "ciao"
-    x = 5  
+    x = 5
 EndIf
 
-If ((1 < exp) And False) Then 
-    a = 3   
+If ((1 < exp) And false) Then
+    a = 3
     a = a + 4
-Else 
+Else
     p = "ciao"
-    x = 5  
+    x = 5
 EndIf
-   
-If ((1 + (2 * 3) < 5) Or (a = ((1 + b) + 2))) Then 
-    a = 3  
+
+If ((1 + (2 * 3) < 5) Or (a = ((1 + b) + 2))) Then
+    a = 3
     a = a + 4
-Else 
+Else
     p = "ciao"
-    x = 5  
+    x = 5
 EndIf
-   
+
 a = 5 b = 3
 
 
@@ -151,46 +153,46 @@ a = 1 * 2 + 3
 
 
 
-While ((1 + (2 * 3) < 5) Or (a = ((1 + b) + 2))) 
+While ((1 + (2 * 3) < 5) Or (a = ((1 + b) + 2)))
     a = 3
 EndWhile
 
-While ((1+2) < (2+5)) 
-    a = 3 
+While ((1+2) < (2+5))
+    a = 3
 EndWhile
 
-While (exp = exp) 
-    a = 3 
+While (exp = exp)
+    a = 3
 EndWhile
 
-While (1<0 And 2<0) 
-    a = 3 
+While (1<0 And 2<0)
+    a = 3
 EndWhile
 
-While (true And false) 
-    a = 3 
+While (true And false)
+    a = 3
 EndWhile
 
-While (false Or 1 < exp) 
-    a = 3 
+While (false Or 1 < exp)
+    a = 3
 EndWhile
 
-While (exp) 
-    a = 3 
+While (exp)
+    a = 3
 EndWhile
 
-While (true And exp)  
-    a = 3 
+While (true And exp)
+    a = 3
 EndWhile
 
-While ((1 < exp) And False)  
-    a = 3   
+While ((1 < exp) And false)
+    a = 3
 EndWhile
-   
-While ((1 + (2 * 3) < 5) Or (a = ((1 + b) + 2)))  
-    a = 3  
+
+While ((1 + (2 * 3) < 5) Or (a = ((1 + b) + 2)))
+    a = 3
 EndWhile
-   
+
 a = 5 b = 3
 
 
@@ -224,65 +226,3 @@ For a = (1e-10+3E10) To 5 Step 10
     x = 10
 EndFor
 
-While ((1 + (2 * 3) < 5) Or (a = ((1 + b) + 2)))  
-    If ((1 < exp) And False) Then 
-        a = 3   
-        a = a + 4
-    Else 
-        p = "ciao"
-        x = 5  
-    EndIf
-    a = 3
-    i = i + 1
-    Goto Label1
-EndWhile
-
-Label1: 
-    x = 3E10
-
-If (1 < 2) Then
-    x = x + 1
-EndIf
-
-
-While ((1 + (2 * 3) < 5) Or (a = ((1 + b) + 2)))  
-    start:
-    If ((1 < exp) And False) Then 
-        a = 3   
-        a = a + 4
-    Else 
-        p = "ciao"
-        x = 5  
-    EndIf
-    a = 3
-    i = i + 1
-    Goto start
-EndWhile
-
-
-
-If (1 < 2) Then
-    x = x + 1
-EndIf
-
-If (1 = 2) Then
-    x = x + 1
-EndIf
-
-Sub PlusOne
-    a = a + 1
-    addPlusOne:
-    a = a + 1
-
-    If (a = 5) Then
-        Goto start
-    EndIf
-EndSub
-
-Sub iPlusOne
-    i = i + 1
-EndSub
-
-While (i < 10)
-    iPlusOne()
-EndWhile

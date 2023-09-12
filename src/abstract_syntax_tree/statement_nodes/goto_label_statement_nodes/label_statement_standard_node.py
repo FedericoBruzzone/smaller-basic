@@ -5,7 +5,7 @@ class LabelStatementStandardNode(LabelStatementNode):
     """
     Label statement standard node class. It represents a label statement in the AST.
     """
-    
+
     def __init__(self,
                  id_node: IdNode):
         """
@@ -17,7 +17,21 @@ class LabelStatementStandardNode(LabelStatementNode):
         if not isinstance(id_node, IdNode):
             raise ValueError(
                 f"Id node must be of type IdNode. Got: {type(id_node)}")
-        
+
         super().__init__([id_node])
-        self.name = "LabelStatementStandard"
+        self.name = "LabelStatementStandardNode"
+
+    def get_id_node(self):
+        """
+        Returns the id node of the label statement.
+
+        Returns:
+            IdNode: The id node of the label statement.
+        """
+        return self.children[0]
+
+    def visit(self, interpreter):
+        if interpreter.goto_label == self.get_id_node().get_id_name():
+            interpreter.goto_mode = False
+            interpreter.goto_label = None
 

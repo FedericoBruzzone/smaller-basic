@@ -1,5 +1,6 @@
 from src.abstract_syntax_tree.expression_nodes.expressions_node import ExpressionsNode
 from src.abstract_syntax_tree.expression_nodes.abstract_expression_node import AbstractExpressionNode
+from src.abstract_syntax_tree.handle_goto import handle_goto
 from src.abstract_syntax_tree.statement_nodes.library_statement_nodes.library_statement_node import LibraryStatementNode
 from src.abstract_syntax_tree.token_nodes.abstract_token_node import AbstractTokenNode
 from src.abstract_syntax_tree.token_nodes.id_node import IdNode
@@ -54,6 +55,7 @@ class LibraryStatementWithParametersNode(LibraryStatementNode):
         """
         return self.children[2]
 
+    @handle_goto
     def visit(self, interpreter):
         res = interpreter.invoke_library_function(self.get_lib_name().get_id_name(),
                                                   self.get_func_name().get_id_name(),

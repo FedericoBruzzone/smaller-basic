@@ -1,3 +1,4 @@
+from src.abstract_syntax_tree.handle_goto import handle_goto
 from src.abstract_syntax_tree.statement_nodes.statements_node import StatementsNode
 from src.abstract_syntax_tree.statement_nodes.subroutine_statement_nodes.subroutine_statement_node import \
     SubroutineStatementNode
@@ -45,6 +46,7 @@ class SubroutineStatementStandardNode(SubroutineStatementNode):
         """
         return self.children[1]
 
+    @handle_goto
     def visit(self, interpreter):
         id_name = self.get_id_node().get_id_name()
         subroutine_body = self.get_subroutine_body()

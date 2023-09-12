@@ -6,6 +6,5 @@ IO.WriteLine(true)
 IO.WriteLine(false)
 IO.WriteLine(2)
 IO.WriteLine(IO.ReadLine())
-IO.WriteLine(x)
 
 

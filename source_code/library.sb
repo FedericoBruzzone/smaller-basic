@@ -1,20 +1,5 @@
-IO.Read()
-IO.think()
-
-IO.Read()
-a = 5
-IO.Write(true)
-IO.Write(a)
 
 
-a = IO.Write()
-a = IO.Write(IO.Read())
-
-a = -IO.Write()
-a = IO.write() + F.F(((1 + (2 * 3) < 5) Or (a = ((1 + b) + 2)))) * -F.Read()
-x = (IO.Read() + F.F())
-
-a = Math.sin(10)
-a = a.Length()
+a = Math.Sin(10)
 
 

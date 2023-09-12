@@ -1,30 +1,24 @@
 ' This is a comment
 
-'Sub AddOneTox 
-'    x = x + 1 
-'EndSub
-'
-'AddOneTox()
-'    
-'
-'For a = (1e-10+3E10) To 5 
-'    x = 10
-'    AddOneTox()
-'EndFor
-'
-'For i = 1 To 10 Step 2
-'    x = 10
-'    AddOneTox()
-'EndFor
+x = 10
+
+Sub AddOneTox
+    x = x + 1
+EndSub
+
+AddOneTox()
 
 
-For A = 1 To 10
-  For B = 1 To 10
-    C = 3 * 4
-    Goto End 
-  EndFor
+For a = (1) To 5
+    x = 10
+    AddOneTox()
 EndFor
 
-End:
+For i = 1 To 10 Step 2
+    x = 10
+    AddOneTox()
+EndFor
+
+
 EndProgram = "EndProgram"
 

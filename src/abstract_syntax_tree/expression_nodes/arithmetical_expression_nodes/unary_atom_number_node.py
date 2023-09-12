@@ -1,6 +1,8 @@
 from typing import Any
-from src.abstract_syntax_tree.statement_nodes.library_statement_nodes.library_statement_node import LibraryStatementNode 
+from src.abstract_syntax_tree.handle_goto import handle_goto
+from src.abstract_syntax_tree.statement_nodes.library_statement_nodes.library_statement_node import LibraryStatementNode
 from src.abstract_syntax_tree.expression_nodes.arithmetical_expression_nodes.arithmetical_expression_node import ArithmeticalExpressionNode
+from src.abstract_syntax_tree.token_nodes.id_array_node import IdArrayNode
 from src.abstract_syntax_tree.token_nodes.id_node import IdNode
 from src.abstract_syntax_tree.token_nodes.int_node import IntNode
 from src.abstract_syntax_tree.token_nodes.float_node import FloatNode
@@ -13,15 +15,16 @@ class UnaryAtomNumberNode(ArithmeticalExpressionNode):
     def __init__(
         self,
         sign: str,
-        atom_number_node: Any 
+        atom_number_node: Any
     ):
         accepted_types = [IdNode,
                           IntNode,
-                          FloatNode, 
-                          IdNode]
+                          FloatNode,
+                          IdNode,
+                          IdArrayNode]
         accepted_subtypes = [ArithmeticalExpressionNode,
                 LibraryStatementNode]
-        if ((type(atom_number_node) not in accepted_types) and 
+        if ((type(atom_number_node) not in accepted_types) and
             not issubclass(type(atom_number_node), tuple(accepted_subtypes))):
             raise ValueError(
                 f"Right expression node must be of type {accepted_types} or a subclass of {accepted_subtypes}. Got: {type(atom_number_node)}")
@@ -35,7 +38,8 @@ class UnaryAtomNumberNode(ArithmeticalExpressionNode):
     def get_sign(self) -> str:
         return self.sign
 
+    @handle_goto
     def visit(self, interpreter):
         atom_number_node = self.get_atom_number_node().visit(interpreter)
         return interpreter.dispatch_table.apply_unary(self.get_sign(), atom_number_node)
-        
+

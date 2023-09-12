@@ -1,3 +1,4 @@
+from src.abstract_syntax_tree.handle_goto import handle_goto
 from src.abstract_syntax_tree.token_nodes.abstract_token_node import AbstractTokenNode
 
 class FloatNode(AbstractTokenNode):
@@ -13,9 +14,10 @@ class FloatNode(AbstractTokenNode):
         """
 
         super().__init__()
-        self.value = value 
+        self.value = value
         self.name = "FloatNode"
 
+    @handle_goto
     def visit(self, interpreter):
         """
         Visitor pattern acceptor.

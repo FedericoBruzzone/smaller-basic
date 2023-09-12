@@ -1,4 +1,3 @@
-from abc import abstractmethod
 from src.abstract_syntax_tree.abstract_ast_node import AbstractAstNode
 
 class AbstractStatementNode(AbstractAstNode):
@@ -15,6 +14,4 @@ class AbstractStatementNode(AbstractAstNode):
         """
         super().__init__(children)
         self.name = "AbstractStatementNode"
-    
-    @abstractmethod
-    def visit(self): pass
+

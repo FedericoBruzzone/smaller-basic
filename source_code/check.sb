@@ -1,6 +1,6 @@
 
 ppp = "IOIOIO"
-IO.WriteLine(ppp[0])
+IO.WriteLine(ppp)
 
 ' IO.WriteLine(Math.Pow(2, 3))
 ' IO.WriteLine("Hello World")

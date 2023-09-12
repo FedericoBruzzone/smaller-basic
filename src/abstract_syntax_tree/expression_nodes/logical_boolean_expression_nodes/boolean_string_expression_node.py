@@ -2,6 +2,8 @@ from typing import Any
 from src.abstract_syntax_tree.expression_nodes.logical_boolean_expression_nodes.logical_boolean_expression_node import \
     LogicalBooleanExpressionNode
 from src.abstract_syntax_tree.expression_nodes.string_expression_nodes.string_expression_node import StringExpressionNode
+from src.abstract_syntax_tree.handle_goto import handle_goto
+from src.abstract_syntax_tree.statement_nodes.library_statement_nodes.library_statement_node import LibraryStatementNode
 from src.abstract_syntax_tree.token_nodes.id_node import IdNode
 from src.abstract_syntax_tree.token_nodes.string_node import StringNode
 
@@ -17,9 +19,9 @@ class BooleanStringExpressionNode(LogicalBooleanExpressionNode):
         right_expression_node: Any
     ):
         acceted_operators = ['=', '<>', '>=', '<=', '>', '<']
-        accepted_types = [IdNode, 
+        accepted_types = [IdNode,
                             StringNode]
-        accepted_subtypes = [StringExpressionNode]
+        accepted_subtypes = [StringExpressionNode, LibraryStatementNode]
 
         if ((type(left_expression_node) not in accepted_types) and
             not issubclass(type(left_expression_node), tuple(accepted_subtypes))):
@@ -46,6 +48,7 @@ class BooleanStringExpressionNode(LogicalBooleanExpressionNode):
         """
         return self.operator
 
+    @handle_goto
     def visit(self, interpreter):
         left_expression_node = self.get_left_expression_node().visit(interpreter)
         right_expression_node = self.get_right_expression_node().visit(interpreter)

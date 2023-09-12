@@ -1,0 +1,5 @@
+a = 10
+Goto End
+IO.WriteLine("Hello World")
+End:
+    IO.WriteLine("End")

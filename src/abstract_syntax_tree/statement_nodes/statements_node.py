@@ -1,5 +1,6 @@
 from typing import List
 from src.abstract_syntax_tree.abstract_ast_node import AbstractAstNode
+from src.abstract_syntax_tree.handle_goto import handle_goto
 
 class StatementsNode(AbstractAstNode):
     """
@@ -18,8 +19,9 @@ class StatementsNode(AbstractAstNode):
                 raise TypeError(f"Children of StatementsNode must be of type AbstractAstNode. Got: {type(child)}")
         super().__init__(children)
         self.name = "StatementsNode"
-    
-    def visit(self, interpreter): 
+
+    @handle_goto
+    def visit(self, interpreter):
         for child in self.children:
             child.visit(interpreter)
 

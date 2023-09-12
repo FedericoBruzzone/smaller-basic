@@ -1,3 +1,4 @@
+from src.abstract_syntax_tree.handle_goto import handle_goto
 from src.abstract_syntax_tree.statement_nodes.while_statement_nodes.while_statement_node import WhileStatementNode
 from src.abstract_syntax_tree.statement_nodes.statements_node import StatementsNode
 from src.abstract_syntax_tree.expression_nodes.logical_boolean_expression_nodes.logical_boolean_expression_node import LogicalBooleanExpressionNode
@@ -49,7 +50,7 @@ class WhileStatementStandardNode(WhileStatementNode):
         """
         return self.children[1]
 
-    # : WHILE LROUND logicalExpression RROUND statement+ ENDWHILE                                                   # WhileStatementStandard
+    @handle_goto
     def visit(self, interpreter):
         condition = self.get_condition()
         while_body = self.get_while_body()

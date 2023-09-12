@@ -21,7 +21,7 @@ smallbasic_run_all () {
     antlr4 -Dlanguage=Python3 -visitor src/grammar/SmallerBasic.g4;
     for file in source_code/*.sb; do
         echo "Running $file"
-        file=${file#source_code/}
+        # file=${file#source_code/}
         smallbasic "$file"
         echo ""
     done

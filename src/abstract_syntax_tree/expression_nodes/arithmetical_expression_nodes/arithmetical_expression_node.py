@@ -1,9 +1,10 @@
 from typing import Any
 from src.abstract_syntax_tree.expression_nodes.abstract_expression_node import AbstractExpressionNode
+from src.abstract_syntax_tree.handle_goto import handle_goto
 
 class ArithmeticalExpressionNode(AbstractExpressionNode):
     """
-    Arithmetical expression node class. 
+    Arithmetical expression node class.
     """
 
     def __init__(self, children: list = list()):
@@ -15,7 +16,7 @@ class ArithmeticalExpressionNode(AbstractExpressionNode):
         """
         super().__init__(children)
         self.name = "ArithmeticalExpressionNode"
-    
+
     def get_left_expression_node(self) -> Any:
         """
         Get the left expression node.
@@ -24,7 +25,6 @@ class ArithmeticalExpressionNode(AbstractExpressionNode):
             Any: The left expression node.
         """
         return self.children[0]
-
 
     def get_right_expression_node(self) -> Any:
         """

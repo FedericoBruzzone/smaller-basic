@@ -1,7 +1,9 @@
 from typing import Any
 from src.abstract_syntax_tree.expression_nodes.arithmetical_expression_nodes.arithmetical_expression_node import ArithmeticalExpressionNode
 from src.abstract_syntax_tree.expression_nodes.arithmetical_expression_nodes.unary_atom_number_node import UnaryAtomNumberNode
-from src.abstract_syntax_tree.statement_nodes.library_statement_nodes.library_statement_node import LibraryStatementNode 
+from src.abstract_syntax_tree.handle_goto import handle_goto
+from src.abstract_syntax_tree.statement_nodes.library_statement_nodes.library_statement_node import LibraryStatementNode
+from src.abstract_syntax_tree.token_nodes.id_array_node import IdArrayNode
 from src.abstract_syntax_tree.token_nodes.id_node import IdNode
 from src.abstract_syntax_tree.token_nodes.int_node import IntNode
 from src.abstract_syntax_tree.token_nodes.float_node import FloatNode
@@ -21,7 +23,8 @@ class MultiplicativeExpressionNode(ArithmeticalExpressionNode):
         accepted_types: list = [UnaryAtomNumberNode,
                                 IdNode,
                                 IntNode,
-                                FloatNode]
+                                FloatNode,
+                                IdArrayNode]
         accepted_subtypes: list = [ArithmeticalExpressionNode,
                           LibraryStatementNode]
         if (type(left_expression_node) not in accepted_types and
@@ -43,6 +46,7 @@ class MultiplicativeExpressionNode(ArithmeticalExpressionNode):
     def get_operator(self) -> str:
         return self.operator
 
+    @handle_goto
     def visit(self, interpreter):
         left_expression_node = self.get_left_expression_node().visit(interpreter)
         right_expression_node = self.get_right_expression_node().visit(interpreter)

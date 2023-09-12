@@ -1,4 +1,4 @@
-For a = (1e-10+3E10) To 5 
+For a = (1+1) To 5
     x = 10
 EndFor
 
@@ -14,39 +14,42 @@ While (a < 10)
     If (a < 5) Then
         a = a + 1
     Else
-        a = a + 2 
+        a = a + 2
     EndIf
 EndWhile
 
-If ((1+2) < (2+5)) Then 
-    a = 3 
+If ((1+2) < (2+5)) Then
+    a = 3
     a = a + 4
     p = "ciao"
-    x = 5  
+    x = 5
 EndIf
 
 
-If ((1+2) < (2+5)) Then 
-    a = 3 
+If ((1+2) < (2+5)) Then
+    a = 3
     a = a + 4
-Else 
+Else
     p = "ciao"
-    x = 5  
+    x = 5
 EndIf
 
-If ((1+2) < (2+5)) Then 
-    If ((1+2) < (2+5)) Then 
-        a = 3 
+If ((1+2) < (2+5)) Then
+    If ((1+2) < (2+5)) Then
+        a = 3
         a = a + 4
-    Else 
+    Else
         p = "ciao"
-        x = 5  
+        x = 5
     EndIf
-    a = 3 
+    a = 3
     a = a + 4
-Else 
+Else
     p = "ciao"
-    x = 5  
+    x = 5
 EndIf
+
+IO.WriteLine(a)
+IO.WriteLine(p)
 
 

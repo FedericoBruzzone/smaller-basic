@@ -1,5 +1,6 @@
 from typing import List
 from src.abstract_syntax_tree.abstract_ast_node import AbstractAstNode
+from src.abstract_syntax_tree.handle_goto import handle_goto
 
 class ExpressionsNode(AbstractAstNode):
     """
@@ -19,6 +20,7 @@ class ExpressionsNode(AbstractAstNode):
         super().__init__(children)
         self.name = "ExpressionsNode"
 
+    @handle_goto
     def visit(self, interpreter):
         res = []
         for child in self.children:

@@ -1,4 +1,5 @@
-
+a = 10
+b = 20
 exp = ((1 + (2 * 3) < 5) Or (a = (-(1 + b) + 2)))
 exp = "ciao" = "ciao"
 exp = "c" + "i" + "a" + "o" = "ciao"
@@ -15,7 +16,7 @@ exp = false Or 1 < exp
 exp = exp
 exp = true And exp
 
-exp = (1 < exp) And False 
+exp = (1 < exp) And false
 a = 2
 a = (1+2)
 a =  a = ((1 + b) + 2)
