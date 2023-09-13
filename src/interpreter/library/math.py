@@ -85,15 +85,20 @@ class Math(object):
             res += term
         return res
 
-    def Sqrt(self, x: float, terms: int = 10) -> float:
+    def Sqrt(self, x: float, eps: float = 1e-7, terms: int = 100) -> float:
         """
         Return the square root of x.
         """
-        res: float = 0.0
-        for i in range(terms):
-            term = (-1) ** i * self.__factorial(2 * i) / (4 ** i * self.__factorial(i) ** 2 * (2 * i + 1)) * (x - 1) ** i
-            res += term
-        return res
+        if x < 0:
+            raise ValueError("Cannot take square root of negative number.")
+
+        guess: float = x / 2
+        for _ in range(terms):
+            guess = (guess + x / guess) / 2
+            error: float = abs(x - guess ** 2)
+            if error < eps:
+                return guess
+        return guess
 
     def Pi(self) -> float:
         """

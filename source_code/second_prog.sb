@@ -1,0 +1,26 @@
+a = 1
+
+Loop1:
+    IO.WriteLine("Loop1")
+
+    Loop2:
+        IO.WriteLine("Loop2")
+        a = a + 1
+        If (a < 10) Then
+            Goto Loop2
+        EndIf
+
+    IO.WriteLine(a)
+    a = a + Math.Sqrt(a)
+    IO.WriteLine(a)
+
+    If (a > 100) Then
+        Goto End
+    EndIf
+
+Goto Loop1
+
+
+End:
+    IO.WriteLine("End")
+
