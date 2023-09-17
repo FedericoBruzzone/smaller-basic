@@ -1,6 +1,6 @@
 [project]
 name = "smaller-basic"
-description = "A simple Python interpreter for Microsoft's Small Basic language"
+description = " A Python interpreter using ANTLR4 as a parser generator for a version of Microsoft's Small Basic language renamed Smaller Basic."
 version = "0.1"
 authors=[
     {name = "Federico Bruzzone", email = "federico.bruzzone@studenti.unimi.it"},
@@ -16,7 +16,6 @@ dependencies = [
     "antlr4-python3-runtime == 4.12.0",
     "liblet",
     "graphviz",
-    "jedi"
 ]
 
 [tool.setuptools]

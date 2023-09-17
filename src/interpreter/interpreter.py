@@ -204,7 +204,7 @@ class Interpreter(object):
         smaller_basic_ast: Ast = self.create_ast(smaller_basic_tree)
 
         self.print_ast(smaller_basic_ast)
-        # self.generate_dot_file(smaller_basic_ast, filename = f"ast-{file_path.split('/')[-1].split('.')[0]}")
+        self.generate_dot_file(smaller_basic_ast, filename = f"ast-{file_path.split('/')[-1].split('.')[0]}")
         self.eval(smaller_basic_ast)
         self.__is_running = False
 

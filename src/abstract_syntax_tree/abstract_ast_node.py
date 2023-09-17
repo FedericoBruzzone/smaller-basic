@@ -97,7 +97,8 @@ class AbstractAstNode(object, metaclass=ABCMeta):
             case "code":
                 command: str = f"code dot_figs/{filename}.png"
             case "default-viewer":
-                command: str = f"nohup xdg-open 'dot_figs/{filename}.png' >/dev/null 2>&1 &"
+                # command: str = f"nohup xdg-open 'dot_figs/{filename}.png' >/dev/null 2>&1 &"
+                command: str = f"nohup open 'dot_figs/{filename}.png' >/dev/null 2>&1 &"
         subprocess.run(command, shell=True, check=True)
 
     @abstractmethod
