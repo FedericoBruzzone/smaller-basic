@@ -17,6 +17,10 @@ export ANTLR4_JAR=./jars/antlr-4.12.0-complete.jar
 alias antlr4='java -jar $ANTLR4_JAR'
 alias grun='java org.antlr.v4.gui.TestRig'
 
+clear_dot_png () {
+  rm -r ./dot_figs/*
+}
+
 smallbasic_run_all () {
     antlr4 -Dlanguage=Python3 -visitor src/grammar/SmallerBasic.g4;
     for file in source_code/*.sb; do

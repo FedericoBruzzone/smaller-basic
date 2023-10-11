@@ -1,0 +1,6 @@
+Sub ReallyBad
+  in:
+  IO.WriteLine("sub")
+EndSub
+
+Goto in

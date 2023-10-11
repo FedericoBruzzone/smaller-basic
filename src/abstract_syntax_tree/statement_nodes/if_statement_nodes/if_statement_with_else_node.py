@@ -66,6 +66,9 @@ class IfStatementWithElseNode(IfStatementNode):
     @handle_goto
     def visit(self, interpreter):
         condition = self.get_condition().visit(interpreter)
+        if type(condition) is not bool:
+            raise ValueError(
+                f"Condition must be of type bool. Got: {type(condition)}")
         if condition:
             self.get_then_body().visit(interpreter)
         else:

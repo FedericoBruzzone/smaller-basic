@@ -1,0 +1,5 @@
+Goto label
+label:
+IO.WriteLine("first")
+label:
+IO.WriteLine("second")

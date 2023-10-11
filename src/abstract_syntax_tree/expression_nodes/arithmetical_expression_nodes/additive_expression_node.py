@@ -52,6 +52,13 @@ class AdditiveExpressionNode(ArithmeticalExpressionNode):
     def visit(self, interpreter):
         left_expression_node = self.get_left_expression_node().visit(interpreter)
         right_expression_node = self.get_right_expression_node().visit(interpreter)
+        different_types : list = [float, int]
+        type_left = type(left_expression_node)
+        type_right = type(right_expression_node)
+        if type_left != type_right and type_left not in different_types and type_right not in different_types:
+            print(type_left, type_right)
+            raise ValueError(
+                f"Left and right expression nodes must be of the same type. Got: {type(left_expression_node)} and {type(right_expression_node)}")
         return interpreter.dispatch_table.apply_binary(self.get_operator(),
                                                        left_expression_node,
                                                        right_expression_node)

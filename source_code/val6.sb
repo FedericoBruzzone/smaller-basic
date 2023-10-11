@@ -1,0 +1,2 @@
+a = "ciao"
+IO.WriteLine(a + 1)

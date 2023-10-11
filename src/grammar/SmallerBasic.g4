@@ -20,6 +20,7 @@ statement
     | libraryStatement
     ;
 
+
 declarationStatement //(EQ expression)?
     : ID EQ expression                                                                                            # VariableDeclarationStatement
     | ID (LSQUARE arithmeticalExpression RSQUARE)+ EQ expression                                                  # ArrayDeclarationStatement
@@ -34,21 +35,21 @@ gotoStatement
     ;
 
 ifStatement
-    : IF LROUND logicalExpression RROUND THEN statement+ ELSE statement+ ENDIF                                    # IfStatementWithElse
-    | IF LROUND logicalExpression RROUND THEN statement+ ENDIF                                                    # IfStatementWithoutElse
+    : IF LROUND logicalExpression RROUND THEN (statement+)? ELSE (statement+)? ENDIF                                    # IfStatementWithElse
+    | IF LROUND logicalExpression RROUND THEN (statement+)? ENDIF                                                    # IfStatementWithoutElse
     ;
 
 whileStatement
-    : WHILE LROUND logicalExpression RROUND statement+ ENDWHILE                                                   # WhileStatementStandard
+    : WHILE LROUND logicalExpression RROUND (statement+)? ENDWHILE                                                   # WhileStatementStandard
     ;
 
 forStatement
-    : FOR ID EQ arithmeticalExpression TO arithmeticalExpression statement+ ENDFOR                                # ForStatementStandard
-    | FOR ID EQ arithmeticalExpression TO arithmeticalExpression STEP arithmeticalExpression statement+ ENDFOR    # ForStatementWithStep
+    : FOR ID EQ arithmeticalExpression TO arithmeticalExpression (statement+)? ENDFOR                                # ForStatementStandard
+    | FOR ID EQ arithmeticalExpression TO arithmeticalExpression STEP arithmeticalExpression (statement+)? ENDFOR    # ForStatementWithStep
     ;
 
 subroutineStatement
-    : SUB ID statement+ ENDSUB                                                                                    # SubroutineStatementStandard
+    : SUB ID (statement+)? ENDSUB                                                                                    # SubroutineStatementStandard
     ;
 
 callSubroutineStatement

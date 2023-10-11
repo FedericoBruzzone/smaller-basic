@@ -53,6 +53,10 @@ class WhileStatementStandardNode(WhileStatementNode):
     @handle_goto
     def visit(self, interpreter):
         condition = self.get_condition()
+        if type(condition.visit(interpreter)) is not bool:
+            print(type(condition.visit(interpreter)))
+            raise ValueError(
+                f"Condition must be of type bool. Got: {type(condition.visit(interpreter))}")
         while_body = self.get_while_body()
         while condition.visit(interpreter):
             while_body.visit(interpreter)

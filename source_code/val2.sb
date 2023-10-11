@@ -1,0 +1,8 @@
+For A = 1.5 To 3
+  IO.WriteLine(A)
+EndFor
+
+
+For A = 1.5 To 3 Step 1.5
+  IO.WriteLine(A)
+EndFor

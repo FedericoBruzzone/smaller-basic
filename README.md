@@ -1,6 +1,3 @@
-[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
-[![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-blue.svg)](http://creativecommons.org/licenses/by-sa/4.0/)
-
 # Smaller Basic
 
 A Python interpreter using ANTLR4 as a parser generator for a version of Microsoft's Small Basic language renamed "Smaller Basic."
@@ -44,7 +41,7 @@ main()
 <details>
   <summary>AST</summary>
 
-  ![ast](https://github.com/FedericoBruzzone/smaller-basic/blob/main/dot_figs/ast-source.png)
+  ![ast](https://github.com/mapio-teaching/LET23-Bruzzone-Federico/blob/main/img_readme/ast-source.png)
 </details>
 
 The output of this source code is:
@@ -172,7 +169,7 @@ End:
 
 Parsing errors and warnings are displayed as follows:
 
-![warning_error](https://github.com/FedericoBruzzone/smaller-basic/blob/main/img_readme/warning_error.png)
+![warning_error](https://github.com/mapio-teaching/LET23-Bruzzone-Federico/blob/main/img_readme/warning_error.png)
 
 ## Project directory structure
 
@@ -275,10 +272,6 @@ For example, you can ri-generate the grammar and run a file in `source_code` dir
 ### Run a file using `python3` interpreter
 
 `python3 -m src.main source_code/<file>.sb`
-
-## License
-
-This repository is licensed under the [GNU General Public License (GPL)](https://www.gnu.org/licenses/gpl-3.0.html). Please review the license file provided in the repository for more information regarding the terms and conditions of the GPL license.
 
 ## Contact
 

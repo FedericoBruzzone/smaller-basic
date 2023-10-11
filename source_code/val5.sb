@@ -1,0 +1,5 @@
+a = "ciao"
+While (a)
+  IO.WriteLine("true")
+  a = ""
+EndWhile

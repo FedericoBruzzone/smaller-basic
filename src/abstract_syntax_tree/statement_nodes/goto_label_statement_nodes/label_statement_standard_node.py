@@ -21,6 +21,7 @@ class LabelStatementStandardNode(LabelStatementNode):
 
         super().__init__([id_node])
         self.name = "LabelStatementStandardNode"
+        self.visited = False
 
     def get_id_node(self):
         """
@@ -31,5 +32,12 @@ class LabelStatementStandardNode(LabelStatementNode):
         """
         return self.children[0]
 
-
+    @handle_goto
+    def visit(self, interpreter):
+        # Check if is the first time visiting the node
+        if not self.visited:
+            # Add the label to the global memory
+            id_name = self.get_id_node().get_id_name()
+            interpreter.global_memory.add_label(id_name, self)
+            self.visited = True
 

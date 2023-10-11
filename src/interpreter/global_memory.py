@@ -1,5 +1,6 @@
 import copy
 
+
 class GlobalMemory(object):
     """
     Global memory for the interpreter.
@@ -11,6 +12,7 @@ class GlobalMemory(object):
         """
         self.__global_memory = {}
         self.__global_functions = {}
+        self.__labels = {}
 
     def get_default_value(self, type_of_value: type):
         """
@@ -60,6 +62,9 @@ class GlobalMemory(object):
             if index < 0:
                 raise Exception("Array index cannot be negative")
 
+        for i in range(len(indexes)):
+            indexes[i] = indexes[i] - 1
+
         if self.is_defined(id_name):
             array = self.__global_memory[id_name]
             if type(array) != list:
@@ -106,6 +111,7 @@ class GlobalMemory(object):
             indexes (list): The indexes of the array.
             value (object): The value of the identifier.
         """
+
         for index in indexes:
             if index < 0:
                 raise Exception("Array index cannot be negative")
@@ -125,6 +131,8 @@ class GlobalMemory(object):
 
             self.__global_memory[id_name] = array
         else:
+            for i in range(len(indexes)):
+                indexes[i] = indexes[i] - 1
             array = self.__global_memory[id_name]
             for index in indexes[:-1]:
                 array = array[index]
@@ -139,6 +147,18 @@ class GlobalMemory(object):
             body (object): The body of the function.
         """
         self.__global_functions[id_name] = body
+
+    def add_label(self, id_name: str, label):
+        """
+        Add a label.
+
+        Parameters:
+            id_name (str): The name of the identifier.
+            label (object): The label.
+        """
+        if self.is_label_defined(id_name):
+            raise Exception("Label " + id_name + " is already defined")
+        self.__labels[id_name] = label
 
     def is_defined(self, id_name: str) -> bool:
         """
@@ -164,9 +184,22 @@ class GlobalMemory(object):
         """
         return id_name in self.__global_functions
 
+    def is_label_defined(self, id_name: str) -> bool:
+        """
+        Check if the label is defined.
+
+        Parameters:
+            id_name (str): The name of the label.
+
+        Returns:
+            bool: True if the label is defined, False otherwise.
+        """
+        return id_name in self.__labels
+
     def reset(self):
         """
         Reset the global memory.
         """
         self.__global_memory = {}
         self.__global_functions = {}
+        self.__labels = {}

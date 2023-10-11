@@ -5,6 +5,7 @@ from src.abstract_syntax_tree.statement_nodes.for_statement_nodes.for_statement_
 from src.abstract_syntax_tree.statement_nodes.statements_node import StatementsNode
 from src.abstract_syntax_tree.token_nodes.id_node import IdNode
 from src.abstract_syntax_tree.token_nodes.int_node import IntNode
+from src.abstract_syntax_tree.token_nodes.float_node import FloatNode
 
 class ForStatementWithStepNode(ForStatementNode):
     """
@@ -23,7 +24,8 @@ class ForStatementWithStepNode(ForStatementNode):
             children (list): The children of the node.
         """
         accepted_types = [IdNode,
-                               IntNode]
+                          IntNode,
+                          FloatNode,]
         if (not issubclass(type(dec_statement), DeclarationStatementNode)):
             raise ValueError(
                 f"Dec statement must be of type DeclarationStatementNode. Got: {type(dec_statement)}")
@@ -57,11 +59,18 @@ class ForStatementWithStepNode(ForStatementNode):
 
         dec_statement = self.get_dec_statement().visit(interpreter)
         from_expression = self.get_dec_statement().get_expression().visit(interpreter)
-        to_expression = self.get_to_expression().visit(interpreter)
+        to_expression = self.get_to_expression().visit(interpreter) + 1
         statements = self.get_statements()
         step_expression = self.get_step_expression().visit(interpreter)
 
-        for i in range(from_expression, to_expression, step_expression):
-            statements.visit(interpreter)
-            interpreter.global_memory.set_value_of_variable(name, i + step_expression)
+        if type(from_expression) == int:
+            for i in range(from_expression, to_expression, step_expression):
+                statements.visit(interpreter)
+                interpreter.global_memory.set_value_of_variable(name, i + step_expression)
+        else:
+            i = from_expression
+            while from_expression < to_expression:
+                statements.visit(interpreter)
+                interpreter.global_memory.set_value_of_variable(name, i + from_expression)
+                from_expression += from_expression
 

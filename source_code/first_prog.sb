@@ -13,16 +13,16 @@ Sub init_value_as_int
 EndSub
 
 Sub ArrayInit
-    For i = 0 To 3
-        For j = 0 To 3
+    For i = 1 To 3
+        For j = 1 To 3
             my_vec[i][j] = init_value
         EndFor
     EndFor
 EndSub
 
 Sub ArrayIncrement
-    For i = 0 To 3
-        For j = 0 To 3
+    For i = 1 To 3
+        For j = 1 To 3
             my_vec[i][j] = my_vec[i][j] + 1
         EndFor
     EndFor

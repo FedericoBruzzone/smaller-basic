@@ -43,9 +43,17 @@ class ForStatementStandardNode(ForStatementNode):
 
         dec_statement = self.get_dec_statement().visit(interpreter)
         from_expression = self.get_dec_statement().get_expression().visit(interpreter)
-        to_expression = self.get_to_expression().visit(interpreter)
+        to_expression = self.get_to_expression().visit(interpreter) + 1
         statements = self.get_statements()
 
-        for i in range(from_expression, to_expression):
-            statements.visit(interpreter)
-            interpreter.global_memory.set_value_of_variable(name, i + 1)
+        if type(from_expression) == int:
+            for i in range(from_expression, to_expression):
+                statements.visit(interpreter)
+                interpreter.global_memory.set_value_of_variable(name, i + 1)
+        else:
+            i = from_expression
+            while from_expression < to_expression:
+                statements.visit(interpreter)
+                interpreter.global_memory.set_value_of_variable(name, i + 1)
+                from_expression += from_expression
+

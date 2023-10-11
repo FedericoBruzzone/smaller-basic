@@ -1,0 +1,15 @@
+Sub init_value_as_int
+  Sub test2
+    If (init_value = "1") Then init_value = 1 EndIf
+  EndSub
+    If (init_value = "1") Then init_value = 1 EndIf
+    If (init_value = "2") Then init_value = 2 EndIf
+    If (init_value = "3") Then init_value = 3 EndIf
+    If (init_value = "4") Then init_value = 4 EndIf
+    If (init_value = "5") Then init_value = 5 EndIf
+    If (init_value = "6") Then init_value = 6 EndIf
+    If (init_value = "7") Then init_value = 7 EndIf
+    If (init_value = "8") Then init_value = 8 EndIf
+    If (init_value = "9") Then init_value = 9 EndIf
+EndSub
+
