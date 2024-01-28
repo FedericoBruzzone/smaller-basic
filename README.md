@@ -41,7 +41,7 @@ main()
 <details>
   <summary>AST</summary>
 
-  ![ast](https://github.com/mapio-teaching/LET23-Bruzzone-Federico/blob/main/img_readme/ast-source.png)
+  ![ast](https://github.com/FedericoBruzzone/smaller-basic/blob/main/img_readme/ast-source.png)
 </details>
 
 The output of this source code is:
