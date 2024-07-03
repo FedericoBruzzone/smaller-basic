@@ -169,7 +169,7 @@ End:
 
 Parsing errors and warnings are displayed as follows:
 
-![warning_error](https://github.com/mapio-teaching/LET23-Bruzzone-Federico/blob/main/img_readme/warning_error.png)
+![warning_error](https://github.com/FedericoBruzzone/smaller-basic/blob/main/img_readme/warning_error.png)
 
 ## Project directory structure
 
