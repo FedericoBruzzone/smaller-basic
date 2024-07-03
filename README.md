@@ -169,7 +169,7 @@ End:
 
 Parsing errors and warnings are displayed as follows:
 
-![warning_error](https://github.com/mapio-teaching/LET23-Bruzzone-Federico/blob/main/img_readme/warning_error.png)
+![warning_error](https://github.com/FedericoBruzzone/smaller-basic/blob/main/img_readme/warning_error.png)
 
 ## Project directory structure
 
@@ -283,4 +283,6 @@ This repository is licensed under the [GNU General Public License (GPL)](https:/
 
 ## Contact
 
-- Email: [federico.bruzzone.i@gmail.com] or [federico.bruzzone@studenti.unimi.it]
+If you have any questions, suggestions, or feedback, do not hesitate to [contact me](https://federicobruzzone.github.io/).
+
+
